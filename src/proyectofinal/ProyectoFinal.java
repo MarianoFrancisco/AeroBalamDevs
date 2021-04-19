@@ -1,14 +1,17 @@
 package proyectofinal;
+
+import instancias.LlamarInstancias;
+
 /**
  *
  * @author Mariano
  */
 public class ProyectoFinal {
     /**
-     * Nuestra clase principal
+     * Nuestra clase principal para iniciar proceso
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        LlamarInstancias.inicioProyecto();//Hacemos el llamado al frame Inicio através de una clase llamarInstancias
     }
 }
