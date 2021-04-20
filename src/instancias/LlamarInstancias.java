@@ -36,10 +36,17 @@ public class LlamarInstancias {
             }
         });
     }
-    public static void loginPasajeros(){
+    public static void loginPasajeros(){//Realizamos llamado a frame login pasajeros
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FrameLoginPasajeros().setVisible(true);
+            }
+        });
+    }
+    public static void comprarBoletos(){//Realizamos llamado a comprar boletos
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrameCompraBoletos().setVisible(true);
             }
         });
     }
