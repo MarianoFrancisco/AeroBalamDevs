@@ -7,6 +7,7 @@ package instancias;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -40,9 +41,42 @@ public class FrameManejoAeropuerto extends javax.swing.JFrame {
         Logo = new javax.swing.JLabel();
         RegresarMenu = new javax.swing.JButton();
         SalirDelSistema = new javax.swing.JButton();
-        DepartamentoAdministracion = new javax.swing.JButton();
-        GerenciaAerolinea = new javax.swing.JButton();
-        OperadorVuelos = new javax.swing.JButton();
+        IniciarSesionAdmin = new javax.swing.JButton();
+        ContraseñaAdmin = new javax.swing.JPasswordField();
+        passwordAdmin = new javax.swing.JLabel();
+        UsuarioAdministrador = new javax.swing.JTextField();
+        UsuarioAdmin = new javax.swing.JLabel();
+        LoginAdmin = new javax.swing.JLabel();
+        TextAdmin = new javax.swing.JLabel();
+        BarraBalnca = new javax.swing.JLabel();
+        BarraBalnca1 = new javax.swing.JLabel();
+        BarraBalnca2 = new javax.swing.JLabel();
+        BarraBalnca3 = new javax.swing.JLabel();
+        DepAdminTexto = new javax.swing.JLabel();
+        IniciarSesionAdmin1 = new javax.swing.JButton();
+        UsuarioAdministrador1 = new javax.swing.JTextField();
+        passwordAdmin1 = new javax.swing.JLabel();
+        BarraBalnca4 = new javax.swing.JLabel();
+        ContraseñaAdmin1 = new javax.swing.JPasswordField();
+        UsuarioAdmin1 = new javax.swing.JLabel();
+        BarraBalnca5 = new javax.swing.JLabel();
+        LoginAdmin1 = new javax.swing.JLabel();
+        BarraBalnca6 = new javax.swing.JLabel();
+        OpVuelos = new javax.swing.JLabel();
+        TextAdmin1 = new javax.swing.JLabel();
+        BarraBalnca7 = new javax.swing.JLabel();
+        IniciarSesionAdmin2 = new javax.swing.JButton();
+        UsuarioAdministrador2 = new javax.swing.JTextField();
+        passwordAdmin2 = new javax.swing.JLabel();
+        ContraseñaAdmin2 = new javax.swing.JPasswordField();
+        UsuarioAdmin2 = new javax.swing.JLabel();
+        BarraBalnca8 = new javax.swing.JLabel();
+        BarraBalnca9 = new javax.swing.JLabel();
+        LoginAdmin2 = new javax.swing.JLabel();
+        BarraBalnca10 = new javax.swing.JLabel();
+        TextAdmin2 = new javax.swing.JLabel();
+        BarraBalnca11 = new javax.swing.JLabel();
+        GerAerloinea = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manejo de Aeropuerto");
@@ -75,28 +109,224 @@ public class FrameManejoAeropuerto extends javax.swing.JFrame {
         });
         jPanel1.add(SalirDelSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 600, 160, 44));
 
-        DepartamentoAdministracion.setBackground(new java.awt.Color(0, 204, 204));
-        DepartamentoAdministracion.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
-        DepartamentoAdministracion.setForeground(new java.awt.Color(0, 0, 0));
-        DepartamentoAdministracion.setText("Departamento de Administración ");
-        DepartamentoAdministracion.addActionListener(new java.awt.event.ActionListener() {
+        IniciarSesionAdmin.setBackground(new java.awt.Color(0, 204, 204));
+        IniciarSesionAdmin.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        IniciarSesionAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        IniciarSesionAdmin.setText("Iniciar Sesión");
+        IniciarSesionAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DepartamentoAdministracionActionPerformed(evt);
+                IniciarSesionAdminActionPerformed(evt);
             }
         });
-        jPanel1.add(DepartamentoAdministracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 400, 40));
+        jPanel1.add(IniciarSesionAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, -1, -1));
 
-        GerenciaAerolinea.setBackground(new java.awt.Color(0, 204, 204));
-        GerenciaAerolinea.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
-        GerenciaAerolinea.setForeground(new java.awt.Color(0, 0, 0));
-        GerenciaAerolinea.setText("Gerencia de Aerolínea");
-        jPanel1.add(GerenciaAerolinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 110, 300, 40));
+        ContraseñaAdmin.setToolTipText("");
+        ContraseñaAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContraseñaAdminActionPerformed(evt);
+            }
+        });
+        ContraseñaAdmin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ContraseñaAdminKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ContraseñaAdminKeyTyped(evt);
+            }
+        });
+        jPanel1.add(ContraseñaAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 150, -1));
 
-        OperadorVuelos.setBackground(new java.awt.Color(0, 204, 204));
-        OperadorVuelos.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
-        OperadorVuelos.setForeground(new java.awt.Color(0, 0, 0));
-        OperadorVuelos.setText("Operador de Vuelos");
-        jPanel1.add(OperadorVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, -1, 40));
+        passwordAdmin.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        passwordAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        passwordAdmin.setText("Contraseña");
+        jPanel1.add(passwordAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
+
+        UsuarioAdministrador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsuarioAdministradorActionPerformed(evt);
+            }
+        });
+        UsuarioAdministrador.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                UsuarioAdministradorKeyTyped(evt);
+            }
+        });
+        jPanel1.add(UsuarioAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 150, -1));
+
+        UsuarioAdmin.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        UsuarioAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        UsuarioAdmin.setText("uSUARIO");
+        jPanel1.add(UsuarioAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, -1));
+
+        LoginAdmin.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        LoginAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        LoginAdmin.setText("Login");
+        jPanel1.add(LoginAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, -1, -1));
+
+        TextAdmin.setBackground(new java.awt.Color(255, 255, 255));
+        TextAdmin.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        TextAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        TextAdmin.setText("Departamento de Administración ");
+        jPanel1.add(TextAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, 20));
+
+        BarraBalnca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BarraBlanca.PNG"))); // NOI18N
+        jPanel1.add(BarraBalnca, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 140, 30));
+
+        BarraBalnca1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BarraBlanca.PNG"))); // NOI18N
+        jPanel1.add(BarraBalnca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 380, -1));
+
+        BarraBalnca2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BarraBlanca.PNG"))); // NOI18N
+        jPanel1.add(BarraBalnca2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 120, -1));
+
+        BarraBalnca3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BarraBlanca.PNG"))); // NOI18N
+        jPanel1.add(BarraBalnca3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 100, 30));
+
+        DepAdminTexto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/DepAdmin.PNG"))); // NOI18N
+        jPanel1.add(DepAdminTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 171, 370, 280));
+
+        IniciarSesionAdmin1.setBackground(new java.awt.Color(0, 204, 204));
+        IniciarSesionAdmin1.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        IniciarSesionAdmin1.setForeground(new java.awt.Color(0, 0, 0));
+        IniciarSesionAdmin1.setText("Iniciar Sesión");
+        IniciarSesionAdmin1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IniciarSesionAdmin1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(IniciarSesionAdmin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 390, -1, -1));
+
+        UsuarioAdministrador1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsuarioAdministrador1ActionPerformed(evt);
+            }
+        });
+        UsuarioAdministrador1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                UsuarioAdministrador1KeyTyped(evt);
+            }
+        });
+        jPanel1.add(UsuarioAdministrador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, 150, -1));
+
+        passwordAdmin1.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        passwordAdmin1.setForeground(new java.awt.Color(0, 0, 0));
+        passwordAdmin1.setText("Contraseña");
+        jPanel1.add(passwordAdmin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, -1, -1));
+
+        BarraBalnca4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BarraBlanca.PNG"))); // NOI18N
+        jPanel1.add(BarraBalnca4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 140, 30));
+
+        ContraseñaAdmin1.setToolTipText("");
+        ContraseñaAdmin1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContraseñaAdmin1ActionPerformed(evt);
+            }
+        });
+        ContraseñaAdmin1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ContraseñaAdmin1KeyTyped(evt);
+            }
+        });
+        jPanel1.add(ContraseñaAdmin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 320, 150, -1));
+
+        UsuarioAdmin1.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        UsuarioAdmin1.setForeground(new java.awt.Color(0, 0, 0));
+        UsuarioAdmin1.setText("uSUARIO");
+        jPanel1.add(UsuarioAdmin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
+
+        BarraBalnca5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BarraBlanca.PNG"))); // NOI18N
+        jPanel1.add(BarraBalnca5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 100, 30));
+
+        LoginAdmin1.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        LoginAdmin1.setForeground(new java.awt.Color(0, 0, 0));
+        LoginAdmin1.setText("Login");
+        jPanel1.add(LoginAdmin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, -1, -1));
+
+        BarraBalnca6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BarraBlanca.PNG"))); // NOI18N
+        jPanel1.add(BarraBalnca6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, 120, -1));
+
+        OpVuelos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/OpVuelos.PNG"))); // NOI18N
+        jPanel1.add(OpVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 350, -1));
+
+        TextAdmin1.setBackground(new java.awt.Color(255, 255, 255));
+        TextAdmin1.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        TextAdmin1.setForeground(new java.awt.Color(0, 0, 0));
+        TextAdmin1.setText("Operador de Vuelos");
+        jPanel1.add(TextAdmin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, -1, 20));
+
+        BarraBalnca7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BarraBlanca.PNG"))); // NOI18N
+        jPanel1.add(BarraBalnca7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 230, -1));
+
+        IniciarSesionAdmin2.setBackground(new java.awt.Color(0, 204, 204));
+        IniciarSesionAdmin2.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        IniciarSesionAdmin2.setForeground(new java.awt.Color(0, 0, 0));
+        IniciarSesionAdmin2.setText("Iniciar Sesión");
+        IniciarSesionAdmin2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IniciarSesionAdmin2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(IniciarSesionAdmin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 380, -1, -1));
+
+        UsuarioAdministrador2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsuarioAdministrador2ActionPerformed(evt);
+            }
+        });
+        UsuarioAdministrador2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                UsuarioAdministrador2KeyTyped(evt);
+            }
+        });
+        jPanel1.add(UsuarioAdministrador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 260, 150, -1));
+
+        passwordAdmin2.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        passwordAdmin2.setForeground(new java.awt.Color(0, 0, 0));
+        passwordAdmin2.setText("Contraseña");
+        jPanel1.add(passwordAdmin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 330, -1, -1));
+
+        ContraseñaAdmin2.setToolTipText("");
+        ContraseñaAdmin2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContraseñaAdmin2ActionPerformed(evt);
+            }
+        });
+        ContraseñaAdmin2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ContraseñaAdmin2KeyTyped(evt);
+            }
+        });
+        jPanel1.add(ContraseñaAdmin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 330, 150, -1));
+
+        UsuarioAdmin2.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        UsuarioAdmin2.setForeground(new java.awt.Color(0, 0, 0));
+        UsuarioAdmin2.setText("uSUARIO");
+        jPanel1.add(UsuarioAdmin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 270, -1, -1));
+
+        BarraBalnca8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BarraBlanca.PNG"))); // NOI18N
+        jPanel1.add(BarraBalnca8, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 320, 140, 30));
+
+        BarraBalnca9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BarraBlanca.PNG"))); // NOI18N
+        jPanel1.add(BarraBalnca9, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 260, 100, 30));
+
+        LoginAdmin2.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        LoginAdmin2.setForeground(new java.awt.Color(0, 0, 0));
+        LoginAdmin2.setText("Login");
+        jPanel1.add(LoginAdmin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 180, -1, -1));
+
+        BarraBalnca10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BarraBlanca.PNG"))); // NOI18N
+        jPanel1.add(BarraBalnca10, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 180, 120, -1));
+
+        TextAdmin2.setBackground(new java.awt.Color(255, 255, 255));
+        TextAdmin2.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        TextAdmin2.setForeground(new java.awt.Color(0, 0, 0));
+        TextAdmin2.setText("Gerencia de aerolinea");
+        jPanel1.add(TextAdmin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 130, -1, 20));
+
+        BarraBalnca11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BarraBlanca.PNG"))); // NOI18N
+        jPanel1.add(BarraBalnca11, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 130, 250, -1));
+
+        GerAerloinea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/GerAerolinea.PNG"))); // NOI18N
+        jPanel1.add(GerAerloinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 170, -1, 270));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,9 +352,150 @@ public class FrameManejoAeropuerto extends javax.swing.JFrame {
         System.exit(0);//Cerramos el sistema
     }//GEN-LAST:event_SalirDelSistemaActionPerformed
 
-    private void DepartamentoAdministracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepartamentoAdministracionActionPerformed
+    private void IniciarSesionAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarSesionAdminActionPerformed
+        //señalamos que seran una linea de caracteres establecida
+        String usuario = UsuarioAdministrador.getText();
+        String contraseñaAdmin = ContraseñaAdmin.getText();
+        //Verificamos si una casilla esta vacia
+        if(usuario.isEmpty()||contraseñaAdmin.isEmpty()){
+            JOptionPane.showMessageDialog(null, "No dejes casillas vacias");//Mensaje casilla vacia
+        }
+        else{
+            if(usuario.equals("Admin")&&contraseñaAdmin.equals("1234")){//Unicamente si los datos estan bien podra ingresar
+                JOptionPane.showMessageDialog(null, "Bienvenido");//Mensaje de bienvenida
+                LlamarInstancias.departamentoAdministracion();//Vamos a departamento de administracion
+                this.dispose();//Cerramos este frame
+            }else{
+                Toolkit.getDefaultToolkit().beep();//sonido de error
+                JOptionPane.showMessageDialog(null, "Datos incorrectos");//Mensaje datos incorrectos
+            }
+        }
+    }//GEN-LAST:event_IniciarSesionAdminActionPerformed
+
+    private void ContraseñaAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñaAdminActionPerformed
+
+    }//GEN-LAST:event_ContraseñaAdminActionPerformed
+
+    private void ContraseñaAdminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContraseñaAdminKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_DepartamentoAdministracionActionPerformed
+    }//GEN-LAST:event_ContraseñaAdminKeyTyped
+
+    private void UsuarioAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioAdministradorActionPerformed
+
+    }//GEN-LAST:event_UsuarioAdministradorActionPerformed
+
+    private void UsuarioAdministradorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsuarioAdministradorKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        if(UsuarioAdministrador.getText().length()>7){//restringimos que no puede escribir mas de 8 digitos
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "El nombre no puede tener mas de 8 caracteres ");//Mensaje condicional caracteres
+        }
+        int comprobarSiEsNumero = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir numeros
+        if(Character.isDigit(comprobarSiEsNumero)){//Comprobamos si el usuario escribe numeros
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir digitos, unicamente letras");//Mensaje condicional no escribir numeros
+        }
+    }//GEN-LAST:event_UsuarioAdministradorKeyTyped
+
+    private void IniciarSesionAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarSesionAdmin1ActionPerformed
+        //señalamos que seran una linea de caracteres establecida
+        String usuario1 = UsuarioAdministrador1.getText();
+        String contraseñaAdmin1 = ContraseñaAdmin1.getText();
+        //Verificamos si una casilla esta vacia
+        if(usuario1.isEmpty()||contraseñaAdmin1.isEmpty()){
+            JOptionPane.showMessageDialog(null, "No dejes casillas vacias");//Mensaje casilla vacia
+        }
+        else{
+            if(usuario1.equals("Admin")&&contraseñaAdmin1.equals("1234")){//Unicamente si los datos estan bien podra ingresar
+                JOptionPane.showMessageDialog(null, "Bienvenido");//Mensaje de bienvenida
+                LlamarInstancias.operadorVuelos();//Vamos a operador vuelos
+                this.dispose();//Cerramos este frame
+            }else{
+                Toolkit.getDefaultToolkit().beep();//sonido de error
+                JOptionPane.showMessageDialog(null, "Datos incorrectos");//Mensaje datos incorrectos
+            }
+        }
+    }//GEN-LAST:event_IniciarSesionAdmin1ActionPerformed
+
+    private void UsuarioAdministrador1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioAdministrador1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsuarioAdministrador1ActionPerformed
+
+    private void UsuarioAdministrador1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsuarioAdministrador1KeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        if(UsuarioAdministrador1.getText().length()>7){//restringimos que no puede escribir mas de 8 digitos
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "El nombre no puede tener mas de 8 caracteres ");//Mensaje condicional caracteres
+        }
+        int comprobarSiEsNumero = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir numeros
+        if(Character.isDigit(comprobarSiEsNumero)){//Comprobamos si el usuario escribe numeros
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir digitos, unicamente letras");//Mensaje condicional no escribir numeros
+        }
+    }//GEN-LAST:event_UsuarioAdministrador1KeyTyped
+
+    private void ContraseñaAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñaAdmin1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContraseñaAdmin1ActionPerformed
+
+    private void ContraseñaAdmin1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContraseñaAdmin1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContraseñaAdmin1KeyTyped
+
+    private void IniciarSesionAdmin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarSesionAdmin2ActionPerformed
+        //señalamos que seran una linea de caracteres establecida
+        String usuario2 = UsuarioAdministrador2.getText();
+        String contraseñaAdmin2 = ContraseñaAdmin2.getText();
+        //Verificamos si una casilla esta vacia
+        if(usuario2.isEmpty()||contraseñaAdmin2.isEmpty()){
+            JOptionPane.showMessageDialog(null, "No dejes casillas vacias");//Mensaje casilla vacia
+        }
+        else{
+            if(usuario2.equals("Admin")&&contraseñaAdmin2.equals("1234")){//Unicamente si los datos estan bien podra ingresar
+                JOptionPane.showMessageDialog(null, "Bienvenido");//Mensaje de bienvenida
+                LlamarInstancias.gerenciaAerolinea();//Vamos a gerencia aerolinea
+                this.dispose();//Cerramos este frame
+            }else{
+                Toolkit.getDefaultToolkit().beep();//sonido de error
+                JOptionPane.showMessageDialog(null, "Datos incorrectos");//Mensaje datos incorrectos
+            }
+        }
+    }//GEN-LAST:event_IniciarSesionAdmin2ActionPerformed
+
+    private void UsuarioAdministrador2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioAdministrador2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsuarioAdministrador2ActionPerformed
+
+    private void UsuarioAdministrador2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsuarioAdministrador2KeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        if(UsuarioAdministrador2.getText().length()>7){//restringimos que no puede escribir mas de 8 digitos
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "El nombre no puede tener mas de 8 caracteres ");//Mensaje condicional caracteres
+        }
+        int comprobarSiEsNumero = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir numeros
+        if(Character.isDigit(comprobarSiEsNumero)){//Comprobamos si el usuario escribe numeros
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir digitos, unicamente letras");//Mensaje condicional no escribir numeros
+        }
+    }//GEN-LAST:event_UsuarioAdministrador2KeyTyped
+
+    private void ContraseñaAdmin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñaAdmin2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContraseñaAdmin2ActionPerformed
+
+    private void ContraseñaAdmin2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContraseñaAdmin2KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContraseñaAdmin2KeyTyped
+
+    private void ContraseñaAdminKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContraseñaAdminKeyPressed
+        
+    }//GEN-LAST:event_ContraseñaAdminKeyPressed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
         @Override//sobrescribimos la clase JPanel especificamente el metodo paint
@@ -136,12 +507,45 @@ public class FrameManejoAeropuerto extends javax.swing.JFrame {
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton DepartamentoAdministracion;
-    private javax.swing.JButton GerenciaAerolinea;
+    private javax.swing.JLabel BarraBalnca;
+    private javax.swing.JLabel BarraBalnca1;
+    private javax.swing.JLabel BarraBalnca10;
+    private javax.swing.JLabel BarraBalnca11;
+    private javax.swing.JLabel BarraBalnca2;
+    private javax.swing.JLabel BarraBalnca3;
+    private javax.swing.JLabel BarraBalnca4;
+    private javax.swing.JLabel BarraBalnca5;
+    private javax.swing.JLabel BarraBalnca6;
+    private javax.swing.JLabel BarraBalnca7;
+    private javax.swing.JLabel BarraBalnca8;
+    private javax.swing.JLabel BarraBalnca9;
+    private javax.swing.JPasswordField ContraseñaAdmin;
+    private javax.swing.JPasswordField ContraseñaAdmin1;
+    private javax.swing.JPasswordField ContraseñaAdmin2;
+    private javax.swing.JLabel DepAdminTexto;
+    private javax.swing.JLabel GerAerloinea;
+    private javax.swing.JButton IniciarSesionAdmin;
+    private javax.swing.JButton IniciarSesionAdmin1;
+    private javax.swing.JButton IniciarSesionAdmin2;
+    private javax.swing.JLabel LoginAdmin;
+    private javax.swing.JLabel LoginAdmin1;
+    private javax.swing.JLabel LoginAdmin2;
     private javax.swing.JLabel Logo;
-    private javax.swing.JButton OperadorVuelos;
+    private javax.swing.JLabel OpVuelos;
     private javax.swing.JButton RegresarMenu;
     private javax.swing.JButton SalirDelSistema;
+    private javax.swing.JLabel TextAdmin;
+    private javax.swing.JLabel TextAdmin1;
+    private javax.swing.JLabel TextAdmin2;
+    private javax.swing.JLabel UsuarioAdmin;
+    private javax.swing.JLabel UsuarioAdmin1;
+    private javax.swing.JLabel UsuarioAdmin2;
+    private javax.swing.JTextField UsuarioAdministrador;
+    private javax.swing.JTextField UsuarioAdministrador1;
+    private javax.swing.JTextField UsuarioAdministrador2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel passwordAdmin;
+    private javax.swing.JLabel passwordAdmin1;
+    private javax.swing.JLabel passwordAdmin2;
     // End of variables declaration//GEN-END:variables
 }

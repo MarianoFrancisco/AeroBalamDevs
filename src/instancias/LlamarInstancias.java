@@ -57,4 +57,26 @@ public class LlamarInstancias {
             }
         });
     }
+    public static void departamentoAdministracion(){//Realizamos llamado a departamento administracion
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrameDepartamentoAdministracion().setVisible(true);
+            }
+        });
+    }
+    public static void operadorVuelos(){//Realizamos llamado a operador Vuelos
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrameOperadorVuelos().setVisible(true);
+            }
+        });
+    }
+    public static void gerenciaAerolinea(){//Realizamos llamado a gerencia aerolinea
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrameGerenciaAerolinea().setVisible(true);
+            }
+        });
+    }
+    
 }
