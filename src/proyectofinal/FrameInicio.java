@@ -59,24 +59,24 @@ public class FrameInicio extends javax.swing.JFrame {
         PasajerosBoton.setBackground(new java.awt.Color(0, 204, 204));
         PasajerosBoton.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
         PasajerosBoton.setForeground(new java.awt.Color(0, 0, 0));
-        PasajerosBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/PasajeroInicio.PNG"))); // NOI18N
+        PasajerosBoton.setText("Pasajeros");
         PasajerosBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PasajerosBotonActionPerformed(evt);
             }
         });
-        jPanel1.add(PasajerosBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 150, 170));
+        jPanel1.add(PasajerosBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 240, 40));
 
         ManejoAeropuertoB.setBackground(new java.awt.Color(0, 204, 204));
         ManejoAeropuertoB.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
         ManejoAeropuertoB.setForeground(new java.awt.Color(0, 0, 0));
-        ManejoAeropuertoB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ManejarAeropuertoInicio.PNG"))); // NOI18N
+        ManejoAeropuertoB.setText("Manejo De Aeropuerto");
         ManejoAeropuertoB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ManejoAeropuertoBActionPerformed(evt);
             }
         });
-        jPanel1.add(ManejoAeropuertoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 405, 191));
+        jPanel1.add(ManejoAeropuertoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, 470, 40));
 
         TituloInicio.setFont(new java.awt.Font("Times New Roman", 1, 80)); // NOI18N
         TituloInicio.setForeground(new java.awt.Color(0, 0, 0));
@@ -102,14 +102,14 @@ public class FrameInicio extends javax.swing.JFrame {
 
         PasajeroTexto.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
         PasajeroTexto.setForeground(new java.awt.Color(0, 0, 0));
-        PasajeroTexto.setText("Pasajeros");
-        jPanel1.add(PasajeroTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, -1, -1));
+        PasajeroTexto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/PasajeroInicio.PNG"))); // NOI18N
+        jPanel1.add(PasajeroTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, -1, -1));
 
         ManejarAeropuertoTexto.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
         ManejarAeropuertoTexto.setForeground(new java.awt.Color(0, 0, 0));
-        ManejarAeropuertoTexto.setText("Manejo De Aeropuerto");
+        ManejarAeropuertoTexto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ManejarAeropuertoInicio.PNG"))); // NOI18N
         ManejarAeropuertoTexto.setToolTipText("");
-        jPanel1.add(ManejarAeropuertoTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, -1, -1));
+        jPanel1.add(ManejarAeropuertoTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, -1, -1));
 
         TituloInicioBienvenido.setFont(new java.awt.Font("Times New Roman", 1, 60)); // NOI18N
         TituloInicioBienvenido.setForeground(new java.awt.Color(0, 0, 0));

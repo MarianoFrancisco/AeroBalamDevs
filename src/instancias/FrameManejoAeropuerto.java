@@ -40,6 +40,9 @@ public class FrameManejoAeropuerto extends javax.swing.JFrame {
         Logo = new javax.swing.JLabel();
         RegresarMenu = new javax.swing.JButton();
         SalirDelSistema = new javax.swing.JButton();
+        DepartamentoAdministracion = new javax.swing.JButton();
+        GerenciaAerolinea = new javax.swing.JButton();
+        OperadorVuelos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manejo de Aeropuerto");
@@ -72,6 +75,29 @@ public class FrameManejoAeropuerto extends javax.swing.JFrame {
         });
         jPanel1.add(SalirDelSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 600, 160, 44));
 
+        DepartamentoAdministracion.setBackground(new java.awt.Color(0, 204, 204));
+        DepartamentoAdministracion.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        DepartamentoAdministracion.setForeground(new java.awt.Color(0, 0, 0));
+        DepartamentoAdministracion.setText("Departamento de Administración ");
+        DepartamentoAdministracion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DepartamentoAdministracionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(DepartamentoAdministracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 400, 40));
+
+        GerenciaAerolinea.setBackground(new java.awt.Color(0, 204, 204));
+        GerenciaAerolinea.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        GerenciaAerolinea.setForeground(new java.awt.Color(0, 0, 0));
+        GerenciaAerolinea.setText("Gerencia de Aerolínea");
+        jPanel1.add(GerenciaAerolinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 110, 300, 40));
+
+        OperadorVuelos.setBackground(new java.awt.Color(0, 204, 204));
+        OperadorVuelos.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        OperadorVuelos.setForeground(new java.awt.Color(0, 0, 0));
+        OperadorVuelos.setText("Operador de Vuelos");
+        jPanel1.add(OperadorVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, -1, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,6 +121,10 @@ public class FrameManejoAeropuerto extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Vuelve pronto, que tengas buen dia");//Mensaje de despedida
         System.exit(0);//Cerramos el sistema
     }//GEN-LAST:event_SalirDelSistemaActionPerformed
+
+    private void DepartamentoAdministracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepartamentoAdministracionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DepartamentoAdministracionActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
         @Override//sobrescribimos la clase JPanel especificamente el metodo paint
@@ -106,7 +136,10 @@ public class FrameManejoAeropuerto extends javax.swing.JFrame {
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton DepartamentoAdministracion;
+    private javax.swing.JButton GerenciaAerolinea;
     private javax.swing.JLabel Logo;
+    private javax.swing.JButton OperadorVuelos;
     private javax.swing.JButton RegresarMenu;
     private javax.swing.JButton SalirDelSistema;
     private javax.swing.JPanel jPanel1;
