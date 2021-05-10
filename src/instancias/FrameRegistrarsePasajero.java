@@ -5,7 +5,15 @@
  */
 package instancias;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import personas.CrearPasaporteTarjeta;
+import personas.PasaporteTarjeta;
 
 /**
  *
@@ -16,8 +24,11 @@ public class FrameRegistrarsePasajero extends javax.swing.JFrame {
     /**
      * Creates new form FrameRegistrarsePasajero
      */
+    FondoInicio fondoLoginPasajeros = new FondoInicio();//Creamos un nuevo fondo
     public FrameRegistrarsePasajero() {
+        this.setContentPane(fondoLoginPasajeros);//Realizamos la pintada de nuestro fondo
         initComponents();
+        this.setLocationRelativeTo(null);//Centramos nuestro frame
     }
 
     /**
@@ -33,10 +44,38 @@ public class FrameRegistrarsePasajero extends javax.swing.JFrame {
         RegresarPasajeros = new javax.swing.JButton();
         SalirDelSistema = new javax.swing.JButton();
         Logo = new javax.swing.JLabel();
+        FechaNacimiento = new javax.swing.JLabel();
+        EstadoCivil = new javax.swing.JLabel();
+        Apellidos = new javax.swing.JLabel();
+        Nombres = new javax.swing.JLabel();
+        NombresField = new javax.swing.JTextField();
+        RegistroTexto = new javax.swing.JLabel();
+        FechaEmPas = new javax.swing.JLabel();
+        FechaVenPas = new javax.swing.JLabel();
+        ApellidosField = new javax.swing.JTextField();
+        Sexo = new javax.swing.JLabel();
+        EstadoCivilCombo = new javax.swing.JComboBox<>();
+        SexoCombo = new javax.swing.JComboBox<>();
+        PaisActual = new javax.swing.JLabel();
+        Pasaporte = new javax.swing.JLabel();
+        PasaporteField = new javax.swing.JTextField();
+        RegistrarBoton = new javax.swing.JButton();
+        FechaVenPasField = new javax.swing.JFormattedTextField();
+        FechaEmPasField = new javax.swing.JFormattedTextField();
+        FechaNacimientoField = new javax.swing.JFormattedTextField();
+        Nacionalidad = new javax.swing.JLabel();
+        NacionalidadCombo = new javax.swing.JComboBox<>();
+        PaisActualCombo = new javax.swing.JComboBox<>();
+        Tarjeta = new javax.swing.JLabel();
+        TarjetaField = new javax.swing.JTextField();
+        CVC = new javax.swing.JLabel();
+        CVCField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registrarse");
 
+        jPanel1.setOpaque(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         RegresarPasajeros.setBackground(new java.awt.Color(255, 0, 0));
@@ -64,6 +103,166 @@ public class FrameRegistrarsePasajero extends javax.swing.JFrame {
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo.PNG"))); // NOI18N
         jPanel1.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, -1, -1));
 
+        FechaNacimiento.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        FechaNacimiento.setForeground(new java.awt.Color(0, 0, 0));
+        FechaNacimiento.setText("Fecha nacimiento");
+        jPanel1.add(FechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, -1, -1));
+
+        EstadoCivil.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        EstadoCivil.setForeground(new java.awt.Color(0, 0, 0));
+        EstadoCivil.setText("Estado civil");
+        jPanel1.add(EstadoCivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
+
+        Apellidos.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Apellidos.setForeground(new java.awt.Color(0, 0, 0));
+        Apellidos.setText("Apellidos");
+        jPanel1.add(Apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, -1, -1));
+
+        Nombres.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Nombres.setForeground(new java.awt.Color(0, 0, 0));
+        Nombres.setText("Nombres");
+        jPanel1.add(Nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, -1, -1));
+
+        NombresField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombresFieldActionPerformed(evt);
+            }
+        });
+        NombresField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                NombresFieldKeyTyped(evt);
+            }
+        });
+        jPanel1.add(NombresField, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, 160, -1));
+
+        RegistroTexto.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        RegistroTexto.setForeground(new java.awt.Color(0, 0, 0));
+        RegistroTexto.setText("Registro");
+        jPanel1.add(RegistroTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, -1, -1));
+
+        FechaEmPas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        FechaEmPas.setForeground(new java.awt.Color(0, 0, 0));
+        FechaEmPas.setText("Fecha emisión pasaporte");
+        jPanel1.add(FechaEmPas, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, -1, -1));
+
+        FechaVenPas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        FechaVenPas.setForeground(new java.awt.Color(0, 0, 0));
+        FechaVenPas.setText("Fecha vencimiento pasaporte");
+        jPanel1.add(FechaVenPas, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, -1, -1));
+
+        ApellidosField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ApellidosFieldActionPerformed(evt);
+            }
+        });
+        ApellidosField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ApellidosFieldKeyTyped(evt);
+            }
+        });
+        jPanel1.add(ApellidosField, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 280, 160, -1));
+
+        Sexo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Sexo.setForeground(new java.awt.Color(0, 0, 0));
+        Sexo.setText("Sexo");
+        jPanel1.add(Sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
+
+        EstadoCivilCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solter@", "Casad@", "Divorciad@" }));
+        jPanel1.add(EstadoCivilCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, 160, -1));
+
+        SexoCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hombre", "Mujer" }));
+        jPanel1.add(SexoCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, -1, -1));
+
+        PaisActual.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        PaisActual.setForeground(new java.awt.Color(0, 0, 0));
+        PaisActual.setText("Pais Actual");
+        jPanel1.add(PaisActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 440, -1, -1));
+
+        Pasaporte.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Pasaporte.setForeground(new java.awt.Color(0, 0, 0));
+        Pasaporte.setText("Pasaporte");
+        jPanel1.add(Pasaporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, -1, -1));
+
+        PasaporteField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasaporteFieldActionPerformed(evt);
+            }
+        });
+        PasaporteField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PasaporteFieldKeyTyped(evt);
+            }
+        });
+        jPanel1.add(PasaporteField, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 160, -1));
+
+        RegistrarBoton.setBackground(new java.awt.Color(0, 204, 204));
+        RegistrarBoton.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        RegistrarBoton.setForeground(new java.awt.Color(0, 0, 0));
+        RegistrarBoton.setText("Registrarme");
+        RegistrarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarBotonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(RegistrarBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 570, -1, -1));
+
+        FechaVenPasField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        jPanel1.add(FechaVenPasField, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 360, 160, 20));
+
+        FechaEmPasField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        jPanel1.add(FechaEmPasField, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 160, 20));
+
+        FechaNacimientoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        jPanel1.add(FechaNacimientoField, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 120, 160, 20));
+
+        Nacionalidad.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Nacionalidad.setForeground(new java.awt.Color(0, 0, 0));
+        Nacionalidad.setText("Nacionalidad");
+        jPanel1.add(Nacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, -1, -1));
+
+        NacionalidadCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Marshall", "Islas Salomón", "Israel", "Italia", "Jamaica", "Japón", "ordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar", "Malasia", "Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana", "República Checa", "República del Congo", "República Democrática del Congo", "República Dominicana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue" }));
+        jPanel1.add(NacionalidadCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, 160, -1));
+
+        PaisActualCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Marshall", "Islas Salomón", "Israel", "Italia", "Jamaica", "Japón", "ordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar", "Malasia", "Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana", "República Checa", "República del Congo", "República Democrática del Congo", "República Dominicana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue" }));
+        jPanel1.add(PaisActualCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 440, 160, -1));
+
+        Tarjeta.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Tarjeta.setForeground(new java.awt.Color(0, 0, 0));
+        Tarjeta.setText("Tarjeta");
+        jPanel1.add(Tarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 480, -1, -1));
+
+        TarjetaField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TarjetaFieldActionPerformed(evt);
+            }
+        });
+        TarjetaField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TarjetaFieldKeyTyped(evt);
+            }
+        });
+        jPanel1.add(TarjetaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 480, 160, -1));
+
+        CVC.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        CVC.setForeground(new java.awt.Color(0, 0, 0));
+        CVC.setText("CVC");
+        jPanel1.add(CVC, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 520, -1, -1));
+
+        CVCField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CVCFieldActionPerformed(evt);
+            }
+        });
+        CVCField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CVCFieldKeyTyped(evt);
+            }
+        });
+        jPanel1.add(CVCField, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 520, 160, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoMadera.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 430, 520));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,10 +287,180 @@ public class FrameRegistrarsePasajero extends javax.swing.JFrame {
         System.exit(0);//Cerramos el sistema
     }//GEN-LAST:event_SalirDelSistemaActionPerformed
 
+    private void NombresFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombresFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombresFieldActionPerformed
+
+    private void ApellidosFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApellidosFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ApellidosFieldActionPerformed
+
+    private void PasaporteFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasaporteFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PasaporteFieldActionPerformed
+
+    private void RegistrarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarBotonActionPerformed
+        /*
+        -Establecemos variables para ser tomadas en cuenta al crear un nuevo pasajero
+        -El (String) nos sirve para castear el item y pasarlo a tipo string
+        -Anteriormente pasaporte y millas lo podemos convertir de string a int por eso lo definimos como string
+        */
+        String pasaporte=PasaporteField.getText();
+        String contrasenia= "";
+        String fechaNacimiento= FechaNacimientoField.getText();
+        String nacionalidad = (String)NacionalidadCombo.getSelectedItem();
+        String estadoCivil= (String) EstadoCivilCombo.getSelectedItem();
+        String nombres= NombresField.getText();
+        String apellidos= ApellidosField.getText();
+        String sexo= (String) SexoCombo.getSelectedItem();
+        String fechaVenPass= FechaVenPasField.getText();
+        String fechaEmPass= FechaEmPasField.getText();
+        String paisActual= (String) PaisActualCombo.getSelectedItem();
+        String millasRecorridas= "0";
+        String tarjeta=TarjetaField.getText();
+        String dineroActual="232";
+        String cVC=CVCField.getText();   
+        //Verificamos si una casilla esta vacia
+        if(pasaporte.isEmpty()||fechaNacimiento.isEmpty()||nacionalidad.isEmpty()||nombres.isEmpty()||apellidos.isEmpty()||fechaVenPass.isEmpty()||fechaEmPass.isEmpty()||tarjeta.isEmpty()||cVC.isEmpty()){
+            JOptionPane.showMessageDialog(null, "No dejes casillas vacias");//Mensaje casilla vacia
+        }
+        else{
+            //definimos los espacios que ocupara en nuestro pasajero al ser creado
+            String espacio[]={pasaporte,contrasenia,fechaNacimiento,nacionalidad,estadoCivil,nombres,apellidos,sexo,fechaVenPass,fechaEmPass,paisActual,millasRecorridas,tarjeta,dineroActual,cVC};        
+            PasaporteTarjeta pasaporteTarjeta = CrearPasaporteTarjeta.crearPasaporteTarjeta(espacio);
+            //establecemos un nuevo valor en los pasajeros establecidos del array list
+            ArrayList<PasaporteTarjeta> pasaportesTarjetaEstablecidos= new ArrayList<>();
+            pasaportesTarjetaEstablecidos.add(pasaporteTarjeta);//agreagamos un nuevo pasajero
+            vaciarValores();
+            JOptionPane.showMessageDialog(this, "Te registraste exitosamente, que grande");//mensaje amigable 
+            LlamarInstancias.pasajeros();//Regresamos al menu opciones
+            this.dispose();//Cerramos este frame
+        }
+    }//GEN-LAST:event_RegistrarBotonActionPerformed
+
+    private void TarjetaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TarjetaFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TarjetaFieldActionPerformed
+
+    private void CVCFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CVCFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CVCFieldActionPerformed
+
+    private void PasaporteFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasaporteFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        if(PasaporteField.getText().length()>7){//restringimos que no puede escribir mas de 8 digitos
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "El pasaporte unicamente tiene 8 digitos");//Mensaje condicional digitos pasaporte
+        }
+        char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
+        if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir letras, unicamente digitos");//Mensaje condicional no escribir letras
+        }
+    }//GEN-LAST:event_PasaporteFieldKeyTyped
+
+    private void NombresFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NombresFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        int comprobarSiEsNumero = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir numeros
+        if(Character.isDigit(comprobarSiEsNumero)){//Comprobamos si el usuario escribe numeros
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir digitos, unicamente letras");//Mensaje condicional no escribir numeros
+        }
+    }//GEN-LAST:event_NombresFieldKeyTyped
+
+    private void ApellidosFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ApellidosFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        int comprobarSiEsNumero = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir numeros
+        if(Character.isDigit(comprobarSiEsNumero)){//Comprobamos si el usuario escribe numeros
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir digitos, unicamente letras");//Mensaje condicional no escribir numeros
+        }
+    }//GEN-LAST:event_ApellidosFieldKeyTyped
+
+    private void TarjetaFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TarjetaFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        if(TarjetaField.getText().length()>15){//restringimos que no puede escribir mas de 8 digitos
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "La tarjeta unicamente tiene 16 digitos");//Mensaje condicional digitos tarjeta
+        }
+        char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
+        if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir letras, unicamente digitos");//Mensaje condicional no escribir letras
+        }
+    }//GEN-LAST:event_TarjetaFieldKeyTyped
+
+    private void CVCFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CVCFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        if(CVCField.getText().length()>2){//restringimos que no puede escribir mas de 8 digitos
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "El codigo CVC unicamente tiene 3 digitos");//Mensaje condicional digitos codigo cvc
+        }
+        char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
+        if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir letras, unicamente digitos");//Mensaje condicional no escribir letras
+        }
+    }//GEN-LAST:event_CVCFieldKeyTyped
+    class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
+        private Image imagen;//establecemos que sea tipo imagen
+        @Override//sobrescribimos la clase JPanel especificamente el metodo paint
+        public void paint(Graphics g){ 
+            imagen = new ImageIcon(getClass().getResource("/imagenes/RegistroPasajeros.jpg")).getImage();//igualamos nuestra variable al fondo que queremos
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);//damos las dimensiones
+            setOpaque(false);//Ponemos que el panel no sea visible
+            super.paint(g);//llamos a la clase super para que cumpla con las funcionalidades del JPanel
+        }
+    }
+    private void vaciarValores(){
+        PasaporteField.setText("");
+        FechaNacimientoField.setText("");
+        NombresField.setText("");
+        ApellidosField.setText("");
+        FechaVenPasField.setText("");
+        FechaEmPasField.setText("");
+        TarjetaField.setText("");
+        CVCField.setText("");
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Apellidos;
+    private javax.swing.JTextField ApellidosField;
+    private javax.swing.JLabel CVC;
+    private javax.swing.JTextField CVCField;
+    private javax.swing.JLabel EstadoCivil;
+    private javax.swing.JComboBox<String> EstadoCivilCombo;
+    private javax.swing.JLabel FechaEmPas;
+    private javax.swing.JFormattedTextField FechaEmPasField;
+    private javax.swing.JLabel FechaNacimiento;
+    private javax.swing.JFormattedTextField FechaNacimientoField;
+    private javax.swing.JLabel FechaVenPas;
+    private javax.swing.JFormattedTextField FechaVenPasField;
     private javax.swing.JLabel Logo;
+    private javax.swing.JLabel Nacionalidad;
+    private javax.swing.JComboBox<String> NacionalidadCombo;
+    private javax.swing.JLabel Nombres;
+    private javax.swing.JTextField NombresField;
+    private javax.swing.JLabel PaisActual;
+    private javax.swing.JComboBox<String> PaisActualCombo;
+    private javax.swing.JLabel Pasaporte;
+    private javax.swing.JTextField PasaporteField;
+    private javax.swing.JButton RegistrarBoton;
+    private javax.swing.JLabel RegistroTexto;
     private javax.swing.JButton RegresarPasajeros;
     private javax.swing.JButton SalirDelSistema;
+    private javax.swing.JLabel Sexo;
+    private javax.swing.JComboBox<String> SexoCombo;
+    private javax.swing.JLabel Tarjeta;
+    private javax.swing.JTextField TarjetaField;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

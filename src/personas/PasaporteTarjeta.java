@@ -7,14 +7,15 @@ import java.time.LocalDate;
  *
  * @author Mariano
  */
-public class Pasajero implements Serializable{
+public class PasaporteTarjeta implements Serializable{
     /**
-     * Constructor de pasajeros, serializable para que pueda modificarse
+     * Constructor de pasaporte, serializable para que pueda modificarse
+     * establecemos atributos de un pasaporte y tarjeta, LocalDate para formato fecha
      */
-    //establecemos atributos de un pasajero, LocalDate para formato fecha
-    private int pasaporte;
-    private String contraseña;
+    private String pasaporte;
+    private String contrasenia;
     private LocalDate fechaNacimiento;
+    private String nacionalidad;
     private String estadoCivil;
     private String nombres;
     private String apellidos;
@@ -22,12 +23,16 @@ public class Pasajero implements Serializable{
     private LocalDate fechaVencimientoPasaporte;
     private LocalDate fechaEmisionPasaporte;
     private String paisActual;
-    private  int millasRecorridas;
-    //hacemos el constructor para pasajero y le ponemos sus parametros
-    public Pasajero(int pasaporte,String contraseña,LocalDate fechaNacimiento,String nombres,String apellidos,String sexo,LocalDate fechaVencimientoPasaporte,LocalDate fechaEmisionPasaporte,String paisActual,int millasRecorridas){
+    private int millasRecorridas;
+    private String numeroTarjeta;
+    private int dineroActual;
+    private String codigoCVC;
+    //hacemos el constructor para pasaporte y le ponemos sus parametros
+    public PasaporteTarjeta(String pasaporte,String contrasenia,LocalDate fechaNacimiento,String nacionalidad,String estadoCivil,String nombres,String apellidos,String sexo,LocalDate fechaVencimientoPasaporte,LocalDate fechaEmisionPasaporte,String paisActual,int millasRecorridas,String numeroTarjeta,int dineroActual,String codigoCVC){
         this.pasaporte=pasaporte;
-        this.contraseña=contraseña;
+        this.contrasenia=contrasenia;
         this.fechaNacimiento=fechaNacimiento;
+        this.nacionalidad=nacionalidad;
         this.estadoCivil=estadoCivil;
         this.nombres=nombres;
         this.apellidos=apellidos;
@@ -36,22 +41,26 @@ public class Pasajero implements Serializable{
         this.fechaEmisionPasaporte=fechaEmisionPasaporte;
         this.paisActual=paisActual;
         this.millasRecorridas=millasRecorridas;
+        this.numeroTarjeta=numeroTarjeta;
+        this.dineroActual=dineroActual;
+        this.codigoCVC=codigoCVC;
     }
+
     //realizamos get y set para poder llamar los atributos desde otros lados
-    public int getPasaporte() {
+    public String getPasaporte() {
         return this.pasaporte;
     }
 
-    public void setPasaporte(int pasaporte) {
+    public void setPasaporte(String pasaporte) {
         this.pasaporte = pasaporte;
     }
 
-    public String getContraseña() {
-        return this.contraseña;
+    public String getContrasenia() {
+        return this.contrasenia;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     public LocalDate getFechaNacimiento() {
@@ -62,6 +71,14 @@ public class Pasajero implements Serializable{
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public String getNacionalidad() {
+        return this.nacionalidad;
+    }
+
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
+    }
+    
     public String getEstadoCivil() {
         return this.estadoCivil;
     }
@@ -124,6 +141,30 @@ public class Pasajero implements Serializable{
 
     public void setMillasRecorridas(int millasRecorridas) {
         this.millasRecorridas = millasRecorridas;
+    }
+
+    public String getNumeroTarjeta() {
+        return this.numeroTarjeta;
+    }
+
+    public void setNumeroTarjeta(String numeroTarjeta) {
+        this.numeroTarjeta = numeroTarjeta;
+    }
+
+    public int getDineroActual() {
+        return this.dineroActual;
+    }
+
+    public void setDineroActual(int dineroActual) {
+        this.dineroActual = dineroActual;
+    }
+
+    public String getCodigoCVC() {
+        return this.codigoCVC;
+    }
+
+    public void setCodigoCVC(String codigoCVC) {
+        this.codigoCVC = codigoCVC;
     }
     
 }

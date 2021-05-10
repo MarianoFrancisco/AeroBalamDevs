@@ -219,13 +219,13 @@ public class FramePasajeros extends javax.swing.JFrame {
     private void IniciarSesionPasajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarSesionPasajerosActionPerformed
         //señalamos que seran una linea de caracteres establecida
         String pasaporte = EntradaPasaporte.getText();
-        String contraseña = EntradaContraseña.getText();
+        String contrasenia = EntradaContraseña.getText();
         //Verificamos si una casilla esta vacia
-        if(pasaporte.isEmpty()||contraseña.isEmpty()){
+        if(pasaporte.isEmpty()||contrasenia.isEmpty()){
             JOptionPane.showMessageDialog(null, "No dejes casillas vacias");//Mensaje casilla vacia
         }
         else{
-            if(pasaporte.equals("12345678")&&contraseña.equals("abcd1234")){//Unicamente si los datos estan bien podra ingresar
+            if(pasaporte.equals("12345678")&&contrasenia.equals("abcd1234")){//Unicamente si los datos estan bien podra ingresar
                 JOptionPane.showMessageDialog(null, "Bienvenido");//Mensaje de bienvenida
                 LlamarInstancias.loginPasajeros();//Llamamos al frame login pasajeros
                 this.dispose();//Cerramos este frame
