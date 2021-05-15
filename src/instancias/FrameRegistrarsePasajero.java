@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import personas.CrearPasaporteTarjeta;
-import personas.PasaporteTarjeta;
+import manejadorArchivosUser.CrearPasaporteTarjeta;
+import manejadorArchivosUser.PasaporteTarjeta;
 
 /**
  *

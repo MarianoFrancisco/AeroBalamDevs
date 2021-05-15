@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package archivosConCargaDatos;
+package manejadorArchivosAeropuerto;
+
+import java.io.Serializable;
 
 /**
  *
  * @author Mariano
  */
-public class Aerolineas {
+public class Aerolineas implements Serializable{
     /**
      * Constructor de aerolineas, serializable para que pueda modificarse
      */

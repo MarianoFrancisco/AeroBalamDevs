@@ -40,6 +40,22 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         Logo = new javax.swing.JLabel();
         RegresarMenu = new javax.swing.JButton();
         SalirDelSistema = new javax.swing.JButton();
+        Admin = new javax.swing.JTabbedPane();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        InfoCargada = new javax.swing.JLabel();
+        CargaPasaporte = new javax.swing.JButton();
+        CargaTarjeta = new javax.swing.JButton();
+        CargaDistancia = new javax.swing.JButton();
+        CargaVuelo = new javax.swing.JButton();
+        CargaAeropuerto = new javax.swing.JButton();
+        CargaAerolineas = new javax.swing.JButton();
+        CargaAviones = new javax.swing.JButton();
+        CargaBoton = new javax.swing.JLabel();
+        jDesktopPane2 = new javax.swing.JDesktopPane();
+        jDesktopPane3 = new javax.swing.JDesktopPane();
+        jDesktopPane4 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Departamento de Administracion");
@@ -72,6 +88,171 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         });
         jPanel2.add(SalirDelSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(1107, 600, 158, 44));
 
+        Admin.setForeground(new java.awt.Color(0, 0, 0));
+
+        jDesktopPane1.setBackground(new java.awt.Color(153, 255, 255));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        InfoCargada.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        InfoCargada.setForeground(new java.awt.Color(0, 0, 0));
+        InfoCargada.setText("Informacion Cargada");
+
+        CargaPasaporte.setBackground(new java.awt.Color(255, 255, 51));
+        CargaPasaporte.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        CargaPasaporte.setForeground(new java.awt.Color(0, 0, 0));
+        CargaPasaporte.setText("Cargar Pasaporte");
+
+        CargaTarjeta.setBackground(new java.awt.Color(255, 255, 51));
+        CargaTarjeta.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        CargaTarjeta.setForeground(new java.awt.Color(0, 0, 0));
+        CargaTarjeta.setText("Cargar Tarjeta");
+
+        CargaDistancia.setBackground(new java.awt.Color(255, 255, 51));
+        CargaDistancia.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        CargaDistancia.setForeground(new java.awt.Color(0, 0, 0));
+        CargaDistancia.setText("Carga Distancia");
+
+        CargaVuelo.setBackground(new java.awt.Color(255, 255, 51));
+        CargaVuelo.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        CargaVuelo.setForeground(new java.awt.Color(0, 0, 0));
+        CargaVuelo.setText("Carga vuelo");
+
+        CargaAeropuerto.setBackground(new java.awt.Color(255, 255, 51));
+        CargaAeropuerto.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        CargaAeropuerto.setForeground(new java.awt.Color(0, 0, 0));
+        CargaAeropuerto.setText("Carga Aeropuerto");
+
+        CargaAerolineas.setBackground(new java.awt.Color(255, 255, 51));
+        CargaAerolineas.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        CargaAerolineas.setForeground(new java.awt.Color(0, 0, 0));
+        CargaAerolineas.setText("Carga Aerolineas");
+
+        CargaAviones.setBackground(new java.awt.Color(255, 255, 51));
+        CargaAviones.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        CargaAviones.setForeground(new java.awt.Color(0, 0, 0));
+        CargaAviones.setText("Carga Aviones");
+
+        CargaBoton.setFont(new java.awt.Font("Engravers MT", 1, 18)); // NOI18N
+        CargaBoton.setForeground(new java.awt.Color(0, 0, 0));
+        CargaBoton.setText("Opciones de Carga");
+
+        jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(InfoCargada, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(CargaPasaporte, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(CargaTarjeta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(CargaDistancia, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(CargaVuelo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(CargaAeropuerto, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(CargaAerolineas, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(CargaAviones, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(CargaBoton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(InfoCargada)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(CargaBoton)
+                .addGap(29, 29, 29))
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(CargaPasaporte, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CargaTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CargaDistancia, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CargaVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CargaAeropuerto, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CargaAerolineas, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CargaAviones, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(52, Short.MAX_VALUE))
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InfoCargada)
+                    .addComponent(CargaBoton))
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(CargaPasaporte)
+                        .addGap(18, 18, 18)
+                        .addComponent(CargaTarjeta)
+                        .addGap(26, 26, 26)
+                        .addComponent(CargaAeropuerto)
+                        .addGap(18, 18, 18)
+                        .addComponent(CargaAerolineas)
+                        .addGap(18, 18, 18)
+                        .addComponent(CargaAviones)
+                        .addGap(18, 18, 18)
+                        .addComponent(CargaVuelo)
+                        .addGap(18, 18, 18)
+                        .addComponent(CargaDistancia))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        Admin.addTab("Carga de archivos", jDesktopPane1);
+
+        jDesktopPane2.setBackground(new java.awt.Color(153, 255, 255));
+
+        javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
+        jDesktopPane2.setLayout(jDesktopPane2Layout);
+        jDesktopPane2Layout.setHorizontalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 948, Short.MAX_VALUE)
+        );
+        jDesktopPane2Layout.setVerticalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 444, Short.MAX_VALUE)
+        );
+
+        Admin.addTab("Añadir Aerolinea", jDesktopPane2);
+
+        jDesktopPane3.setBackground(new java.awt.Color(153, 255, 255));
+
+        javax.swing.GroupLayout jDesktopPane3Layout = new javax.swing.GroupLayout(jDesktopPane3);
+        jDesktopPane3.setLayout(jDesktopPane3Layout);
+        jDesktopPane3Layout.setHorizontalGroup(
+            jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 948, Short.MAX_VALUE)
+        );
+        jDesktopPane3Layout.setVerticalGroup(
+            jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 444, Short.MAX_VALUE)
+        );
+
+        Admin.addTab("Añadir Aeropuerto", jDesktopPane3);
+
+        jDesktopPane4.setBackground(new java.awt.Color(153, 255, 255));
+
+        javax.swing.GroupLayout jDesktopPane4Layout = new javax.swing.GroupLayout(jDesktopPane4);
+        jDesktopPane4.setLayout(jDesktopPane4Layout);
+        jDesktopPane4Layout.setHorizontalGroup(
+            jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 948, Short.MAX_VALUE)
+        );
+        jDesktopPane4Layout.setVerticalGroup(
+            jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 444, Short.MAX_VALUE)
+        );
+
+        Admin.addTab("Añadir Aviones", jDesktopPane4);
+
+        jPanel2.add(Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 950, 470));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,15 +267,15 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void RegresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarMenuActionPerformed
-        LlamarInstancias.manejoAeropuerto();//Regresamos al manejo aeropuerto
-        this.dispose();//Cerramos este frame
-    }//GEN-LAST:event_RegresarMenuActionPerformed
-
     private void SalirDelSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirDelSistemaActionPerformed
         JOptionPane.showMessageDialog(null, "Vuelve pronto, que tengas buen dia");//Mensaje de despedida
         System.exit(0);//Cerramos el sistema
     }//GEN-LAST:event_SalirDelSistemaActionPerformed
+
+    private void RegresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarMenuActionPerformed
+        LlamarInstancias.manejoAeropuerto();//Regresamos al manejo aeropuerto
+        this.dispose();//Cerramos este frame
+    }//GEN-LAST:event_RegresarMenuActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
         @Override//sobrescribimos la clase JPanel especificamente el metodo paint
@@ -107,9 +288,25 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane Admin;
+    private javax.swing.JButton CargaAerolineas;
+    private javax.swing.JButton CargaAeropuerto;
+    private javax.swing.JButton CargaAviones;
+    private javax.swing.JLabel CargaBoton;
+    private javax.swing.JButton CargaDistancia;
+    private javax.swing.JButton CargaPasaporte;
+    private javax.swing.JButton CargaTarjeta;
+    private javax.swing.JButton CargaVuelo;
+    private javax.swing.JLabel InfoCargada;
     private javax.swing.JLabel Logo;
     private javax.swing.JButton RegresarMenu;
     private javax.swing.JButton SalirDelSistema;
+    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane jDesktopPane2;
+    private javax.swing.JDesktopPane jDesktopPane3;
+    private javax.swing.JDesktopPane jDesktopPane4;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
