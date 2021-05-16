@@ -43,7 +43,7 @@ public class CargarVueloEnTexto {
 
     private String[] separarEspacio(String renglon) {
         String inicioVuelo = "VUELO(";//indicamos el inicio que tendrá la estructura
-        String renglonDeEspacios = renglon.substring(inicioVuelo.length(), renglon.length() - 2);//-2 ya que leera menos de la capacidad para no contar parentesis
+        String renglonDeEspacios = renglon.substring(inicioVuelo.length(), renglon.length() - 1);//-1 ya que leera menos de la capacidad para no contar parentesis
         String[] espacios = renglonDeEspacios.split(",");//split para hacer una separacion cuando haya coma
         return espacios;
     }

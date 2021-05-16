@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import manejadorArchivosUser.Pasaporte;
 import cargaArchivos.*;
-import cargaTablas.TablaPasaporte;
+import cargaTablas.*;
 import java.awt.Toolkit;
 import manejadorArchivosAeropuerto.Aerolineas;
 import manejadorArchivosAeropuerto.Aeropuerto;
@@ -111,8 +111,17 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         CargaAviones = new javax.swing.JButton();
         CargaBoton1 = new javax.swing.JLabel();
         jDesktopPane2 = new javax.swing.JDesktopPane();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tablaVerAerolineas = new javax.swing.JTable();
+        verAerolineas = new javax.swing.JButton();
         jDesktopPane3 = new javax.swing.JDesktopPane();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tablaVerAeropuertos = new javax.swing.JTable();
+        verAeropuertos = new javax.swing.JButton();
         jDesktopPane4 = new javax.swing.JDesktopPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tablaVerAviones = new javax.swing.JTable();
+        verAviones = new javax.swing.JButton();
         jDesktopPane5 = new javax.swing.JDesktopPane();
         RegistrarBoton = new javax.swing.JButton();
         Pasaporte = new javax.swing.JLabel();
@@ -140,6 +149,17 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         tablaVerPasaporte = new javax.swing.JTable();
         verPasaportes = new javax.swing.JButton();
         jDesktopPane6 = new javax.swing.JDesktopPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaVerTarjetas = new javax.swing.JTable();
+        verTarjetas = new javax.swing.JButton();
+        jDesktopPane10 = new javax.swing.JDesktopPane();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tablaVerDistancias = new javax.swing.JTable();
+        verDistancias = new javax.swing.JButton();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tablaVerVuelo = new javax.swing.JTable();
+        verVuelos = new javax.swing.JButton();
         jDesktopPane7 = new javax.swing.JDesktopPane();
         jDesktopPane8 = new javax.swing.JDesktopPane();
         RegresarMenu1 = new javax.swing.JButton();
@@ -279,7 +299,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane9Layout.createSequentialGroup()
                 .addGap(121, 121, 121)
                 .addComponent(InfoCargada1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 346, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 406, Short.MAX_VALUE)
                 .addComponent(CargaBoton1)
                 .addGap(29, 29, 29))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane9Layout.createSequentialGroup()
@@ -327,47 +347,95 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         Admin1.addTab("Carga de archivos", jDesktopPane9);
 
         jDesktopPane2.setBackground(new java.awt.Color(153, 255, 255));
+        jDesktopPane2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
-        jDesktopPane2.setLayout(jDesktopPane2Layout);
-        jDesktopPane2Layout.setHorizontalGroup(
-            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1178, Short.MAX_VALUE)
-        );
-        jDesktopPane2Layout.setVerticalGroup(
-            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 494, Short.MAX_VALUE)
-        );
+        tablaVerAerolineas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(tablaVerAerolineas);
+
+        jDesktopPane2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 690, 410));
+
+        verAerolineas.setBackground(new java.awt.Color(0, 255, 255));
+        verAerolineas.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        verAerolineas.setForeground(new java.awt.Color(0, 0, 0));
+        verAerolineas.setText("VER AEROLINEAS");
+        verAerolineas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verAerolineasActionPerformed(evt);
+            }
+        });
+        jDesktopPane2.add(verAerolineas, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 430, -1, -1));
 
         Admin1.addTab("Añadir/Ver Aerolineas", jDesktopPane2);
 
         jDesktopPane3.setBackground(new java.awt.Color(153, 255, 255));
+        jDesktopPane3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jDesktopPane3Layout = new javax.swing.GroupLayout(jDesktopPane3);
-        jDesktopPane3.setLayout(jDesktopPane3Layout);
-        jDesktopPane3Layout.setHorizontalGroup(
-            jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1178, Short.MAX_VALUE)
-        );
-        jDesktopPane3Layout.setVerticalGroup(
-            jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 494, Short.MAX_VALUE)
-        );
+        tablaVerAeropuertos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(tablaVerAeropuertos);
+
+        jDesktopPane3.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 690, 410));
+
+        verAeropuertos.setBackground(new java.awt.Color(0, 255, 255));
+        verAeropuertos.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        verAeropuertos.setForeground(new java.awt.Color(0, 0, 0));
+        verAeropuertos.setText("VER AEROPUERTOS");
+        verAeropuertos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verAeropuertosActionPerformed(evt);
+            }
+        });
+        jDesktopPane3.add(verAeropuertos, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 430, -1, -1));
 
         Admin1.addTab("Añadir/Ver Aeropuertos", jDesktopPane3);
 
         jDesktopPane4.setBackground(new java.awt.Color(153, 255, 255));
+        jDesktopPane4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jDesktopPane4Layout = new javax.swing.GroupLayout(jDesktopPane4);
-        jDesktopPane4.setLayout(jDesktopPane4Layout);
-        jDesktopPane4Layout.setHorizontalGroup(
-            jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1178, Short.MAX_VALUE)
-        );
-        jDesktopPane4Layout.setVerticalGroup(
-            jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 494, Short.MAX_VALUE)
-        );
+        tablaVerAviones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(tablaVerAviones);
+
+        jDesktopPane4.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 690, 410));
+
+        verAviones.setBackground(new java.awt.Color(0, 255, 255));
+        verAviones.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        verAviones.setForeground(new java.awt.Color(0, 0, 0));
+        verAviones.setText("VER AVIONES");
+        verAviones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verAvionesActionPerformed(evt);
+            }
+        });
+        jDesktopPane4.add(verAviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 430, -1, -1));
 
         Admin1.addTab("Añadir/Ver Aviones", jDesktopPane4);
 
@@ -508,7 +576,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tablaVerPasaporte);
 
-        jDesktopPane5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 590, 410));
+        jDesktopPane5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 690, 410));
 
         verPasaportes.setBackground(new java.awt.Color(0, 255, 255));
         verPasaportes.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
@@ -519,56 +587,112 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
                 verPasaportesActionPerformed(evt);
             }
         });
-        jDesktopPane5.add(verPasaportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, -1, -1));
+        jDesktopPane5.add(verPasaportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 430, -1, -1));
 
         Admin1.addTab("Añadir/Ver Pasaportes", jDesktopPane5);
 
         jDesktopPane6.setBackground(new java.awt.Color(153, 255, 255));
+        jDesktopPane6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jDesktopPane6Layout = new javax.swing.GroupLayout(jDesktopPane6);
-        jDesktopPane6.setLayout(jDesktopPane6Layout);
-        jDesktopPane6Layout.setHorizontalGroup(
-            jDesktopPane6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1178, Short.MAX_VALUE)
-        );
-        jDesktopPane6Layout.setVerticalGroup(
-            jDesktopPane6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 494, Short.MAX_VALUE)
-        );
+        tablaVerTarjetas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tablaVerTarjetas);
+
+        jDesktopPane6.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 690, 410));
+
+        verTarjetas.setBackground(new java.awt.Color(0, 255, 255));
+        verTarjetas.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        verTarjetas.setForeground(new java.awt.Color(0, 0, 0));
+        verTarjetas.setText("VER TARJETAS");
+        verTarjetas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verTarjetasActionPerformed(evt);
+            }
+        });
+        jDesktopPane6.add(verTarjetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 430, -1, -1));
 
         Admin1.addTab("Añadir/Ver Tarjetas", jDesktopPane6);
 
+        jDesktopPane10.setBackground(new java.awt.Color(153, 255, 255));
+        jDesktopPane10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tablaVerDistancias.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane7.setViewportView(tablaVerDistancias);
+
+        jDesktopPane10.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 690, 410));
+
+        verDistancias.setBackground(new java.awt.Color(0, 255, 255));
+        verDistancias.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        verDistancias.setForeground(new java.awt.Color(0, 0, 0));
+        verDistancias.setText("VER distancias");
+        verDistancias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verDistanciasActionPerformed(evt);
+            }
+        });
+        jDesktopPane10.add(verDistancias, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 430, -1, -1));
+
+        Admin1.addTab("Añadir/Ver Distancia", jDesktopPane10);
+
+        jDesktopPane1.setBackground(new java.awt.Color(153, 255, 255));
+        jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tablaVerVuelo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane8.setViewportView(tablaVerVuelo);
+
+        jDesktopPane1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 690, 410));
+
+        verVuelos.setBackground(new java.awt.Color(0, 255, 255));
+        verVuelos.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        verVuelos.setForeground(new java.awt.Color(0, 0, 0));
+        verVuelos.setText("VER VUELOS");
+        verVuelos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verVuelosActionPerformed(evt);
+            }
+        });
+        jDesktopPane1.add(verVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 430, -1, -1));
+
+        Admin1.addTab("Añadir/Ver Vuelo", jDesktopPane1);
+
         jDesktopPane7.setBackground(new java.awt.Color(153, 255, 255));
-
-        javax.swing.GroupLayout jDesktopPane7Layout = new javax.swing.GroupLayout(jDesktopPane7);
-        jDesktopPane7.setLayout(jDesktopPane7Layout);
-        jDesktopPane7Layout.setHorizontalGroup(
-            jDesktopPane7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1178, Short.MAX_VALUE)
-        );
-        jDesktopPane7Layout.setVerticalGroup(
-            jDesktopPane7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 494, Short.MAX_VALUE)
-        );
-
+        jDesktopPane7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         Admin1.addTab("Renovacion Pasaporte", jDesktopPane7);
 
         jDesktopPane8.setBackground(new java.awt.Color(153, 255, 255));
-
-        javax.swing.GroupLayout jDesktopPane8Layout = new javax.swing.GroupLayout(jDesktopPane8);
-        jDesktopPane8.setLayout(jDesktopPane8Layout);
-        jDesktopPane8Layout.setHorizontalGroup(
-            jDesktopPane8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1178, Short.MAX_VALUE)
-        );
-        jDesktopPane8Layout.setVerticalGroup(
-            jDesktopPane8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 494, Short.MAX_VALUE)
-        );
-
+        jDesktopPane8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         Admin1.addTab("Reservacion", jDesktopPane8);
 
-        jPanel2.add(Admin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 1180, 520));
+        jPanel2.add(Admin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 1240, 520));
 
         RegresarMenu1.setBackground(new java.awt.Color(255, 0, 0));
         RegresarMenu1.setFont(new java.awt.Font("Engravers MT", 1, 14)); // NOI18N
@@ -715,9 +839,11 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     }//GEN-LAST:event_RegistrarBotonActionPerformed
 
     private void verPasaportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verPasaportesActionPerformed
+        //try catch por si da error
         try {
-            //creo un arraylist de vehiculos y ejecuto el metodo leerVehiculos.
+            //array list pasaporte, llamamos la carga de archivos binarios
             ArrayList<Pasaporte> pasaportes = this.cargarPasaporteBinario.cargarPasaporteBinario();
+            //llamamos a llenado de tabla
             TablaPasaporte.completarTabla(pasaportes, tablaVerPasaporte);
         } catch (IOException ex) {
             System.out.println("ex"+ex);
@@ -833,6 +959,90 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_CargaTarjetaActionPerformed
+
+    private void verTarjetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verTarjetasActionPerformed
+        //try catch por si da error
+        try {
+            //array list tarjetas, llamamos la carga de archivos binarios
+            ArrayList<Tarjeta> tarjetas = this.cargarTarjetaBinario.cargarTarjetaBinario();
+            //llamamos a llenado de tabla
+            TablaTarjeta.completarTabla(tarjetas, tablaVerTarjetas);
+        } catch (IOException ex) {
+            System.out.println("ex"+ex);
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_verTarjetasActionPerformed
+
+    private void verAvionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verAvionesActionPerformed
+        //try catch por si da error
+        try {
+            //array list aviones, llamamos la carga de archivos binarios
+            ArrayList<Aviones> aviones = this.cargarAvionesBinario.cargarAvionesBinario();
+            //llamamos a llenado de tabla
+            TablaAviones.completarTabla(aviones, tablaVerAviones);
+        } catch (IOException ex) {
+            System.out.println("ex"+ex);
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_verAvionesActionPerformed
+
+    private void verAeropuertosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verAeropuertosActionPerformed
+        //try catch por si da error
+        try {
+            //array list aeropuertos, llamamos la carga de archivos binarios
+            ArrayList<Aeropuerto> aeropuertos = this.cargarAeropuertoBinario.cargarAeropuertoBinario();
+            //llamamos a llenado de tabla
+            TablaAeropuerto.completarTabla(aeropuertos, tablaVerAeropuertos);
+        } catch (IOException ex) {
+            System.out.println("ex"+ex);
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_verAeropuertosActionPerformed
+
+    private void verAerolineasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verAerolineasActionPerformed
+        //try catch por si da error
+        try {
+            //array list aerolineas, llamamos la carga de archivos binarios
+            ArrayList<Aerolineas> aerolineas = this.cargarAerolineasBinario.cargarAerolineasBinario();
+            //llamamos a llenado de tabla
+            TablaAerolineas.completarTabla(aerolineas, tablaVerAerolineas);
+        } catch (IOException ex) {
+            System.out.println("ex"+ex);
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_verAerolineasActionPerformed
+
+    private void verDistanciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verDistanciasActionPerformed
+        //try catch por si da error
+        try {
+            //array list distancias, llamamos la carga de archivos binarios
+            ArrayList<Distancia> distancias = this.cargarDistanciaBinario.cargarDistanciaBinario();
+            //llamamos a llenado de tabla
+            TablaDistancias.completarTabla(distancias, tablaVerDistancias);
+        } catch (IOException ex) {
+            System.out.println("ex"+ex);
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_verDistanciasActionPerformed
+
+    private void verVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verVuelosActionPerformed
+        //try catch por si da error
+        try {
+            //array list vuelos, llamamos la carga de archivos binarios
+            ArrayList<Vuelo> vuelos = this.cargarVueloBinario.cargarVueloBinario();
+            //llamamos a llenado de tabla
+            TablaVuelo.completarTabla(vuelos, tablaVerVuelo);
+        } catch (IOException ex) {
+            System.out.println("ex"+ex);
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_verVuelosActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
         @Override//sobrescribimos la clase JPanel especificamente el metodo paint
@@ -887,6 +1097,8 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     private javax.swing.JButton SalirDelSistema;
     private javax.swing.JLabel Sexo;
     private javax.swing.JComboBox<String> SexoCombo;
+    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane jDesktopPane10;
     private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JDesktopPane jDesktopPane3;
     private javax.swing.JDesktopPane jDesktopPane4;
@@ -899,8 +1111,26 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTextArea mostrarDatosCargados;
+    private javax.swing.JTable tablaVerAerolineas;
+    private javax.swing.JTable tablaVerAeropuertos;
+    private javax.swing.JTable tablaVerAviones;
+    private javax.swing.JTable tablaVerDistancias;
     private javax.swing.JTable tablaVerPasaporte;
+    private javax.swing.JTable tablaVerTarjetas;
+    private javax.swing.JTable tablaVerVuelo;
+    private javax.swing.JButton verAerolineas;
+    private javax.swing.JButton verAeropuertos;
+    private javax.swing.JButton verAviones;
+    private javax.swing.JButton verDistancias;
     private javax.swing.JButton verPasaportes;
+    private javax.swing.JButton verTarjetas;
+    private javax.swing.JButton verVuelos;
     // End of variables declaration//GEN-END:variables
 }
