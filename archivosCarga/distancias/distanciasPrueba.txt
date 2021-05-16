@@ -1,0 +1,2 @@
+DISTANCIA(Juanito,Pedro,23)
+DISTANCIA(Marco,Polo,42)

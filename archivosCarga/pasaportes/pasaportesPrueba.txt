@@ -1,0 +1,2 @@
+PASAPORTE(24232324,ds23423,12/12/2003,Guatemala,Soltero,Mario,Campos,Hombre,12/12/2003,12/12/2003,Guatemala,02)
+PASAPORTE(12345678,sf23423,12/12/2000,Guatemala,Soltero,Mariano Francisco,Camposeco Camposeco,Hombre,12/12/2000,12/12/2000,Guatemala,02)

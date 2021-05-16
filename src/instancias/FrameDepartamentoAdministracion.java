@@ -7,26 +7,83 @@ package instancias;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
+import manejadorArchivosUser.Pasaporte;
+import cargaArchivos.*;
+import cargaTablas.TablaPasaporte;
+import java.awt.Toolkit;
+import manejadorArchivosAeropuerto.Aerolineas;
+import manejadorArchivosAeropuerto.Aeropuerto;
+import manejadorArchivosAeropuerto.Aviones;
+import manejadorArchivosAeropuerto.Distancia;
+import manejadorArchivosAeropuerto.Vuelo;
+import manejadorArchivosUser.*;
 /**
  *
  * @author Mariano
  */
 public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
-
+    private CargarPasaporteEnTexto cargarPasaporteEnTexto;
+    private GuardarPasaporteBinario guardarPasaporteBinario;
+    private CargarPasaporteBinario cargarPasaporteBinario;
+    private CargarAeropuertoEnTexto cargarAeropuertoEnTexto;
+    private GuardarAeropuertoBinario guardarAeropuertoBinario;
+    private CargarAeropuertoBinario cargarAeropuertoBinario;
+    private CargarAerolineasEnTexto cargarAerolineasEnTexto;
+    private GuardarAerolineasBinario guardarAerolineasBinario;
+    private CargarAerolineasBinario cargarAerolineasBinario;
+    private CargarAvionesEnTexto cargarAvionesEnTexto;
+    private GuardarAvionesBinario guardarAvionesBinario;
+    private CargarAvionesBinario cargarAvionesBinario;  
+    private CargarDistanciaEnTexto cargarDistanciaEnTexto;
+    private GuardarDistanciaBinario guardarDistanciaBinario;
+    private CargarDistanciaBinario cargarDistanciaBinario;
+    private CargarVueloEnTexto cargarVueloEnTexto;
+    private GuardarVueloBinario guardarVueloBinario;
+    private CargarVueloBinario cargarVueloBinario;
+    private CargarTarjetaEnTexto cargarTarjetaEnTexto;
+    private GuardarTarjetaBinario guardarTarjetaBinario;
+    private CargarTarjetaBinario cargarTarjetaBinario;
     /**
      * Creates new form DepartamentoAdministracion
      */
     FondoInicio departamentoAdmin = new FondoInicio();//Creamos un nuevo fondo
     public FrameDepartamentoAdministracion() {
         this.setContentPane(departamentoAdmin);//Realizamos la pintada de nuestro fondo
+        creacionDatosUsar();
         initComponents();
+        
         this.setLocationRelativeTo(null);//Centramos nuestro frame
     }
-
+    public void creacionDatosUsar(){
+        this.cargarPasaporteEnTexto = new CargarPasaporteEnTexto();
+        this.guardarPasaporteBinario = new GuardarPasaporteBinario();
+        this.cargarPasaporteBinario = new CargarPasaporteBinario();
+        this.cargarAeropuertoEnTexto = new CargarAeropuertoEnTexto();
+        this.guardarAeropuertoBinario = new GuardarAeropuertoBinario();
+        this.cargarAeropuertoBinario = new CargarAeropuertoBinario();
+        this.cargarAerolineasEnTexto = new CargarAerolineasEnTexto();
+        this.guardarAerolineasBinario = new GuardarAerolineasBinario();
+        this.cargarAerolineasBinario = new CargarAerolineasBinario();  
+        this.cargarAvionesEnTexto = new CargarAvionesEnTexto();
+        this.guardarAvionesBinario = new GuardarAvionesBinario();
+        this.cargarAvionesBinario = new CargarAvionesBinario();      
+        this.cargarDistanciaEnTexto = new CargarDistanciaEnTexto();
+        this.guardarDistanciaBinario = new GuardarDistanciaBinario();
+        this.cargarDistanciaBinario = new CargarDistanciaBinario();  
+        this.cargarVueloEnTexto = new CargarVueloEnTexto();
+        this.guardarVueloBinario = new GuardarVueloBinario();
+        this.cargarVueloBinario = new CargarVueloBinario();
+        this.cargarTarjetaEnTexto = new CargarTarjetaEnTexto();
+        this.guardarTarjetaBinario = new GuardarTarjetaBinario();
+        this.cargarTarjetaBinario = new CargarTarjetaBinario();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,11 +97,11 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         Logo = new javax.swing.JLabel();
         RegresarMenu = new javax.swing.JButton();
         SalirDelSistema = new javax.swing.JButton();
-        Admin = new javax.swing.JTabbedPane();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        InfoCargada = new javax.swing.JLabel();
+        Admin1 = new javax.swing.JTabbedPane();
+        jDesktopPane9 = new javax.swing.JDesktopPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        mostrarDatosCargados = new javax.swing.JTextArea();
+        InfoCargada1 = new javax.swing.JLabel();
         CargaPasaporte = new javax.swing.JButton();
         CargaTarjeta = new javax.swing.JButton();
         CargaDistancia = new javax.swing.JButton();
@@ -52,10 +109,40 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         CargaAeropuerto = new javax.swing.JButton();
         CargaAerolineas = new javax.swing.JButton();
         CargaAviones = new javax.swing.JButton();
-        CargaBoton = new javax.swing.JLabel();
+        CargaBoton1 = new javax.swing.JLabel();
         jDesktopPane2 = new javax.swing.JDesktopPane();
         jDesktopPane3 = new javax.swing.JDesktopPane();
         jDesktopPane4 = new javax.swing.JDesktopPane();
+        jDesktopPane5 = new javax.swing.JDesktopPane();
+        RegistrarBoton = new javax.swing.JButton();
+        Pasaporte = new javax.swing.JLabel();
+        PasaporteField = new javax.swing.JTextField();
+        FechaNacimiento = new javax.swing.JLabel();
+        FechaNacimientoField = new javax.swing.JFormattedTextField();
+        Nacionalidad = new javax.swing.JLabel();
+        NacionalidadCombo = new javax.swing.JComboBox<>();
+        EstadoCivil = new javax.swing.JLabel();
+        EstadoCivilCombo = new javax.swing.JComboBox<>();
+        Nombres = new javax.swing.JLabel();
+        NombresField = new javax.swing.JTextField();
+        Apellidos = new javax.swing.JLabel();
+        ApellidosField = new javax.swing.JTextField();
+        Sexo = new javax.swing.JLabel();
+        SexoCombo = new javax.swing.JComboBox<>();
+        FechaVenPas = new javax.swing.JLabel();
+        FechaVenPasField = new javax.swing.JFormattedTextField();
+        FechaEmPas = new javax.swing.JLabel();
+        FechaEmPasField = new javax.swing.JFormattedTextField();
+        PaisActual = new javax.swing.JLabel();
+        PaisActualCombo = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaVerPasaporte = new javax.swing.JTable();
+        verPasaportes = new javax.swing.JButton();
+        jDesktopPane6 = new javax.swing.JDesktopPane();
+        jDesktopPane7 = new javax.swing.JDesktopPane();
+        jDesktopPane8 = new javax.swing.JDesktopPane();
+        RegresarMenu1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Departamento de Administracion");
@@ -88,84 +175,119 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         });
         jPanel2.add(SalirDelSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(1107, 600, 158, 44));
 
-        Admin.setForeground(new java.awt.Color(0, 0, 0));
+        Admin1.setForeground(new java.awt.Color(0, 0, 0));
 
-        jDesktopPane1.setBackground(new java.awt.Color(153, 255, 255));
+        jDesktopPane9.setBackground(new java.awt.Color(153, 255, 255));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        mostrarDatosCargados.setColumns(20);
+        mostrarDatosCargados.setRows(5);
+        jScrollPane2.setViewportView(mostrarDatosCargados);
 
-        InfoCargada.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
-        InfoCargada.setForeground(new java.awt.Color(0, 0, 0));
-        InfoCargada.setText("Informacion Cargada");
+        InfoCargada1.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        InfoCargada1.setForeground(new java.awt.Color(0, 0, 0));
+        InfoCargada1.setText("Informacion Cargada");
 
         CargaPasaporte.setBackground(new java.awt.Color(255, 255, 51));
         CargaPasaporte.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
         CargaPasaporte.setForeground(new java.awt.Color(0, 0, 0));
         CargaPasaporte.setText("Cargar Pasaporte");
+        CargaPasaporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CargaPasaporteActionPerformed(evt);
+            }
+        });
 
         CargaTarjeta.setBackground(new java.awt.Color(255, 255, 51));
         CargaTarjeta.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
         CargaTarjeta.setForeground(new java.awt.Color(0, 0, 0));
         CargaTarjeta.setText("Cargar Tarjeta");
+        CargaTarjeta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CargaTarjetaActionPerformed(evt);
+            }
+        });
 
         CargaDistancia.setBackground(new java.awt.Color(255, 255, 51));
         CargaDistancia.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
         CargaDistancia.setForeground(new java.awt.Color(0, 0, 0));
         CargaDistancia.setText("Carga Distancia");
+        CargaDistancia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CargaDistanciaActionPerformed(evt);
+            }
+        });
 
         CargaVuelo.setBackground(new java.awt.Color(255, 255, 51));
         CargaVuelo.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
         CargaVuelo.setForeground(new java.awt.Color(0, 0, 0));
         CargaVuelo.setText("Carga vuelo");
+        CargaVuelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CargaVueloActionPerformed(evt);
+            }
+        });
 
         CargaAeropuerto.setBackground(new java.awt.Color(255, 255, 51));
         CargaAeropuerto.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
         CargaAeropuerto.setForeground(new java.awt.Color(0, 0, 0));
         CargaAeropuerto.setText("Carga Aeropuerto");
+        CargaAeropuerto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CargaAeropuertoActionPerformed(evt);
+            }
+        });
 
         CargaAerolineas.setBackground(new java.awt.Color(255, 255, 51));
         CargaAerolineas.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
         CargaAerolineas.setForeground(new java.awt.Color(0, 0, 0));
         CargaAerolineas.setText("Carga Aerolineas");
+        CargaAerolineas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CargaAerolineasActionPerformed(evt);
+            }
+        });
 
         CargaAviones.setBackground(new java.awt.Color(255, 255, 51));
         CargaAviones.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
         CargaAviones.setForeground(new java.awt.Color(0, 0, 0));
         CargaAviones.setText("Carga Aviones");
+        CargaAviones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CargaAvionesActionPerformed(evt);
+            }
+        });
 
-        CargaBoton.setFont(new java.awt.Font("Engravers MT", 1, 18)); // NOI18N
-        CargaBoton.setForeground(new java.awt.Color(0, 0, 0));
-        CargaBoton.setText("Opciones de Carga");
+        CargaBoton1.setFont(new java.awt.Font("Engravers MT", 1, 18)); // NOI18N
+        CargaBoton1.setForeground(new java.awt.Color(0, 0, 0));
+        CargaBoton1.setText("Opciones de Carga");
 
-        jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(InfoCargada, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(CargaPasaporte, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(CargaTarjeta, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(CargaDistancia, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(CargaVuelo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(CargaAeropuerto, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(CargaAerolineas, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(CargaAviones, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(CargaBoton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane9.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane9.setLayer(InfoCargada1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane9.setLayer(CargaPasaporte, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane9.setLayer(CargaTarjeta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane9.setLayer(CargaDistancia, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane9.setLayer(CargaVuelo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane9.setLayer(CargaAeropuerto, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane9.setLayer(CargaAerolineas, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane9.setLayer(CargaAviones, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane9.setLayer(CargaBoton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jDesktopPane9Layout = new javax.swing.GroupLayout(jDesktopPane9);
+        jDesktopPane9.setLayout(jDesktopPane9Layout);
+        jDesktopPane9Layout.setHorizontalGroup(
+            jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane9Layout.createSequentialGroup()
                 .addGap(121, 121, 121)
-                .addComponent(InfoCargada)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(CargaBoton)
+                .addComponent(InfoCargada1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 346, Short.MAX_VALUE)
+                .addComponent(CargaBoton1)
                 .addGap(29, 29, 29))
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane9Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 834, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(CargaPasaporte, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(CargaTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(CargaDistancia, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,18 +295,18 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
                     .addComponent(CargaAeropuerto, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CargaAerolineas, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CargaAviones, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addGap(42, 42, 42))
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+        jDesktopPane9Layout.setVerticalGroup(
+            jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane9Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InfoCargada)
-                    .addComponent(CargaBoton))
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                .addGroup(jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InfoCargada1)
+                    .addComponent(CargaBoton1))
+                .addGap(18, 18, 18)
+                .addGroup(jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane9Layout.createSequentialGroup()
                         .addComponent(CargaPasaporte)
                         .addGap(18, 18, 18)
                         .addComponent(CargaTarjeta)
@@ -198,13 +320,11 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
                         .addComponent(CargaVuelo)
                         .addGap(18, 18, 18)
                         .addComponent(CargaDistancia))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        Admin.addTab("Carga de archivos", jDesktopPane1);
+        Admin1.addTab("Carga de archivos", jDesktopPane9);
 
         jDesktopPane2.setBackground(new java.awt.Color(153, 255, 255));
 
@@ -212,14 +332,14 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         jDesktopPane2.setLayout(jDesktopPane2Layout);
         jDesktopPane2Layout.setHorizontalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 948, Short.MAX_VALUE)
+            .addGap(0, 1178, Short.MAX_VALUE)
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 444, Short.MAX_VALUE)
+            .addGap(0, 494, Short.MAX_VALUE)
         );
 
-        Admin.addTab("Añadir Aerolinea", jDesktopPane2);
+        Admin1.addTab("Añadir/Ver Aerolineas", jDesktopPane2);
 
         jDesktopPane3.setBackground(new java.awt.Color(153, 255, 255));
 
@@ -227,14 +347,14 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         jDesktopPane3.setLayout(jDesktopPane3Layout);
         jDesktopPane3Layout.setHorizontalGroup(
             jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 948, Short.MAX_VALUE)
+            .addGap(0, 1178, Short.MAX_VALUE)
         );
         jDesktopPane3Layout.setVerticalGroup(
             jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 444, Short.MAX_VALUE)
+            .addGap(0, 494, Short.MAX_VALUE)
         );
 
-        Admin.addTab("Añadir Aeropuerto", jDesktopPane3);
+        Admin1.addTab("Añadir/Ver Aeropuertos", jDesktopPane3);
 
         jDesktopPane4.setBackground(new java.awt.Color(153, 255, 255));
 
@@ -242,16 +362,224 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         jDesktopPane4.setLayout(jDesktopPane4Layout);
         jDesktopPane4Layout.setHorizontalGroup(
             jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 948, Short.MAX_VALUE)
+            .addGap(0, 1178, Short.MAX_VALUE)
         );
         jDesktopPane4Layout.setVerticalGroup(
             jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 444, Short.MAX_VALUE)
+            .addGap(0, 494, Short.MAX_VALUE)
         );
 
-        Admin.addTab("Añadir Aviones", jDesktopPane4);
+        Admin1.addTab("Añadir/Ver Aviones", jDesktopPane4);
 
-        jPanel2.add(Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 950, 470));
+        jDesktopPane5.setBackground(new java.awt.Color(153, 255, 255));
+        jDesktopPane5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        RegistrarBoton.setBackground(new java.awt.Color(0, 204, 204));
+        RegistrarBoton.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        RegistrarBoton.setForeground(new java.awt.Color(0, 0, 0));
+        RegistrarBoton.setText("Añadir pasaporte");
+        RegistrarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarBotonActionPerformed(evt);
+            }
+        });
+        jDesktopPane5.add(RegistrarBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, -1, -1));
+
+        Pasaporte.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Pasaporte.setForeground(new java.awt.Color(0, 0, 0));
+        Pasaporte.setText("Pasaporte");
+        jDesktopPane5.add(Pasaporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        PasaporteField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasaporteFieldActionPerformed(evt);
+            }
+        });
+        PasaporteField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PasaporteFieldKeyTyped(evt);
+            }
+        });
+        jDesktopPane5.add(PasaporteField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 160, -1));
+
+        FechaNacimiento.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        FechaNacimiento.setForeground(new java.awt.Color(0, 0, 0));
+        FechaNacimiento.setText("Fecha nacimiento");
+        jDesktopPane5.add(FechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+
+        FechaNacimientoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        jDesktopPane5.add(FechaNacimientoField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 160, 20));
+
+        Nacionalidad.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Nacionalidad.setForeground(new java.awt.Color(0, 0, 0));
+        Nacionalidad.setText("Nacionalidad");
+        jDesktopPane5.add(Nacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+
+        NacionalidadCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Marshall", "Islas Salomón", "Israel", "Italia", "Jamaica", "Japón", "ordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar", "Malasia", "Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana", "República Checa", "República del Congo", "República Democrática del Congo", "República Dominicana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue" }));
+        jDesktopPane5.add(NacionalidadCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 160, -1));
+
+        EstadoCivil.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        EstadoCivil.setForeground(new java.awt.Color(0, 0, 0));
+        EstadoCivil.setText("Estado civil");
+        jDesktopPane5.add(EstadoCivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+
+        EstadoCivilCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solter@", "Casad@", "Divorciad@" }));
+        jDesktopPane5.add(EstadoCivilCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 160, -1));
+
+        Nombres.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Nombres.setForeground(new java.awt.Color(0, 0, 0));
+        Nombres.setText("Nombres");
+        jDesktopPane5.add(Nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+
+        NombresField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombresFieldActionPerformed(evt);
+            }
+        });
+        NombresField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                NombresFieldKeyTyped(evt);
+            }
+        });
+        jDesktopPane5.add(NombresField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 160, -1));
+
+        Apellidos.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Apellidos.setForeground(new java.awt.Color(0, 0, 0));
+        Apellidos.setText("Apellidos");
+        jDesktopPane5.add(Apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+
+        ApellidosField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ApellidosFieldActionPerformed(evt);
+            }
+        });
+        ApellidosField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ApellidosFieldKeyTyped(evt);
+            }
+        });
+        jDesktopPane5.add(ApellidosField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 160, -1));
+
+        Sexo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Sexo.setForeground(new java.awt.Color(0, 0, 0));
+        Sexo.setText("Sexo");
+        jDesktopPane5.add(Sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
+
+        SexoCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hombre", "Mujer" }));
+        jDesktopPane5.add(SexoCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, -1, -1));
+
+        FechaVenPas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        FechaVenPas.setForeground(new java.awt.Color(0, 0, 0));
+        FechaVenPas.setText("Fecha vencimiento pasaporte");
+        jDesktopPane5.add(FechaVenPas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+
+        FechaVenPasField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        jDesktopPane5.add(FechaVenPasField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 160, 20));
+
+        FechaEmPas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        FechaEmPas.setForeground(new java.awt.Color(0, 0, 0));
+        FechaEmPas.setText("Fecha emisión pasaporte");
+        jDesktopPane5.add(FechaEmPas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
+
+        FechaEmPasField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        jDesktopPane5.add(FechaEmPasField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 160, 20));
+
+        PaisActual.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        PaisActual.setForeground(new java.awt.Color(0, 0, 0));
+        PaisActual.setText("Pais Actual");
+        jDesktopPane5.add(PaisActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
+
+        PaisActualCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Marshall", "Islas Salomón", "Israel", "Italia", "Jamaica", "Japón", "ordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar", "Malasia", "Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana", "República Checa", "República del Congo", "República Democrática del Congo", "República Dominicana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue" }));
+        jDesktopPane5.add(PaisActualCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, 160, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoMadera.jpg"))); // NOI18N
+        jDesktopPane5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 430, 410));
+
+        tablaVerPasaporte.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaVerPasaporte);
+
+        jDesktopPane5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 590, 410));
+
+        verPasaportes.setBackground(new java.awt.Color(0, 255, 255));
+        verPasaportes.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        verPasaportes.setForeground(new java.awt.Color(0, 0, 0));
+        verPasaportes.setText("Ver Pasaportes");
+        verPasaportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verPasaportesActionPerformed(evt);
+            }
+        });
+        jDesktopPane5.add(verPasaportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, -1, -1));
+
+        Admin1.addTab("Añadir/Ver Pasaportes", jDesktopPane5);
+
+        jDesktopPane6.setBackground(new java.awt.Color(153, 255, 255));
+
+        javax.swing.GroupLayout jDesktopPane6Layout = new javax.swing.GroupLayout(jDesktopPane6);
+        jDesktopPane6.setLayout(jDesktopPane6Layout);
+        jDesktopPane6Layout.setHorizontalGroup(
+            jDesktopPane6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1178, Short.MAX_VALUE)
+        );
+        jDesktopPane6Layout.setVerticalGroup(
+            jDesktopPane6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 494, Short.MAX_VALUE)
+        );
+
+        Admin1.addTab("Añadir/Ver Tarjetas", jDesktopPane6);
+
+        jDesktopPane7.setBackground(new java.awt.Color(153, 255, 255));
+
+        javax.swing.GroupLayout jDesktopPane7Layout = new javax.swing.GroupLayout(jDesktopPane7);
+        jDesktopPane7.setLayout(jDesktopPane7Layout);
+        jDesktopPane7Layout.setHorizontalGroup(
+            jDesktopPane7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1178, Short.MAX_VALUE)
+        );
+        jDesktopPane7Layout.setVerticalGroup(
+            jDesktopPane7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 494, Short.MAX_VALUE)
+        );
+
+        Admin1.addTab("Renovacion Pasaporte", jDesktopPane7);
+
+        jDesktopPane8.setBackground(new java.awt.Color(153, 255, 255));
+
+        javax.swing.GroupLayout jDesktopPane8Layout = new javax.swing.GroupLayout(jDesktopPane8);
+        jDesktopPane8.setLayout(jDesktopPane8Layout);
+        jDesktopPane8Layout.setHorizontalGroup(
+            jDesktopPane8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1178, Short.MAX_VALUE)
+        );
+        jDesktopPane8Layout.setVerticalGroup(
+            jDesktopPane8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 494, Short.MAX_VALUE)
+        );
+
+        Admin1.addTab("Reservacion", jDesktopPane8);
+
+        jPanel2.add(Admin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 1180, 520));
+
+        RegresarMenu1.setBackground(new java.awt.Color(255, 0, 0));
+        RegresarMenu1.setFont(new java.awt.Font("Engravers MT", 1, 14)); // NOI18N
+        RegresarMenu1.setForeground(new java.awt.Color(0, 0, 0));
+        RegresarMenu1.setText("Regresar");
+        RegresarMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegresarMenu1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(RegresarMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 600, 160, 44));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -276,6 +604,235 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         LlamarInstancias.manejoAeropuerto();//Regresamos al manejo aeropuerto
         this.dispose();//Cerramos este frame
     }//GEN-LAST:event_RegresarMenuActionPerformed
+
+    private void RegresarMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegresarMenu1ActionPerformed
+
+    private void ApellidosFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ApellidosFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        int comprobarSiEsNumero = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir numeros
+        if(Character.isDigit(comprobarSiEsNumero)){//Comprobamos si el usuario escribe numeros
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir digitos, unicamente letras");//Mensaje condicional no escribir numeros
+        }
+    }//GEN-LAST:event_ApellidosFieldKeyTyped
+
+    private void ApellidosFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApellidosFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ApellidosFieldActionPerformed
+
+    private void NombresFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NombresFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        int comprobarSiEsNumero = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir numeros
+        if(Character.isDigit(comprobarSiEsNumero)){//Comprobamos si el usuario escribe numeros
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir digitos, unicamente letras");//Mensaje condicional no escribir numeros
+        }
+    }//GEN-LAST:event_NombresFieldKeyTyped
+
+    private void NombresFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombresFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombresFieldActionPerformed
+
+    private void PasaporteFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasaporteFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        if(PasaporteField.getText().length()>7){//restringimos que no puede escribir mas de 8 digitos
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "El pasaporte unicamente tiene 8 digitos");//Mensaje condicional digitos pasaporte
+        }
+        char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
+        if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir letras, unicamente digitos");//Mensaje condicional no escribir letras
+        }
+    }//GEN-LAST:event_PasaporteFieldKeyTyped
+
+    private void PasaporteFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasaporteFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PasaporteFieldActionPerformed
+
+    private void CargaPasaporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargaPasaporteActionPerformed
+        //filechooser para abrir o guardar archivos
+        JFileChooser archivoEleccion = new JFileChooser();
+        int eleccion = archivoEleccion.showOpenDialog(this);//variable para seleccionar
+        //aprove option es si el usuario le da en aceptar
+        if (eleccion == JFileChooser.APPROVE_OPTION) {
+            File archivo = archivoEleccion.getSelectedFile();//seleccionamos file para fileReader, agarramos el seleccionado
+            try {
+                //llamamos el arraylist creado de pasaporte
+                ArrayList<Pasaporte> pasaportes = this.cargarPasaporteEnTexto.cargarPasaporteEnTexto(archivo, this.mostrarDatosCargados);
+                this.guardarPasaporteBinario.guardarPasaporte(pasaportes);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "Error al leer el archivo de pasaporte");
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_CargaPasaporteActionPerformed
+
+    private void RegistrarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarBotonActionPerformed
+        /*
+        -Establecemos variables para ser tomadas en cuenta al crear un nuevo pasajero
+        -El (String) nos sirve para castear el item y pasarlo a tipo string
+        -Anteriormente pasaporte y millas lo podemos convertir de string a int por eso lo definimos como string
+         */
+        String pasaporte=PasaporteField.getText();
+        String contrasenia= "";
+        String fechaNacimiento= FechaNacimientoField.getText();
+        String nacionalidad = (String)NacionalidadCombo.getSelectedItem();
+        String estadoCivil= (String) EstadoCivilCombo.getSelectedItem();
+        String nombres= NombresField.getText();
+        String apellidos= ApellidosField.getText();
+        String sexo= (String) SexoCombo.getSelectedItem();
+        String fechaVenPass= FechaVenPasField.getText();
+        String fechaEmPass= FechaEmPasField.getText();
+        String paisActual= (String) PaisActualCombo.getSelectedItem();
+        String millasRecorridas= "0";
+        //Verificamos si una casilla esta vacia
+        if(pasaporte.isEmpty()||fechaNacimiento.isEmpty()||nacionalidad.isEmpty()||nombres.isEmpty()||apellidos.isEmpty()||fechaVenPass.isEmpty()||fechaEmPass.isEmpty()){
+            JOptionPane.showMessageDialog(null, "No dejes casillas vacias");//Mensaje casilla vacia
+        }
+        else{
+            //definimos los espacios que ocupara en nuestro pasajero al ser creado
+            String espacio[]={pasaporte,contrasenia,fechaNacimiento,nacionalidad,estadoCivil,nombres,apellidos,sexo,fechaVenPass,fechaEmPass,paisActual,millasRecorridas};
+            Pasaporte pasaportes = CrearPasaporte.crearPasaporte(espacio);
+            //establecemos un nuevo valor en los pasajeros establecidos del array list
+            ArrayList<Pasaporte> pasaportesEstablecidos= new ArrayList<>();
+            pasaportesEstablecidos.add(pasaportes);//agreagamos un nuevo pasaporte
+            vaciarValoresPasaporte();
+            JOptionPane.showMessageDialog(this, "Te registraste exitosamente, que grande");//mensaje amigable
+            try {//guardar el vehiculo en un archivo binario
+                this.guardarPasaporteBinario.guardarPasaporte(pasaportesEstablecidos);
+            } catch (IOException ex) {
+                System.out.println("error"+ex);
+            }
+            
+        }
+    }//GEN-LAST:event_RegistrarBotonActionPerformed
+
+    private void verPasaportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verPasaportesActionPerformed
+        try {
+            //creo un arraylist de vehiculos y ejecuto el metodo leerVehiculos.
+            ArrayList<Pasaporte> pasaportes = this.cargarPasaporteBinario.cargarPasaporteBinario();
+            TablaPasaporte.completarTabla(pasaportes, tablaVerPasaporte);
+        } catch (IOException ex) {
+            System.out.println("ex"+ex);
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_verPasaportesActionPerformed
+
+    private void CargaAeropuertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargaAeropuertoActionPerformed
+        //filechooser para abrir o guardar archivos
+        JFileChooser archivoEleccion = new JFileChooser();
+        int eleccion = archivoEleccion.showOpenDialog(this);//variable para seleccionar
+        //aprove option es si el usuario le da en aceptar
+        if (eleccion == JFileChooser.APPROVE_OPTION) {
+            File archivo = archivoEleccion.getSelectedFile();//seleccionamos file para fileReader, agarramos el seleccionado
+            try {
+                //llamamos el arraylist creado de Aeropuerto
+                ArrayList<Aeropuerto> aeropuertos = this.cargarAeropuertoEnTexto.cargarAeropuertoEnTexto(archivo, this.mostrarDatosCargados);
+                this.guardarAeropuertoBinario.guardarAeropuerto(aeropuertos);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "Error al leer el archivo de Aeropuerto");
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_CargaAeropuertoActionPerformed
+
+    private void CargaDistanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargaDistanciaActionPerformed
+        //filechooser para abrir o guardar archivos
+        JFileChooser archivoEleccion = new JFileChooser();
+        int eleccion = archivoEleccion.showOpenDialog(this);//variable para seleccionar
+        //aprove option es si el usuario le da en aceptar
+        if (eleccion == JFileChooser.APPROVE_OPTION) {
+            File archivo = archivoEleccion.getSelectedFile();//seleccionamos file para fileReader, agarramos el seleccionado
+            try {
+                //llamamos el arraylist creado de Distancia
+                ArrayList<Distancia> distancias = this.cargarDistanciaEnTexto.cargarDistanciaEnTexto(archivo, this.mostrarDatosCargados);
+                this.guardarDistanciaBinario.guardarDistancia(distancias);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "Error al leer el archivo de Distancia");
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_CargaDistanciaActionPerformed
+
+    private void CargaVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargaVueloActionPerformed
+        //filechooser para abrir o guardar archivos
+        JFileChooser archivoEleccion = new JFileChooser();
+        int eleccion = archivoEleccion.showOpenDialog(this);//variable para seleccionar
+        //aprove option es si el usuario le da en aceptar
+        if (eleccion == JFileChooser.APPROVE_OPTION) {
+            File archivo = archivoEleccion.getSelectedFile();//seleccionamos file para fileReader, agarramos el seleccionado
+            try {
+                //llamamos el arraylist creado de Vuelo
+                ArrayList<Vuelo> vuelos = this.cargarVueloEnTexto.cargarVueloEnTexto(archivo, this.mostrarDatosCargados);
+                this.guardarVueloBinario.guardarVuelo(vuelos);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "Error al leer el archivo de vuelos");
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_CargaVueloActionPerformed
+
+    private void CargaAvionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargaAvionesActionPerformed
+        //filechooser para abrir o guardar archivos
+        JFileChooser archivoEleccion = new JFileChooser();
+        int eleccion = archivoEleccion.showOpenDialog(this);//variable para seleccionar
+        //aprove option es si el usuario le da en aceptar
+        if (eleccion == JFileChooser.APPROVE_OPTION) {
+            File archivo = archivoEleccion.getSelectedFile();//seleccionamos file para fileReader, agarramos el seleccionado
+            try {
+                //llamamos el arraylist creado de Aviones
+                ArrayList<Aviones> aviones = this.cargarAvionesEnTexto.cargarAvionesEnTexto(archivo, this.mostrarDatosCargados);
+                this.guardarAvionesBinario.guardarAviones(aviones);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "Error al leer el archivo de Aviones");
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_CargaAvionesActionPerformed
+
+    private void CargaAerolineasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargaAerolineasActionPerformed
+        //filechooser para abrir o guardar archivos
+        JFileChooser archivoEleccion = new JFileChooser();
+        int eleccion = archivoEleccion.showOpenDialog(this);//variable para seleccionar
+        //aprove option es si el usuario le da en aceptar
+        if (eleccion == JFileChooser.APPROVE_OPTION) {
+            File archivo = archivoEleccion.getSelectedFile();//seleccionamos file para fileReader, agarramos el seleccionado
+            try {
+                //llamamos el arraylist creado de Aerolineas
+                ArrayList<Aerolineas> aerolineas = this.cargarAerolineasEnTexto.cargarAerolineasEnTexto(archivo, this.mostrarDatosCargados);
+                this.guardarAerolineasBinario.guardarAerolineas(aerolineas);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "Error al leer el archivo de Aerolineas");
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_CargaAerolineasActionPerformed
+
+    private void CargaTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargaTarjetaActionPerformed
+        //filechooser para abrir o guardar archivos
+        JFileChooser archivoEleccion = new JFileChooser();
+        int eleccion = archivoEleccion.showOpenDialog(this);//variable para seleccionar
+        //aprove option es si el usuario le da en aceptar
+        if (eleccion == JFileChooser.APPROVE_OPTION) {
+            File archivo = archivoEleccion.getSelectedFile();//seleccionamos file para fileReader, agarramos el seleccionado
+            try {
+                //llamamos el arraylist creado de Tarjeta
+                ArrayList<Tarjeta> tarjeta = this.cargarTarjetaEnTexto.cargarTarjetaEnTexto(archivo, this.mostrarDatosCargados);
+                this.guardarTarjetaBinario.guardarTarjeta(tarjeta);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "Error al leer el archivo de Tarjeta");
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_CargaTarjetaActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
         @Override//sobrescribimos la clase JPanel especificamente el metodo paint
@@ -286,27 +843,64 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
             super.paint(g);//llamos a la clase super para que cumpla con las funcionalidades del JPanel
         }
     }
-
+    private void vaciarValoresPasaporte(){
+        PasaporteField.setText("");
+        FechaNacimientoField.setText("");
+        NombresField.setText("");
+        ApellidosField.setText("");
+        FechaVenPasField.setText("");
+        FechaEmPasField.setText("");
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTabbedPane Admin;
+    private javax.swing.JTabbedPane Admin1;
+    private javax.swing.JLabel Apellidos;
+    private javax.swing.JTextField ApellidosField;
     private javax.swing.JButton CargaAerolineas;
     private javax.swing.JButton CargaAeropuerto;
     private javax.swing.JButton CargaAviones;
-    private javax.swing.JLabel CargaBoton;
+    private javax.swing.JLabel CargaBoton1;
     private javax.swing.JButton CargaDistancia;
     private javax.swing.JButton CargaPasaporte;
     private javax.swing.JButton CargaTarjeta;
     private javax.swing.JButton CargaVuelo;
-    private javax.swing.JLabel InfoCargada;
+    private javax.swing.JLabel EstadoCivil;
+    private javax.swing.JComboBox<String> EstadoCivilCombo;
+    private javax.swing.JLabel FechaEmPas;
+    private javax.swing.JFormattedTextField FechaEmPasField;
+    private javax.swing.JLabel FechaNacimiento;
+    private javax.swing.JFormattedTextField FechaNacimientoField;
+    private javax.swing.JLabel FechaVenPas;
+    private javax.swing.JFormattedTextField FechaVenPasField;
+    private javax.swing.JLabel InfoCargada1;
     private javax.swing.JLabel Logo;
+    private javax.swing.JLabel Nacionalidad;
+    private javax.swing.JComboBox<String> NacionalidadCombo;
+    private javax.swing.JLabel Nombres;
+    private javax.swing.JTextField NombresField;
+    private javax.swing.JLabel PaisActual;
+    private javax.swing.JComboBox<String> PaisActualCombo;
+    private javax.swing.JLabel Pasaporte;
+    private javax.swing.JTextField PasaporteField;
+    private javax.swing.JButton RegistrarBoton;
     private javax.swing.JButton RegresarMenu;
+    private javax.swing.JButton RegresarMenu1;
     private javax.swing.JButton SalirDelSistema;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel Sexo;
+    private javax.swing.JComboBox<String> SexoCombo;
     private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JDesktopPane jDesktopPane3;
     private javax.swing.JDesktopPane jDesktopPane4;
+    private javax.swing.JDesktopPane jDesktopPane5;
+    private javax.swing.JDesktopPane jDesktopPane6;
+    private javax.swing.JDesktopPane jDesktopPane7;
+    private javax.swing.JDesktopPane jDesktopPane8;
+    private javax.swing.JDesktopPane jDesktopPane9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea mostrarDatosCargados;
+    private javax.swing.JTable tablaVerPasaporte;
+    private javax.swing.JButton verPasaportes;
     // End of variables declaration//GEN-END:variables
 }

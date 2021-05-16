@@ -1,0 +1,2 @@
+AEROLÍNEA(Juanito,Pedro)
+AEROLÍNEA(Marco,Polo)
