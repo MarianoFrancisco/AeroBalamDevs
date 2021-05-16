@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 public class FrameLoginPasajeros extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrameLoginPasajeros
+     * Creates new form AnimacionVuelo
      */
     FondoInicio fondoLoginPasajeros = new FondoInicio();//Creamos un nuevo fondo
     public FrameLoginPasajeros() {
@@ -40,6 +40,13 @@ public class FrameLoginPasajeros extends javax.swing.JFrame {
         SalirDelSistema = new javax.swing.JButton();
         RegresarMenu = new javax.swing.JButton();
         Logo = new javax.swing.JLabel();
+        Persona = new javax.swing.JLabel();
+        millasRecorridas = new javax.swing.JLabel();
+        datosPersonales = new javax.swing.JLabel();
+        gastosTarjeta = new javax.swing.JLabel();
+        boletosComprados = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login Pasajeros");
@@ -71,6 +78,35 @@ public class FrameLoginPasajeros extends javax.swing.JFrame {
 
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo.PNG"))); // NOI18N
         jPanel1.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, -1, -1));
+
+        Persona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/PersonaDatosUsuario.png"))); // NOI18N
+        jPanel1.add(Persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 180, 250));
+
+        millasRecorridas.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        millasRecorridas.setForeground(new java.awt.Color(0, 0, 0));
+        millasRecorridas.setText("millas recorridas:");
+        jPanel1.add(millasRecorridas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, -1, -1));
+
+        datosPersonales.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        datosPersonales.setForeground(new java.awt.Color(0, 0, 0));
+        datosPersonales.setText("datos personales:");
+        jPanel1.add(datosPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, -1, -1));
+
+        gastosTarjeta.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        gastosTarjeta.setForeground(new java.awt.Color(0, 0, 0));
+        gastosTarjeta.setText("Gastos por tarjeta:");
+        jPanel1.add(gastosTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, -1));
+
+        boletosComprados.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        boletosComprados.setForeground(new java.awt.Color(0, 0, 0));
+        boletosComprados.setText("Boletos Comprados:");
+        jPanel1.add(boletosComprados, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoBodega.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 260, 320));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoMadera.jpg"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 650, 410));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,11 +141,18 @@ public class FrameLoginPasajeros extends javax.swing.JFrame {
             super.paint(g);//llamos a la clase super para que cumpla con las funcionalidades del JPanel
         }
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Logo;
+    private javax.swing.JLabel Persona;
     private javax.swing.JButton RegresarMenu;
     private javax.swing.JButton SalirDelSistema;
+    private javax.swing.JLabel boletosComprados;
+    private javax.swing.JLabel datosPersonales;
+    private javax.swing.JLabel gastosTarjeta;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel millasRecorridas;
     // End of variables declaration//GEN-END:variables
 }

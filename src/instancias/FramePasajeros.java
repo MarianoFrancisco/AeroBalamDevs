@@ -50,9 +50,6 @@ public class FramePasajeros extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         LoginTexto1 = new javax.swing.JLabel();
         FondoMadera = new javax.swing.JLabel();
-        Registrarse = new javax.swing.JButton();
-        CreacCuenta = new javax.swing.JLabel();
-        FondoMadera3 = new javax.swing.JLabel();
         BarraBalnca2 = new javax.swing.JLabel();
         BarraBalnca3 = new javax.swing.JLabel();
         BarraBalnca = new javax.swing.JLabel();
@@ -92,7 +89,7 @@ public class FramePasajeros extends javax.swing.JFrame {
         LoginTexto.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
         LoginTexto.setForeground(new java.awt.Color(0, 0, 0));
         LoginTexto.setText("Login");
-        jPanel1.add(LoginTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
+        jPanel1.add(LoginTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, -1, -1));
 
         EntradaContraseña.setToolTipText("");
         EntradaContraseña.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +102,7 @@ public class FramePasajeros extends javax.swing.JFrame {
                 EntradaContraseñaKeyTyped(evt);
             }
         });
-        jPanel1.add(EntradaContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 150, -1));
+        jPanel1.add(EntradaContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 150, -1));
 
         EntradaPasaporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,7 +114,7 @@ public class FramePasajeros extends javax.swing.JFrame {
                 EntradaPasaporteKeyTyped(evt);
             }
         });
-        jPanel1.add(EntradaPasaporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 150, -1));
+        jPanel1.add(EntradaPasaporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 150, -1));
 
         IniciarSesionPasajeros.setBackground(new java.awt.Color(0, 204, 204));
         IniciarSesionPasajeros.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
@@ -128,17 +125,17 @@ public class FramePasajeros extends javax.swing.JFrame {
                 IniciarSesionPasajerosActionPerformed(evt);
             }
         });
-        jPanel1.add(IniciarSesionPasajeros, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, -1));
+        jPanel1.add(IniciarSesionPasajeros, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, -1, -1));
 
         passwordTexto.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
         passwordTexto.setForeground(new java.awt.Color(0, 0, 0));
         passwordTexto.setText("Contraseña");
-        jPanel1.add(passwordTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
+        jPanel1.add(passwordTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, -1, -1));
 
         pasaporteTexto.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
         pasaporteTexto.setForeground(new java.awt.Color(0, 0, 0));
         pasaporteTexto.setText("Pasaporte");
-        jPanel1.add(pasaporteTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
+        jPanel1.add(pasaporteTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 204, 204));
         jButton1.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
@@ -159,34 +156,17 @@ public class FramePasajeros extends javax.swing.JFrame {
         FondoMadera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoMadera.jpg"))); // NOI18N
         jPanel1.add(FondoMadera, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 580, 400));
 
-        Registrarse.setBackground(new java.awt.Color(0, 204, 204));
-        Registrarse.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
-        Registrarse.setForeground(new java.awt.Color(0, 0, 0));
-        Registrarse.setText("Registrarse");
-        Registrarse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegistrarseActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 160, 30));
-
-        CreacCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CrearCuenta.PNG"))); // NOI18N
-        jPanel1.add(CreacCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 160, 140));
-
-        FondoMadera3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoMadera.jpg"))); // NOI18N
-        jPanel1.add(FondoMadera3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 350, 140));
-
         BarraBalnca2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BarraBlanca.PNG"))); // NOI18N
-        jPanel1.add(BarraBalnca2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 120, -1));
+        jPanel1.add(BarraBalnca2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 120, -1));
 
         BarraBalnca3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BarraBlanca.PNG"))); // NOI18N
-        jPanel1.add(BarraBalnca3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 140, 30));
+        jPanel1.add(BarraBalnca3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 140, 30));
 
         BarraBalnca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BarraBlanca.PNG"))); // NOI18N
-        jPanel1.add(BarraBalnca, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 140, 30));
+        jPanel1.add(BarraBalnca, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 140, 30));
 
         FondoMadera1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoMadera.jpg"))); // NOI18N
-        jPanel1.add(FondoMadera1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 350, 220));
+        jPanel1.add(FondoMadera1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 350, 220));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -263,11 +243,6 @@ public class FramePasajeros extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No puedes escribir letras, unicamente digitos");//Mensaje condicional no escribir letras
         }
     }//GEN-LAST:event_EntradaPasaporteKeyTyped
-
-    private void RegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseActionPerformed
-        LlamarInstancias.registrarsePasajeros();//Vamos a registrar al pasajero
-        this.dispose();//Cerramos este frame
-    }//GEN-LAST:event_RegistrarseActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
         @Override//sobrescribimos la clase JPanel especificamente el metodo paint
@@ -282,17 +257,14 @@ public class FramePasajeros extends javax.swing.JFrame {
     private javax.swing.JLabel BarraBalnca;
     private javax.swing.JLabel BarraBalnca2;
     private javax.swing.JLabel BarraBalnca3;
-    private javax.swing.JLabel CreacCuenta;
     private javax.swing.JPasswordField EntradaContraseña;
     private javax.swing.JTextField EntradaPasaporte;
     private javax.swing.JLabel FondoMadera;
     private javax.swing.JLabel FondoMadera1;
-    private javax.swing.JLabel FondoMadera3;
     private javax.swing.JButton IniciarSesionPasajeros;
     private javax.swing.JLabel LoginTexto;
     private javax.swing.JLabel LoginTexto1;
     private javax.swing.JLabel Logo;
-    private javax.swing.JButton Registrarse;
     private javax.swing.JButton RegresarMenu;
     private javax.swing.JButton SalirDelSistema;
     private javax.swing.JButton jButton1;

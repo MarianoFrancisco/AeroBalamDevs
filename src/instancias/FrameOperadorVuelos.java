@@ -5,6 +5,7 @@
  */
 package instancias;
 
+import static instancias.FrameAnimacionVuelo.frameAnimacionVuelo;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -24,9 +25,10 @@ public class FrameOperadorVuelos extends javax.swing.JFrame {
     public FrameOperadorVuelos() {
         this.setContentPane(operadorVuelos);//Realizamos la pintada de nuestro fondo
         initComponents();
+
         this.setLocationRelativeTo(null);//Centramos nuestro frame
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,6 +42,7 @@ public class FrameOperadorVuelos extends javax.swing.JFrame {
         SalirDelSistema = new javax.swing.JButton();
         RegresarMenu = new javax.swing.JButton();
         Logo = new javax.swing.JLabel();
+        iniciarVuelo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Operador de Vuelos");
@@ -72,6 +75,16 @@ public class FrameOperadorVuelos extends javax.swing.JFrame {
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo.PNG"))); // NOI18N
         jPanel1.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, -1, -1));
 
+        iniciarVuelo.setFont(new java.awt.Font("Engravers MT", 1, 18)); // NOI18N
+        iniciarVuelo.setForeground(new java.awt.Color(0, 0, 0));
+        iniciarVuelo.setText("Iniciar Vuelo");
+        iniciarVuelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iniciarVueloActionPerformed(evt);
+            }
+        });
+        jPanel1.add(iniciarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,6 +103,12 @@ public class FrameOperadorVuelos extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Vuelve pronto, que tengas buen dia");//Mensaje de despedida
         System.exit(0);//Cerramos el sistema
     }//GEN-LAST:event_SalirDelSistemaActionPerformed
+
+    private void iniciarVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarVueloActionPerformed
+        FrameAnimacionVuelo.iniciarVuelo();
+        frameAnimacionVuelo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_iniciarVueloActionPerformed
 
     private void RegresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarMenuActionPerformed
         LlamarInstancias.manejoAeropuerto();//Regresamos al manejo aeropuerto
@@ -110,6 +129,7 @@ public class FrameOperadorVuelos extends javax.swing.JFrame {
     private javax.swing.JLabel Logo;
     private javax.swing.JButton RegresarMenu;
     private javax.swing.JButton SalirDelSistema;
+    private javax.swing.JButton iniciarVuelo;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

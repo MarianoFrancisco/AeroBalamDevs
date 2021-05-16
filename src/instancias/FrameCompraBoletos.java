@@ -7,9 +7,11 @@ package instancias;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import manejadorArchivosUser.Pasaporte;
 
 /**
  *
@@ -40,6 +42,7 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
         SalirDelSistema = new javax.swing.JButton();
         RegresarMenu = new javax.swing.JButton();
         Logo = new javax.swing.JLabel();
+        probarArraylist = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,6 +74,14 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo.PNG"))); // NOI18N
         jPanel1.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, -1, -1));
 
+        probarArraylist.setText("probarArraylist");
+        probarArraylist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                probarArraylistActionPerformed(evt);
+            }
+        });
+        jPanel1.add(probarArraylist, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,6 +105,12 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
         LlamarInstancias.pasajeros();//Regresamos al menu opciones
         this.dispose();//Cerramos este frame
     }//GEN-LAST:event_RegresarMenuActionPerformed
+
+    private void probarArraylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_probarArraylistActionPerformed
+        ArrayList<Pasaporte> pass = new ArrayList<>();
+        Pasaporte p = pass.get(1);
+        System.out.println(""+p.getPasaporte());
+    }//GEN-LAST:event_probarArraylistActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
         @Override//sobrescribimos la clase JPanel especificamente el metodo paint
@@ -104,11 +121,11 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
             super.paint(g);//llamos a la clase super para que cumpla con las funcionalidades del JPanel
         }
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Logo;
     private javax.swing.JButton RegresarMenu;
     private javax.swing.JButton SalirDelSistema;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton probarArraylist;
     // End of variables declaration//GEN-END:variables
 }

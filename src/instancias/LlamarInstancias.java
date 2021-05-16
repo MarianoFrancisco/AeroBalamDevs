@@ -50,13 +50,6 @@ public class LlamarInstancias {
             }
         });
     }
-    public static void registrarsePasajeros(){//Realizamos llamado a registrase pasajeros
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrameRegistrarsePasajero().setVisible(true);
-            }
-        });
-    }
     public static void departamentoAdministracion(){//Realizamos llamado a departamento administracion
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -78,5 +71,11 @@ public class LlamarInstancias {
             }
         });
     }
-    
+    public static void animacionVuelo(){//Realizamos llamado a frame login pasajeros
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrameAnimacionVuelo().setVisible(true);
+            }
+        });
+    }
 }
