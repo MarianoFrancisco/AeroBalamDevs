@@ -5,13 +5,13 @@
  */
 package instancias;
 
+import static instancias.FramePasajeros.c;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.util.ArrayList;
+
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import manejadorArchivosUser.Pasaporte;
 
 /**
  *
@@ -107,9 +107,7 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
     }//GEN-LAST:event_RegresarMenuActionPerformed
 
     private void probarArraylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_probarArraylistActionPerformed
-        ArrayList<Pasaporte> pass = new ArrayList<>();
-        Pasaporte p = pass.get(1);
-        System.out.println(""+p.getPasaporte());
+
     }//GEN-LAST:event_probarArraylistActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
@@ -121,6 +119,7 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
             super.paint(g);//llamos a la clase super para que cumpla con las funcionalidades del JPanel
         }
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Logo;
     private javax.swing.JButton RegresarMenu;

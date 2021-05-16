@@ -25,7 +25,7 @@ public class GuardarAvionesBinario {
         FileOutputStream archivoSalida;//saca los datos para guardarlos
         ObjectOutputStream objetoSalida;//para escribir objetos en un fichero y luego necesitamos usar write object
         for (Aviones avion : aviones) {//indicamos que recorreremos un aviones, el tipo de archivo que definimos
-            archivoSalida = new FileOutputStream(archivosAviones+"/"+avion.getCodigoAvion());//nombre de archivo
+            archivoSalida = new FileOutputStream(archivosAviones+"/"+avion.getCodigoAvion()+".bin");//nombre de archivo
             objetoSalida = new ObjectOutputStream(archivoSalida);//indicamos en que archivo ira
             objetoSalida.writeObject(avion);//lector del objeto
             objetoSalida.close();//cerramos el objeto de salida

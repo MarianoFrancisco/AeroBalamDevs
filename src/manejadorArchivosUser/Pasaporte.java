@@ -7,6 +7,7 @@ package manejadorArchivosUser;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  *
@@ -140,5 +141,6 @@ public class Pasaporte implements Serializable{
     public void setMillasRecorridas(int millasRecorridas) {
         this.millasRecorridas = millasRecorridas;
     }
+    
     
 }

@@ -25,7 +25,7 @@ public class GuardarAeropuertoBinario {
         FileOutputStream archivoSalida;//saca los datos para guardarlos
         ObjectOutputStream objetoSalida;//para escribir objetos en un fichero y luego necesitamos usar write object
         for (Aeropuerto aeropuerto : aeropuertos) {//indicamos que recorreremos un aeropuerto, el tipo de archivo que definimos
-            archivoSalida = new FileOutputStream(archivosAeropuerto+"/"+aeropuerto.getNombreAeropuerto());//nombre de archivo
+            archivoSalida = new FileOutputStream(archivosAeropuerto+"/"+aeropuerto.getNombreAeropuerto()+".bin");//nombre de archivo
             objetoSalida = new ObjectOutputStream(archivoSalida);//indicamos en que archivo ira
             objetoSalida.writeObject(aeropuerto);//lector del objeto
             objetoSalida.close();//cerramos el objeto de salida

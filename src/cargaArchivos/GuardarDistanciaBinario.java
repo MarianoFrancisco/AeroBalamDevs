@@ -25,7 +25,7 @@ public class GuardarDistanciaBinario {
         FileOutputStream archivoSalida;//saca los datos para guardarlos
         ObjectOutputStream objetoSalida;//para escribir objetos en un fichero y luego necesitamos usar write object
         for (Distancia distancia : distancias) {//indicamos que recorreremos un Distancia, el tipo de archivo que definimos
-            archivoSalida = new FileOutputStream(archivosDistancia+"/"+distancia.getCantidadMillas());//nombre de archivo
+            archivoSalida = new FileOutputStream(archivosDistancia+"/"+distancia.getCantidadMillas()+".bin");//nombre de archivo
             objetoSalida = new ObjectOutputStream(archivoSalida);//indicamos en que archivo ira
             objetoSalida.writeObject(distancia);//lector del objeto
             objetoSalida.close();//cerramos el objeto de salida

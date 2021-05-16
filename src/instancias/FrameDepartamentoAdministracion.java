@@ -805,7 +805,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         -Anteriormente pasaporte y millas lo podemos convertir de string a int por eso lo definimos como string
          */
         String pasaporte=PasaporteField.getText();
-        String contrasenia= "";
+        String contrasenia="Inexistente";
         String fechaNacimiento= FechaNacimientoField.getText();
         String nacionalidad = (String)NacionalidadCombo.getSelectedItem();
         String estadoCivil= (String) EstadoCivilCombo.getSelectedItem();
@@ -828,7 +828,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
             ArrayList<Pasaporte> pasaportesEstablecidos= new ArrayList<>();
             pasaportesEstablecidos.add(pasaportes);//agreagamos un nuevo pasaporte
             vaciarValoresPasaporte();
-            JOptionPane.showMessageDialog(this, "Te registraste exitosamente, que grande");//mensaje amigable
+            JOptionPane.showMessageDialog(this, "Registraste exitosamente pasaporte, que grande");//mensaje amigable
             try {//guardar el vehiculo en un archivo binario
                 this.guardarPasaporteBinario.guardarPasaporte(pasaportesEstablecidos);
             } catch (IOException ex) {

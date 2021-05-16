@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import manejadorArchivosAeropuerto.Vuelo;
-
 /**
  *
  * @author Mariano
@@ -25,7 +24,7 @@ public class GuardarVueloBinario {
         FileOutputStream archivoSalida;//saca los datos para guardarlos
         ObjectOutputStream objetoSalida;//para escribir objetos en un fichero y luego necesitamos usar write object
         for (Vuelo vuelo : vuelos) {//indicamos que recorreremos un pasaporte, el tipo de archivo que definimos
-            archivoSalida = new FileOutputStream(archivosVuelo+"/"+vuelo.getCodigoVuelo());//nombre de archivo
+            archivoSalida = new FileOutputStream(archivosVuelo+"/"+vuelo.getCodigoVuelo()+".bin");//nombre de archivo
             objetoSalida = new ObjectOutputStream(archivoSalida);//indicamos en que archivo ira
             objetoSalida.writeObject(vuelo);//lector del objeto
             objetoSalida.close();//cerramos el objeto de salida

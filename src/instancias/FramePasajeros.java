@@ -5,12 +5,21 @@
  */
 package instancias;
 
+import controladorDatos.Controlador;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import manejadorArchivosUser.Pasaporte;
 
 /**
  *
@@ -21,6 +30,7 @@ public class FramePasajeros extends javax.swing.JFrame {
     /**
      * Creates new form FramePasajeros
      */
+    public static Controlador c= new Controlador("","","","","","");;
     FondoInicio fondoPasajeros = new FondoInicio();//Creamos un nuevo fondo
     public FramePasajeros() {
         this.setContentPane(fondoPasajeros);//Realizamos la pintada de nuestro fondo
@@ -200,19 +210,52 @@ public class FramePasajeros extends javax.swing.JFrame {
         //señalamos que seran una linea de caracteres establecida
         String pasaporte = EntradaPasaporte.getText();
         String contrasenia = EntradaContraseña.getText();
+        c.setValidarPasaporte(EntradaPasaporte.getText());
+        
         //Verificamos si una casilla esta vacia
         if(pasaporte.isEmpty()||contrasenia.isEmpty()){
             JOptionPane.showMessageDialog(null, "No dejes casillas vacias");//Mensaje casilla vacia
         }
         else{
-            if(pasaporte.equals("12345678")&&contrasenia.equals("abcd1234")){//Unicamente si los datos estan bien podra ingresar
-                JOptionPane.showMessageDialog(null, "Bienvenido");//Mensaje de bienvenida
-                LlamarInstancias.loginPasajeros();//Llamamos al frame login pasajeros
-                this.dispose();//Cerramos este frame
+            //Verificamos si el pasaporte existe o no
+            File fichero=new File("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
+            if(fichero.exists()){
+                try {
+                    //creamos archivos para poder llamar nuestros datos de pasaporte
+                    FileInputStream archivo = new FileInputStream("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
+                    ObjectInputStream objeto = new ObjectInputStream(archivo);
+                    FileInputStream archivos = new FileInputStream("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
+                    ObjectInputStream objetos = new ObjectInputStream(archivos);
+                    validarDatosLoginUsuario();
+                    //definimos variables para almacenar valores
+                    String pasaporteDefinido = ((Pasaporte)objeto.readObject()).getPasaporte();
+                    String contraseniaDefinida = ((Pasaporte)objetos.readObject()).getContrasenia();
+                    if(contraseniaDefinida.equals("Inexistente")){//si no tiene contrasenia todavia tira error
+                        Toolkit.getDefaultToolkit().beep();//sonido de error
+                        JOptionPane.showMessageDialog(null, "No tienes contrasenia, compra boleto primero");//Mensaje datos incorrectos 
+                    }else{//si tiene contrasenia entonces si el pasaporte y la contrasenia ingresadas son correctos cargara con los datos presentados con anterioridad
+                        if(pasaporte.equals(pasaporteDefinido)&&contrasenia.equals(contraseniaDefinida)){//Unicamente si los datos estan bien podra ingresar
+                            JOptionPane.showMessageDialog(null, "Bienvenido");//Mensaje de bienvenida
+                            LlamarInstancias.loginPasajeros();//Llamamos al frame login pasajeros
+                            this.dispose();//Cerramos este frame
+                        }else{
+                            Toolkit.getDefaultToolkit().beep();//sonido de error
+                            JOptionPane.showMessageDialog(null, "Datos incorrectos");//Mensaje datos incorrectos               
+                        } 
+                    }//catchs en casos de producirse errores
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(FrameCompraBoletos.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(FrameCompraBoletos.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(FrameCompraBoletos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             }else{
                 Toolkit.getDefaultToolkit().beep();//sonido de error
-                JOptionPane.showMessageDialog(null, "Datos incorrectos");//Mensaje datos incorrectos               
+                JOptionPane.showMessageDialog(null, "No estas registrado");//Mensaje datos incorrectos 
             }
+            
         }
     }//GEN-LAST:event_IniciarSesionPasajerosActionPerformed
 
@@ -251,6 +294,32 @@ public class FramePasajeros extends javax.swing.JFrame {
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);//damos las dimensiones
             setOpaque(false);//Ponemos que el panel no sea visible
             super.paint(g);//llamos a la clase super para que cumpla con las funcionalidades del JPanel
+        }
+    }
+    private void validarDatosLoginUsuario(){
+        //estructuramos que datos se cargaran al hacer login
+        try {//misma logica que arriba en iniciar sesion
+            FileInputStream ar = new FileInputStream("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
+            ObjectInputStream ob= new ObjectInputStream(ar);
+            c.setValidarNombre(((Pasaporte)ob.readObject()).getNombres());
+            FileInputStream ar1 = new FileInputStream("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
+            ObjectInputStream ob1= new ObjectInputStream(ar1);
+            c.setValidarApellidos(((Pasaporte)ob1.readObject()).getApellidos());
+            FileInputStream ar2 = new FileInputStream("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
+            ObjectInputStream ob2= new ObjectInputStream(ar2);
+            c.setValidarSexo(((Pasaporte)ob2.readObject()).getSexo());
+            FileInputStream ar3 = new FileInputStream("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
+            ObjectInputStream ob3= new ObjectInputStream(ar3);
+            c.setValidarEstadoCivil(((Pasaporte)ob3.readObject()).getEstadoCivil());
+            FileInputStream ar4 = new FileInputStream("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
+            ObjectInputStream ob4= new ObjectInputStream(ar4);
+            c.setValidarNacionalidad(((Pasaporte)ob4.readObject()).getPaisActual());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FrameCompraBoletos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FrameCompraBoletos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(FrameCompraBoletos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
