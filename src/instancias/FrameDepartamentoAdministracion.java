@@ -18,11 +18,12 @@ import manejadorArchivosUser.Pasaporte;
 import cargaArchivos.*;
 import cargaTablas.*;
 import java.awt.Toolkit;
-import estructurarAvion.HacerAvion;
 import manejadorArchivosAeropuerto.Aerolineas;
 import manejadorArchivosAeropuerto.Aeropuerto;
 import manejadorArchivosAeropuerto.Aviones;
 import manejadorArchivosAeropuerto.Distancia;
+import manejadorArchivosAeropuerto.Renovacion;
+import manejadorArchivosAeropuerto.Reservacion;
 import manejadorArchivosAeropuerto.Vuelo;
 import manejadorArchivosUser.*;
 /**
@@ -51,6 +52,12 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     private CargarTarjetaEnTexto cargarTarjetaEnTexto;
     private GuardarTarjetaBinario guardarTarjetaBinario;
     private CargarTarjetaBinario cargarTarjetaBinario;
+    private CargarRenovacionEnTexto cargarRenovacionEnTexto;
+    private GuardarRenovacionBinario guardarRenovacionBinario;
+    private CargarRenovacionBinario cargarRenovacionBinario;
+    private CargarReservacionEnTexto cargarReservacionEnTexto;
+    private GuardarReservacionBinario guardarReservacionBinario;
+    private CargarReservacionBinario cargarReservacionBinario;
     /**
      * Creates new form DepartamentoAdministracion
      */
@@ -85,6 +92,12 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         this.cargarTarjetaEnTexto = new CargarTarjetaEnTexto();
         this.guardarTarjetaBinario = new GuardarTarjetaBinario();
         this.cargarTarjetaBinario = new CargarTarjetaBinario();
+        this.cargarRenovacionEnTexto = new CargarRenovacionEnTexto();
+        this.guardarRenovacionBinario = new GuardarRenovacionBinario();
+        this.cargarRenovacionBinario = new CargarRenovacionBinario();
+        this.cargarReservacionEnTexto = new CargarReservacionEnTexto();
+        this.guardarReservacionBinario = new GuardarReservacionBinario();
+        this.cargarReservacionBinario = new CargarReservacionBinario();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -112,6 +125,8 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         CargaAerolineas = new javax.swing.JButton();
         CargaAviones = new javax.swing.JButton();
         CargaBoton1 = new javax.swing.JLabel();
+        CargaRenovacion = new javax.swing.JButton();
+        CargaReservacion = new javax.swing.JButton();
         jDesktopPane2 = new javax.swing.JDesktopPane();
         jScrollPane6 = new javax.swing.JScrollPane();
         tablaVerAerolineas = new javax.swing.JTable();
@@ -175,7 +190,13 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         tablaVerVuelo = new javax.swing.JTable();
         verVuelos = new javax.swing.JButton();
         jDesktopPane7 = new javax.swing.JDesktopPane();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        tablaRenovacion = new javax.swing.JTable();
+        verRenovacion = new javax.swing.JButton();
         jDesktopPane8 = new javax.swing.JDesktopPane();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        tablaReservacion = new javax.swing.JTable();
+        verReservacion = new javax.swing.JButton();
         jDesktopPane11 = new javax.swing.JDesktopPane();
         reporteAerolinea = new javax.swing.JButton();
         reporteVuelos = new javax.swing.JButton();
@@ -303,6 +324,26 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         CargaBoton1.setForeground(new java.awt.Color(0, 0, 0));
         CargaBoton1.setText("Opciones de Carga");
 
+        CargaRenovacion.setBackground(new java.awt.Color(255, 255, 51));
+        CargaRenovacion.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        CargaRenovacion.setForeground(new java.awt.Color(0, 0, 0));
+        CargaRenovacion.setText("carga renovacion");
+        CargaRenovacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CargaRenovacionActionPerformed(evt);
+            }
+        });
+
+        CargaReservacion.setBackground(new java.awt.Color(255, 255, 51));
+        CargaReservacion.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        CargaReservacion.setForeground(new java.awt.Color(0, 0, 0));
+        CargaReservacion.setText("carga Reservacion ");
+        CargaReservacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CargaReservacionActionPerformed(evt);
+            }
+        });
+
         jDesktopPane9.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane9.setLayer(InfoCargada1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane9.setLayer(CargaPasaporte, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -313,6 +354,8 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         jDesktopPane9.setLayer(CargaAerolineas, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane9.setLayer(CargaAviones, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane9.setLayer(CargaBoton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane9.setLayer(CargaRenovacion, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane9.setLayer(CargaReservacion, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane9Layout = new javax.swing.GroupLayout(jDesktopPane9);
         jDesktopPane9.setLayout(jDesktopPane9Layout);
@@ -329,14 +372,17 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 834, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(CargaPasaporte, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(CargaTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(CargaDistancia, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CargaVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CargaAeropuerto, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CargaAerolineas, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CargaAviones, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CargaPasaporte, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CargaTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(CargaDistancia, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CargaVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CargaAeropuerto, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CargaAerolineas, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CargaAviones, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CargaRenovacion, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CargaReservacion, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42))
         );
         jDesktopPane9Layout.setVerticalGroup(
@@ -350,18 +396,22 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
                 .addGroup(jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane9Layout.createSequentialGroup()
                         .addComponent(CargaPasaporte)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CargaTarjeta)
-                        .addGap(26, 26, 26)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(CargaAeropuerto)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(CargaAerolineas)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(CargaAviones)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(CargaVuelo)
-                        .addGap(18, 18, 18)
-                        .addComponent(CargaDistancia))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(CargaDistancia)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(CargaRenovacion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(CargaReservacion))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -816,10 +866,64 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
 
         jDesktopPane7.setBackground(new java.awt.Color(153, 255, 255));
         jDesktopPane7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tablaRenovacion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane10.setViewportView(tablaRenovacion);
+
+        jDesktopPane7.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 690, 410));
+
+        verRenovacion.setBackground(new java.awt.Color(0, 255, 255));
+        verRenovacion.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        verRenovacion.setForeground(new java.awt.Color(0, 0, 0));
+        verRenovacion.setText("Ver renovaciones");
+        verRenovacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verRenovacionActionPerformed(evt);
+            }
+        });
+        jDesktopPane7.add(verRenovacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 430, -1, -1));
+
         Admin1.addTab("Renovacion Pasaporte", jDesktopPane7);
 
         jDesktopPane8.setBackground(new java.awt.Color(153, 255, 255));
         jDesktopPane8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tablaReservacion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane11.setViewportView(tablaReservacion);
+
+        jDesktopPane8.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 690, 410));
+
+        verReservacion.setBackground(new java.awt.Color(0, 255, 255));
+        verReservacion.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        verReservacion.setForeground(new java.awt.Color(0, 0, 0));
+        verReservacion.setText("ver reservacion");
+        verReservacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verReservacionActionPerformed(evt);
+            }
+        });
+        jDesktopPane8.add(verReservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, -1, -1));
+
         Admin1.addTab("Reservacion", jDesktopPane8);
 
         jDesktopPane11.setBackground(new java.awt.Color(153, 255, 255));
@@ -1324,6 +1428,70 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     private void reporteAeropuertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteAeropuertoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_reporteAeropuertoActionPerformed
+
+    private void verRenovacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verRenovacionActionPerformed
+        //try catch por si da error
+        try {
+            //array list vuelos, llamamos la carga de archivos binarios
+            ArrayList<Renovacion> renovaciones = this.cargarRenovacionBinario.cargarRenovacionBinario();
+            //llamamos a llenado de tabla
+            TablaRenovacion.completarTabla(renovaciones, tablaRenovacion);
+        } catch (IOException ex) {
+            System.out.println("ex"+ex);
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_verRenovacionActionPerformed
+
+    private void verReservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verReservacionActionPerformed
+        //try catch por si da error
+        try {
+            //array list vuelos, llamamos la carga de archivos binarios
+            ArrayList<Reservacion> reservaciones = this.cargarReservacionBinario.cargarReservacionBinario();
+            //llamamos a llenado de tabla
+            TablaReservacion.completarTabla(reservaciones, tablaReservacion);
+        } catch (IOException ex) {
+            System.out.println("ex"+ex);
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_verReservacionActionPerformed
+
+    private void CargaRenovacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargaRenovacionActionPerformed
+        //filechooser para abrir o guardar archivos
+        JFileChooser archivoEleccion = new JFileChooser();
+        int eleccion = archivoEleccion.showOpenDialog(this);//variable para seleccionar
+        //aprove option es si el usuario le da en aceptar
+        if (eleccion == JFileChooser.APPROVE_OPTION) {
+            File archivo = archivoEleccion.getSelectedFile();//seleccionamos file para fileReader, agarramos el seleccionado
+            try {
+                //llamamos el arraylist creado de Renovacion
+                ArrayList<Renovacion> renovaciones = this.cargarRenovacionEnTexto.cargarRenovacionEnTexto(archivo, this.mostrarDatosCargados);
+                this.guardarRenovacionBinario.guardarRenovacion(renovaciones);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "Error al leer el archivo de Renovacion");
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_CargaRenovacionActionPerformed
+
+    private void CargaReservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargaReservacionActionPerformed
+        //filechooser para abrir o guardar archivos
+        JFileChooser archivoEleccion = new JFileChooser();
+        int eleccion = archivoEleccion.showOpenDialog(this);//variable para seleccionar
+        //aprove option es si el usuario le da en aceptar
+        if (eleccion == JFileChooser.APPROVE_OPTION) {
+            File archivo = archivoEleccion.getSelectedFile();//seleccionamos file para fileReader, agarramos el seleccionado
+            try {
+                //llamamos el arraylist creado de Renovacion
+                ArrayList<Reservacion> reservaciones = this.cargarReservacionEnTexto.cargarReservacionEnTexto(archivo, this.mostrarDatosCargados);
+                this.guardarReservacionBinario.guardarReservacion(reservaciones);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "Error al leer el archivo de Reservacion");
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_CargaReservacionActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
         @Override//sobrescribimos la clase JPanel especificamente el metodo paint
@@ -1353,6 +1521,8 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     private javax.swing.JLabel CargaBoton1;
     private javax.swing.JButton CargaDistancia;
     private javax.swing.JButton CargaPasaporte;
+    private javax.swing.JButton CargaRenovacion;
+    private javax.swing.JButton CargaReservacion;
     private javax.swing.JButton CargaTarjeta;
     private javax.swing.JButton CargaVuelo;
     private javax.swing.JLabel EstadoCivil;
@@ -1404,6 +1574,8 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     public static javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1419,6 +1591,8 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     private javax.swing.JButton reporteAvion;
     private javax.swing.JButton reportePasajero;
     private javax.swing.JButton reporteVuelos;
+    private javax.swing.JTable tablaRenovacion;
+    private javax.swing.JTable tablaReservacion;
     private javax.swing.JTable tablaVerAerolineas;
     private javax.swing.JTable tablaVerAeropuertos;
     private javax.swing.JTable tablaVerAviones;
@@ -1431,6 +1605,8 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     private javax.swing.JButton verAviones;
     private javax.swing.JButton verDistancias;
     private javax.swing.JButton verPasaportes;
+    private javax.swing.JButton verRenovacion;
+    private javax.swing.JButton verReservacion;
     private javax.swing.JButton verTarjetas;
     private javax.swing.JButton verVuelos;
     // End of variables declaration//GEN-END:variables

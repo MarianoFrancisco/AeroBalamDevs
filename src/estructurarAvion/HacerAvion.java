@@ -5,7 +5,6 @@
  */
 package estructurarAvion;
 
-import instancias.FrameDepartamentoAdministracion;
 import instancias.FrameVentaAsientos;
 import static instancias.FrameVentaAsientos.compraAsientos;
 import static instancias.FrameVentaAsientos.s;
@@ -13,8 +12,6 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Serializable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -72,7 +69,6 @@ public class HacerAvion implements Serializable{
         }
         s.setGuardarValorX(x);
         s.setGuardarValorY(y);
-        
     }
     public void crearPasillo(){
         int x=s.getGuardarValorX();
@@ -102,10 +98,8 @@ public class HacerAvion implements Serializable{
                     public void actionPerformed(ActionEvent e) { 
                         if (compraAsientos.isSelected()) {
                             if(asientos[k][l].getEsAsiento()== 1){
-                                JOptionPane.showMessageDialog(null,"No puedes sembrar en agua");
-                            }
-                            if(pasillos[k][l].getEsAsiento()==0){
-                                JOptionPane.showMessageDialog(null, "Es pasillo no asiento");
+                                JOptionPane.showMessageDialog(null,"compraste asiento, que grande");
+                                asiento[k][l].setBackground(Color.red);
                             }
                         }        
                     }                 
