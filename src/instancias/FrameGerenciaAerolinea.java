@@ -40,6 +40,12 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
         SalirDelSistema = new javax.swing.JButton();
         RegresarMenu = new javax.swing.JButton();
         Logo = new javax.swing.JLabel();
+        rutaConcurrida = new javax.swing.JButton();
+        sucursales = new javax.swing.JButton();
+        ganancias = new javax.swing.JButton();
+        passaporteNegados = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerencia de Aerolinea");
@@ -68,6 +74,50 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
 
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo.PNG"))); // NOI18N
 
+        rutaConcurrida.setBackground(new java.awt.Color(255, 255, 0));
+        rutaConcurrida.setFont(new java.awt.Font("Engravers MT", 1, 14)); // NOI18N
+        rutaConcurrida.setForeground(new java.awt.Color(0, 0, 0));
+        rutaConcurrida.setText("rutas concurridas");
+        rutaConcurrida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rutaConcurridaActionPerformed(evt);
+            }
+        });
+
+        sucursales.setBackground(new java.awt.Color(255, 255, 0));
+        sucursales.setFont(new java.awt.Font("Engravers MT", 1, 14)); // NOI18N
+        sucursales.setForeground(new java.awt.Color(0, 0, 0));
+        sucursales.setText("sucursales");
+        sucursales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sucursalesActionPerformed(evt);
+            }
+        });
+
+        ganancias.setBackground(new java.awt.Color(255, 255, 0));
+        ganancias.setFont(new java.awt.Font("Engravers MT", 1, 14)); // NOI18N
+        ganancias.setForeground(new java.awt.Color(0, 0, 0));
+        ganancias.setText("Ganancias");
+        ganancias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gananciasActionPerformed(evt);
+            }
+        });
+
+        passaporteNegados.setBackground(new java.awt.Color(255, 255, 0));
+        passaporteNegados.setFont(new java.awt.Font("Engravers MT", 1, 14)); // NOI18N
+        passaporteNegados.setForeground(new java.awt.Color(0, 0, 0));
+        passaporteNegados.setText("pasaportes negados");
+        passaporteNegados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passaporteNegadosActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -79,11 +129,33 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
                 .addGap(897, 897, 897)
                 .addComponent(SalirDelSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 5, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(rutaConcurrida)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(passaporteNegados)
+                .addGap(103, 103, 103)
+                .addComponent(ganancias)
+                .addGap(91, 91, 91)
+                .addComponent(sucursales)
+                .addGap(67, 67, 67))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 600, Short.MAX_VALUE)
+                .addGap(52, 52, 52)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rutaConcurrida)
+                    .addComponent(ganancias)
+                    .addComponent(passaporteNegados)
+                    .addComponent(sucursales))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Logo)
                     .addComponent(RegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -113,6 +185,22 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
         LlamarInstancias.manejoAeropuerto();//Regresamos al manejo aeropuerto
         this.dispose();//Cerramos este frame
     }//GEN-LAST:event_RegresarMenuActionPerformed
+
+    private void rutaConcurridaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rutaConcurridaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rutaConcurridaActionPerformed
+
+    private void sucursalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sucursalesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sucursalesActionPerformed
+
+    private void gananciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gananciasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gananciasActionPerformed
+
+    private void passaporteNegadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passaporteNegadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passaporteNegadosActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
         @Override//sobrescribimos la clase JPanel especificamente el metodo paint
@@ -128,6 +216,12 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
     private javax.swing.JLabel Logo;
     private javax.swing.JButton RegresarMenu;
     private javax.swing.JButton SalirDelSistema;
+    private javax.swing.JButton ganancias;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton passaporteNegados;
+    private javax.swing.JButton rutaConcurrida;
+    private javax.swing.JButton sucursales;
     // End of variables declaration//GEN-END:variables
 }

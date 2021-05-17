@@ -8,10 +8,12 @@ package instancias;
 import static instancias.FramePasajeros.c;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.io.File;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import estructurarAvion.HacerAvion;
 
 /**
  *
@@ -22,10 +24,12 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
     /**
      * Creates new form FrameCompraBoletos
      */
+    
     FondoInicio fondoCompraBoletos = new FondoInicio();//Creamos un nuevo fondo
     public FrameCompraBoletos() {
         this.setContentPane(fondoCompraBoletos);//Realizamos la pintada de nuestro fondo
         initComponents();
+        
         this.setLocationRelativeTo(null);//Centramos nuestro frame
     }
 
@@ -42,7 +46,19 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
         SalirDelSistema = new javax.swing.JButton();
         RegresarMenu = new javax.swing.JButton();
         Logo = new javax.swing.JLabel();
-        probarArraylist = new javax.swing.JButton();
+        irCompraBoleto = new javax.swing.JButton();
+        ciudadOrigen = new javax.swing.JComboBox<>();
+        ciudadDestino = new javax.swing.JComboBox<>();
+        cuidadDestinotext = new javax.swing.JLabel();
+        ciudadOirgentext = new javax.swing.JLabel();
+        FechaVueloField = new javax.swing.JFormattedTextField();
+        fechaVuelotext = new javax.swing.JLabel();
+        CantidadPasajeros = new javax.swing.JComboBox<>();
+        Aerolinea = new javax.swing.JComboBox<>();
+        cantidadPasajerostext = new javax.swing.JLabel();
+        Aerolineatext = new javax.swing.JLabel();
+        ciudadOirgentext1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,13 +90,64 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo.PNG"))); // NOI18N
         jPanel1.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, -1, -1));
 
-        probarArraylist.setText("probarArraylist");
-        probarArraylist.addActionListener(new java.awt.event.ActionListener() {
+        irCompraBoleto.setBackground(new java.awt.Color(0, 204, 204));
+        irCompraBoleto.setFont(new java.awt.Font("Engravers MT", 1, 14)); // NOI18N
+        irCompraBoleto.setForeground(new java.awt.Color(0, 0, 0));
+        irCompraBoleto.setText("Ir a compra boleto");
+        irCompraBoleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                probarArraylistActionPerformed(evt);
+                irCompraBoletoActionPerformed(evt);
             }
         });
-        jPanel1.add(probarArraylist, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, -1, -1));
+        jPanel1.add(irCompraBoleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 480, -1, -1));
+
+        ciudadOrigen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Marshall", "Islas Salomón", "Israel", "Italia", "Jamaica", "Japón", "ordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar", "Malasia", "Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana", "República Checa", "República del Congo", "República Democrática del Congo", "República Dominicana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue" }));
+        jPanel1.add(ciudadOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 180, 160, -1));
+
+        ciudadDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Marshall", "Islas Salomón", "Israel", "Italia", "Jamaica", "Japón", "ordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar", "Malasia", "Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana", "República Checa", "República del Congo", "República Democrática del Congo", "República Dominicana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue" }));
+        jPanel1.add(ciudadDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 240, 160, -1));
+
+        cuidadDestinotext.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        cuidadDestinotext.setForeground(new java.awt.Color(0, 0, 0));
+        cuidadDestinotext.setText("Ciudad de destino");
+        jPanel1.add(cuidadDestinotext, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, -1, -1));
+
+        ciudadOirgentext.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        ciudadOirgentext.setForeground(new java.awt.Color(0, 0, 0));
+        ciudadOirgentext.setText("Ciudad de origen");
+        jPanel1.add(ciudadOirgentext, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, -1, -1));
+
+        FechaVueloField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        jPanel1.add(FechaVueloField, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 350, 160, 20));
+
+        fechaVuelotext.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        fechaVuelotext.setForeground(new java.awt.Color(0, 0, 0));
+        fechaVuelotext.setText("FECHA DE VUELO");
+        jPanel1.add(fechaVuelotext, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, -1, -1));
+
+        CantidadPasajeros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        jPanel1.add(CantidadPasajeros, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 290, -1, -1));
+
+        Aerolinea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(Aerolinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 400, -1, -1));
+
+        cantidadPasajerostext.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        cantidadPasajerostext.setForeground(new java.awt.Color(0, 0, 0));
+        cantidadPasajerostext.setText("Cantidad de pasajeros ");
+        jPanel1.add(cantidadPasajerostext, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, -1, -1));
+
+        Aerolineatext.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        Aerolineatext.setForeground(new java.awt.Color(0, 0, 0));
+        Aerolineatext.setText("Aerolinea");
+        jPanel1.add(Aerolineatext, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, -1, -1));
+
+        ciudadOirgentext1.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        ciudadOirgentext1.setForeground(new java.awt.Color(0, 0, 0));
+        ciudadOirgentext1.setText("datos para viajar");
+        jPanel1.add(ciudadOirgentext1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoMadera.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 450, 410));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -106,9 +173,23 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
         this.dispose();//Cerramos este frame
     }//GEN-LAST:event_RegresarMenuActionPerformed
 
-    private void probarArraylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_probarArraylistActionPerformed
-
-    }//GEN-LAST:event_probarArraylistActionPerformed
+    private void irCompraBoletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_irCompraBoletoActionPerformed
+        /*
+        -Establecemos variables para ser tomadas en cuenta al viajar
+        -El (String) nos sirve para castear el item y pasarlo a tipo string
+        -la cantidad de pasajeros lo podemos convertir de string a int por eso lo definimos como string
+         */
+        String ciudadOrigenValor= (String)ciudadOrigen.getSelectedItem();
+        String ciudadDestinoValor= (String)ciudadDestino.getSelectedItem();
+        String cantidadPasajerosValor=(String)CantidadPasajeros.getSelectedItem();
+        String fechaVueloValor=FechaVueloField.getText();
+        String aerolineaValor=(String)Aerolinea.getSelectedItem();
+        vaciarValoresCompraBoletos();
+        File fichero=new File("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
+        LlamarInstancias.ventaAsientos();//vamos a venta asientos
+        this.dispose();
+        
+    }//GEN-LAST:event_irCompraBoletoActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
         @Override//sobrescribimos la clase JPanel especificamente el metodo paint
@@ -119,12 +200,26 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
             super.paint(g);//llamos a la clase super para que cumpla con las funcionalidades del JPanel
         }
     }
-    
+    private void vaciarValoresCompraBoletos(){
+        FechaVueloField.setText("");
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> Aerolinea;
+    private javax.swing.JLabel Aerolineatext;
+    private javax.swing.JComboBox<String> CantidadPasajeros;
+    private javax.swing.JFormattedTextField FechaVueloField;
     private javax.swing.JLabel Logo;
     private javax.swing.JButton RegresarMenu;
     private javax.swing.JButton SalirDelSistema;
+    private javax.swing.JLabel cantidadPasajerostext;
+    private javax.swing.JComboBox<String> ciudadDestino;
+    private javax.swing.JLabel ciudadOirgentext;
+    private javax.swing.JLabel ciudadOirgentext1;
+    private javax.swing.JComboBox<String> ciudadOrigen;
+    private javax.swing.JLabel cuidadDestinotext;
+    private javax.swing.JLabel fechaVuelotext;
+    private javax.swing.JButton irCompraBoleto;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton probarArraylist;
     // End of variables declaration//GEN-END:variables
 }

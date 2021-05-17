@@ -78,4 +78,11 @@ public class LlamarInstancias {
             }
         });
     }
+    public static void ventaAsientos(){
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrameVentaAsientos().setVisible(true);
+            }
+        });
+    }
 }
