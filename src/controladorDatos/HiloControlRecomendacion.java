@@ -23,8 +23,8 @@ public class HiloControlRecomendacion extends Thread implements Runnable{
         //creamos variables de modificacion
         int aleatorio = c.getVerCantidadPasajeros();
         int contador=0;
-        int filas=3;
-        int columnas=3;
+        int filas=c.getTomarColumnas();
+        int columnas=c.getTomarFilas();
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
                 if(contador==0&&contador<aleatorio){

@@ -18,7 +18,10 @@ import manejadorArchivosUser.Pasaporte;
 import cargaArchivos.*;
 import cargaTablas.*;
 import static instancias.FramePasajeros.c;
+import static instancias.FrameVentaAsientos.frameVentaAsientos;
+import static instancias.FrameVisualizarDistribucionAsientos.frameVisualizarDistribucionAsientos;
 import java.awt.Toolkit;
+import java.io.FileWriter;
 import manejadorArchivosAeropuerto.Aerolineas;
 import manejadorArchivosAeropuerto.Aeropuerto;
 import manejadorArchivosAeropuerto.Aviones;
@@ -235,8 +238,9 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         reportePasajero = new javax.swing.JButton();
         jScrollPane9 = new javax.swing.JScrollPane();
         cargaReportes = new javax.swing.JTextArea();
-        RegresarMenu1 = new javax.swing.JButton();
         limpiar = new javax.swing.JButton();
+        exportar = new javax.swing.JButton();
+        RegresarMenu1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Departamento de Administracion");
@@ -1129,36 +1133,58 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         cargaReportes.setRows(5);
         jScrollPane9.setViewportView(cargaReportes);
 
+        limpiar.setBackground(new java.awt.Color(204, 255, 51));
+        limpiar.setForeground(new java.awt.Color(0, 0, 0));
+        limpiar.setText("Limpiar reportes");
+        limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limpiarActionPerformed(evt);
+            }
+        });
+
+        exportar.setBackground(new java.awt.Color(204, 255, 51));
+        exportar.setForeground(new java.awt.Color(0, 0, 0));
+        exportar.setText("Exportador a .txt");
+        exportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportarActionPerformed(evt);
+            }
+        });
+
         jDesktopPane11.setLayer(reporteAerolinea, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane11.setLayer(reporteVuelos, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane11.setLayer(reporteAvion, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane11.setLayer(reporteAeropuerto, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane11.setLayer(reportePasajero, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane11.setLayer(jScrollPane9, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane11.setLayer(limpiar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane11.setLayer(exportar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane11Layout = new javax.swing.GroupLayout(jDesktopPane11);
         jDesktopPane11.setLayout(jDesktopPane11Layout);
         jDesktopPane11Layout.setHorizontalGroup(
             jDesktopPane11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane11Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(reportePasajero)
-                .addGap(98, 98, 98)
-                .addComponent(reporteAerolinea)
-                .addGap(109, 109, 109)
-                .addComponent(reporteVuelos)
-                .addGap(81, 81, 81))
             .addGroup(jDesktopPane11Layout.createSequentialGroup()
-                .addGroup(jDesktopPane11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane11Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 1145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane11Layout.createSequentialGroup()
-                        .addGap(272, 272, 272)
-                        .addComponent(reporteAeropuerto)
-                        .addGap(128, 128, 128)
-                        .addComponent(reporteAvion)))
+                .addGap(208, 208, 208)
+                .addComponent(reporteAeropuerto)
+                .addGap(121, 121, 121)
+                .addComponent(reporteAvion)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jDesktopPane11Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jDesktopPane11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jDesktopPane11Layout.createSequentialGroup()
+                        .addComponent(reportePasajero)
+                        .addGap(111, 111, 111)
+                        .addComponent(reporteAerolinea)
+                        .addGap(83, 83, 83)
+                        .addComponent(reporteVuelos))
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 1022, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jDesktopPane11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(limpiar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(exportar, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(22, 22, 22))
         );
         jDesktopPane11Layout.setVerticalGroup(
             jDesktopPane11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1169,11 +1195,18 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
                     .addComponent(reporteAerolinea)
                     .addComponent(reporteVuelos))
                 .addGap(39, 39, 39)
-                .addGroup(jDesktopPane11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(reporteAvion)
-                    .addComponent(reporteAeropuerto))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jDesktopPane11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(reporteAvion, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(reporteAeropuerto, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(jDesktopPane11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane11Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane11Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(limpiar)
+                        .addGap(101, 101, 101)
+                        .addComponent(exportar)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -1191,16 +1224,6 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
             }
         });
         jPanel2.add(RegresarMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 600, 160, 44));
-
-        limpiar.setBackground(new java.awt.Color(204, 255, 51));
-        limpiar.setForeground(new java.awt.Color(0, 0, 0));
-        limpiar.setText("Limpiar reportes");
-        limpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                limpiarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 600, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1547,7 +1570,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
 
     private void TarjetaFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TarjetaFieldKeyTyped
         //Combinacion de que la tecla se presione y se suelte
-        if(PasaporteField.getText().length()>11){//restringimos que no puede escribir mas de 12 digitos
+        if(TarjetaField.getText().length()>11){//restringimos que no puede escribir mas de 12 digitos
             evt.consume();//el evento no permite seguir escribiendo
             Toolkit.getDefaultToolkit().beep();//sonido de error
             JOptionPane.showMessageDialog(null, "La tarjeta unicamente tiene 12 digitos");//Mensaje condicional digitos pasaporte
@@ -1566,7 +1589,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
 
     private void PasaporteTarjetaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasaporteTarjetaKeyTyped
         //Combinacion de que la tecla se presione y se suelte
-        if(PasaporteField.getText().length()>7){//restringimos que no puede escribir mas de 8 digitos
+        if(PasaporteTarjeta.getText().length()>7){//restringimos que no puede escribir mas de 8 digitos
             evt.consume();//el evento no permite seguir escribiendo
             Toolkit.getDefaultToolkit().beep();//sonido de error
             JOptionPane.showMessageDialog(null, "El pasaporte unicamente tiene 8 digitos");//Mensaje condicional digitos pasaporte
@@ -1599,7 +1622,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
 
     private void codigoCVCFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoCVCFieldKeyTyped
         //Combinacion de que la tecla se presione y se suelte
-        if(PasaporteField.getText().length()>2){//restringimos que no puede escribir mas de 12 digitos
+        if(codigoCVCField.getText().length()>2){//restringimos que no puede escribir mas de 12 digitos
             evt.consume();//el evento no permite seguir escribiendo
             Toolkit.getDefaultToolkit().beep();//sonido de error
             JOptionPane.showMessageDialog(null, "El codigo CVC unicamente tiene 3 digitos");//Mensaje condicional digitos pasaporte
@@ -1622,8 +1645,10 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No dejes casillas vacias");//Mensaje casilla vacia
         }
         else{
+            File fichero=new File("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+pasaporte1+".bin");
+            if(fichero.exists()){
             //definimos los espacios que ocupara en nuestro pasajero al ser creado
-            String espacio[]={tarjeta,pasaporte1,dineroActual,codigoCvC};
+            String espacio[]={pasaporte1,tarjeta,dineroActual,codigoCvC};
             Tarjeta tarjetas= CrearTarjeta.crearTarjeta(espacio);
             //establecemos un nuevo valor en los pasajeros establecidos del array list
             ArrayList<Tarjeta> tarjetasEstablecidos= new ArrayList<>();
@@ -1634,7 +1659,11 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
                 this.guardarTarjetaBinario.guardarTarjeta(tarjetasEstablecidos);
             } catch (IOException ex) {
                 System.out.println("error"+ex);
-            }  
+            }
+                
+            }else{
+                    JOptionPane.showMessageDialog(this, "No existe el pasaporte ingresado, verifica tus datos");//mensaje amigable
+            }
         }
     }//GEN-LAST:event_AnadirTarjetaBotonActionPerformed
 
@@ -1661,7 +1690,9 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         }
         else{
             File fichero=new File("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/aviones/"+c.getVerificarCodigoAvion()+".bin");
-            if(fichero.exists()){
+            File fichero2=new File("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/aerolineas/"+nombreAerolinea+".bin");
+            File fichero3=new File("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/aeropuertos/"+nombreAeropuerto+".bin");
+            if(fichero.exists()&&fichero2.exists()&&fichero3.exists()){
                 int filaAsientos=Integer.parseInt(s1);
                 int columnasAsientos=Integer.parseInt(s2);
                 int pasillos=Integer.parseInt(s3);
@@ -1682,7 +1713,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
                     System.out.println("error"+ex);
                 }
             }else{
-                JOptionPane.showMessageDialog(this, "No existe el avion ingresado, revisa el codigo de avion");//mensaje amigable
+                JOptionPane.showMessageDialog(this, "No existe el avion ingresado, revisa el codigo de avion, y la procediencia a dejar, aeropuerto y aerolinea");//mensaje amigable
             } 
         }
     }//GEN-LAST:event_modificarAvionActionPerformed
@@ -1784,25 +1815,45 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No dejes casillas vacias");//Mensaje casilla vacia
         }
         else{
-            int filaAsientos=Integer.parseInt(s1);
-            int columnasAsientos=Integer.parseInt(s2);
-            int pasillos=Integer.parseInt(s3);
-            int cadaCuantoPasillos=Integer.parseInt(s4);
-            int capacidad = (filaAsientos*columnasAsientos);
-            String capacidadPasajeros = (capacidad+"");
-            //definimos los espacios que ocupara en nuestro pasajero al ser creado
-            String espacio[]={nombreAerolinea,nombreAeropuerto,codigoAvion,capacidadPasajeros,capacidadGasolina,consumoMilla};
-            Aviones aviones = CrearAviones.crearAviones(espacio);
-            //establecemos un nuevo valor en los pasajeros establecidos del array list
-            ArrayList<Aviones> avionesEstablecidos= new ArrayList<>();
-            avionesEstablecidos.add(aviones);//agreagamos un nuevo pasaporte
-            vaciarValoresPasaporte();
-            JOptionPane.showMessageDialog(this, "Registraste exitosamente un avion, que grande");//mensaje amigable
-            try {//guardar el vehiculo en un archivo binario
+            File fichero=new File("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/aviones/"+codigoAvion+".bin");
+            if(fichero.exists()){
+                JOptionPane.showMessageDialog(null, "Este avion ya existe");//Mensaje casilla vacia
+            }else{
+                File fichero1=new File("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/aerolineas/"+nombreAerolinea+".bin");
+                File fichero2=new File("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/aeropuertos/"+nombreAeropuerto+".bin");
+                if(fichero1.exists()&&fichero2.exists()){
+                    int filaAsientos=Integer.parseInt(s1);
+                int columnasAsientos=Integer.parseInt(s2);
+                int pasillos=Integer.parseInt(s3);
+                int cadaCuantoPasillos=Integer.parseInt(s4);
+                int capacidad = (filaAsientos*columnasAsientos);
+                c.setTomarColumnas(columnasAsientos);
+                c.setTomarFilas(filaAsientos);
+                c.setTomarPasillos(pasillos);
+                String capacidadPasajeros = (capacidad+"");
+                //definimos los espacios que ocupara en nuestro pasajero al ser creado
+                String espacio[]={nombreAerolinea,nombreAeropuerto,codigoAvion,capacidadPasajeros,capacidadGasolina,consumoMilla};
+                Aviones aviones = CrearAviones.crearAviones(espacio);
+                //establecemos un nuevo valor en los pasajeros establecidos del array list
+                ArrayList<Aviones> avionesEstablecidos= new ArrayList<>();
+                avionesEstablecidos.add(aviones);//agreagamos un nuevo pasaporte
+                vaciarValoresPasaporte();
+                JOptionPane.showMessageDialog(this, "Registraste exitosamente un avion, que grande");//mensaje amigable
+                frameVentaAsientos.dispose();//cerramos frame
+                frameVisualizarDistribucionAsientos.dispose();
+                FrameVisualizarDistribucionAsientos.iniciarDistribucion();
+                FrameVentaAsientos.cargarVenta();
+                try {//guardar el vehiculo en un archivo binario
                 this.guardarAvionesBinario.guardarAviones(avionesEstablecidos);
-            } catch (IOException ex) {
+                } catch (IOException ex) {
                 System.out.println("error"+ex);
+                }
+                }else{
+                    JOptionPane.showMessageDialog(this, "Verifica si existe el aeropuerto y aerolinea ingresados");//mensaje amigable
+                }
+                
             }
+            
             
         }
     }//GEN-LAST:event_crearAvionActionPerformed
@@ -1843,6 +1894,12 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
 
     private void fileasAsientosFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fileasAsientosFieldKeyTyped
         //Combinacion de que la tecla se presione y se suelte
+        if(fileasAsientosField.getText().length()>0){//restringimos que no puede escribir mas de 8 digitos
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "no puede ser mas de 1 digito");//Mensaje condicional digitos pasaporte
+        }
+        //Combinacion de que la tecla se presione y se suelte
         char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
         if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
             evt.consume();//el evento no permite seguir escribiendo
@@ -1852,6 +1909,12 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     }//GEN-LAST:event_fileasAsientosFieldKeyTyped
 
     private void columasAsientosFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_columasAsientosFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        if(columasAsientosField.getText().length()>0){//restringimos que no puede escribir mas de 8 digitos
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "no puede ser mas de 1 digito");//Mensaje condicional digitos pasaporte
+        }
         //Combinacion de que la tecla se presione y se suelte
         char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
         if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
@@ -1863,6 +1926,12 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
 
     private void pasillosFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pasillosFieldKeyTyped
         //Combinacion de que la tecla se presione y se suelte
+        if(pasillosField.getText().length()>0){//restringimos que no puede escribir mas de 8 digitos
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "no puede ser mas de 1 digito");//Mensaje condicional digitos pasaporte
+        }
+        //Combinacion de que la tecla se presione y se suelte
         char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
         if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
             evt.consume();//el evento no permite seguir escribiendo
@@ -1872,6 +1941,12 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     }//GEN-LAST:event_pasillosFieldKeyTyped
 
     private void cadaCuantoPasillosFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cadaCuantoPasillosFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        if(cadaCuantoPasillosField.getText().length()>0){//restringimos que no puede escribir mas de 8 digitos
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "no puede ser mas de 1 digito");//Mensaje condicional digitos pasaporte
+        }
         //Combinacion de que la tecla se presione y se suelte
         char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
         if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
@@ -1929,7 +2004,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         cargaReportes.setText(cargaReportes.getText()+"\nEstado civil que viaja mas:  "+estadoCivil+"\n"
                 + "Edad que mas viaja: -----Inconcluso-----\n"
                 + "Nacionalidad que mas viaja: "+c1.getNacionalidadViaja()+"\n"
-                + "Sexo que mas viaja: "+sexo);
+                + "Sexo que mas viaja: "+sexo+"\n");
     }//GEN-LAST:event_reportePasajeroActionPerformed
 
     private void reporteAerolineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteAerolineaActionPerformed
@@ -1939,12 +2014,27 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     }//GEN-LAST:event_reporteAerolineaActionPerformed
 
     private void reporteAvionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteAvionActionPerformed
-        cargaReportes.setText(cargaReportes.getText()+"\nReporte consumo de gasolina:  \n");
+        cargaReportes.setText(cargaReportes.getText()+"\nReporte consumo de gasolina:  "+c1.getConsumoGasolina()+"\n");
     }//GEN-LAST:event_reporteAvionActionPerformed
 
     private void limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarActionPerformed
         cargaReportes.setText("");
     }//GEN-LAST:event_limpiarActionPerformed
+
+    private void exportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarActionPerformed
+        try {
+            JFileChooser archivo = new JFileChooser(System.getProperty("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/reportes"));
+            archivo.showSaveDialog(this);
+            if (archivo.getSelectedFile() != null) {
+                try (FileWriter guardado = new FileWriter(archivo.getSelectedFile())) {
+                guardado.write(cargaReportes.getText());
+                JOptionPane.showMessageDialog(this, "El archivo fue guardado con éxito en la ruta establecida");
+                }
+        }
+        } catch (IOException ex) {
+        System.out.println("ex"+ex);
+        }
+    }//GEN-LAST:event_exportarActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
         @Override//sobrescribimos la clase JPanel especificamente el metodo paint
@@ -2009,7 +2099,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     private javax.swing.JLabel Tarjetatext;
     private javax.swing.JTextField cadaCuantoPasillosField;
     private javax.swing.JTextField capacidadGasolinaField;
-    private javax.swing.JTextArea cargaReportes;
+    public static javax.swing.JTextArea cargaReportes;
     private javax.swing.JTextField codigoCVCField;
     private javax.swing.JLabel codigoCvC;
     private javax.swing.JTextField columasAsientosField;
@@ -2020,6 +2110,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     private javax.swing.JButton crearAvion;
     private javax.swing.JLabel dineroActual;
     private javax.swing.JTextField dineroActualField;
+    private javax.swing.JButton exportar;
     private javax.swing.JLabel filaAsientos;
     private javax.swing.JTextField fileasAsientosField;
     private javax.swing.JDesktopPane jDesktopPane1;

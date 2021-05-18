@@ -21,8 +21,11 @@ public class Controlador {
     private int verCantidadPasajeros;
     private String verificarCodigoAvion;
     private int capacidadComprar;
+    private int tomarPasillos;
+    private int tomarColumnas;
+    private int tomarFilas;
     //creamos constructor para controlar datos
-    public Controlador(String validarPasaporte,String validarNombre,String validarApellidos,String validarSexo,String validarEstadoCivil,String validarNacionalidad,int validarMillasRecorridas,int verCantidadPasajeros,String verificarCodigoAvion,int capacidadComprar){
+    public Controlador(String validarPasaporte,String validarNombre,String validarApellidos,String validarSexo,String validarEstadoCivil,String validarNacionalidad,int validarMillasRecorridas,int verCantidadPasajeros,String verificarCodigoAvion,int capacidadComprar,int tomarPasillos,int tomarColumnas,int tomarFilas){
         this.validarPasaporte=validarPasaporte;
         this.validarNombre=validarNombre;
         this.validarApellidos=validarApellidos;
@@ -33,6 +36,9 @@ public class Controlador {
         this.verCantidadPasajeros=verCantidadPasajeros;
         this.verificarCodigoAvion=verificarCodigoAvion;
         this.capacidadComprar=capacidadComprar;
+        this.tomarPasillos=tomarPasillos;
+        this.tomarColumnas=tomarColumnas;
+        this.tomarFilas=tomarFilas;
     }
     //creamos gets y sets
     public String getValidarPasaporte() {
@@ -113,6 +119,30 @@ public class Controlador {
 
     public void setCapacidadComprar(int capacidadComprar) {
         this.capacidadComprar = capacidadComprar;
+    }
+
+    public int getTomarPasillos() {
+        return tomarPasillos;
+    }
+
+    public void setTomarPasillos(int tomarPasillos) {
+        this.tomarPasillos = tomarPasillos;
+    }
+
+    public int getTomarColumnas() {
+        return tomarColumnas;
+    }
+
+    public void setTomarColumnas(int tomarColumnas) {
+        this.tomarColumnas = tomarColumnas;
+    }
+
+    public int getTomarFilas() {
+        return tomarFilas;
+    }
+
+    public void setTomarFilas(int tomarFilas) {
+        this.tomarFilas = tomarFilas;
     }
     
     

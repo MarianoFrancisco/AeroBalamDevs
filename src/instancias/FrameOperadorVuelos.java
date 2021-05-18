@@ -5,9 +5,8 @@
  */
 package instancias;
 
-import estructurarAvion.HacerAvion;
 import static instancias.FrameAnimacionVuelo.frameAnimacionVuelo;
-import static instancias.FrameVentaAsientos.s;
+import static instancias.FrameVentaAsientos.frameVentaAsientos;
 import static instancias.FrameVisualizarDistribucionAsientos.frameVisualizarDistribucionAsientos;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -25,6 +24,14 @@ public class FrameOperadorVuelos extends javax.swing.JFrame {
      * Creates new form FrameOperadorVuelos
      */
     FondoInicio operadorVuelos = new FondoInicio();//Creamos un nuevo fondo
+    //estructuramos una manera estatica para poder cerrarla y abrirla desde cualquier lado
+    public static FrameOperadorVuelos frameOperadorVuelos;
+    public static void iniciarOperadorVuelos(){
+        frameOperadorVuelos=new FrameOperadorVuelos();
+    }
+    public static void visible(){
+        frameOperadorVuelos.setVisible(true);
+    }
     public FrameOperadorVuelos() {
         this.setContentPane(operadorVuelos);//Realizamos la pintada de nuestro fondo
         initComponents();
@@ -46,9 +53,9 @@ public class FrameOperadorVuelos extends javax.swing.JFrame {
         RegresarMenu = new javax.swing.JButton();
         Logo = new javax.swing.JLabel();
         iniciarVuelo = new javax.swing.JButton();
-        posponerVuelo = new javax.swing.JButton();
         distribucionAsientos = new javax.swing.JButton();
         cancelarVuelo = new javax.swing.JButton();
+        posponerVuelo = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Operador de Vuelos");
@@ -92,17 +99,6 @@ public class FrameOperadorVuelos extends javax.swing.JFrame {
         });
         jPanel1.add(iniciarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 140, -1, -1));
 
-        posponerVuelo.setBackground(new java.awt.Color(255, 255, 51));
-        posponerVuelo.setFont(new java.awt.Font("Engravers MT", 1, 18)); // NOI18N
-        posponerVuelo.setForeground(new java.awt.Color(0, 0, 0));
-        posponerVuelo.setText("Posponer vuelo");
-        posponerVuelo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                posponerVueloActionPerformed(evt);
-            }
-        });
-        jPanel1.add(posponerVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, -1, -1));
-
         distribucionAsientos.setBackground(new java.awt.Color(255, 255, 51));
         distribucionAsientos.setFont(new java.awt.Font("Engravers MT", 1, 18)); // NOI18N
         distribucionAsientos.setForeground(new java.awt.Color(0, 0, 0));
@@ -125,6 +121,12 @@ public class FrameOperadorVuelos extends javax.swing.JFrame {
         });
         jPanel1.add(cancelarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, -1, -1));
 
+        posponerVuelo.setBackground(new java.awt.Color(255, 255, 0));
+        posponerVuelo.setFont(new java.awt.Font("Engravers MT", 1, 18)); // NOI18N
+        posponerVuelo.setForeground(new java.awt.Color(0, 0, 0));
+        posponerVuelo.setText("Posponer vuelo");
+        jPanel1.add(posponerVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,19 +147,20 @@ public class FrameOperadorVuelos extends javax.swing.JFrame {
     }//GEN-LAST:event_SalirDelSistemaActionPerformed
 
     private void iniciarVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarVueloActionPerformed
-        FrameAnimacionVuelo.iniciarVuelo();
-        frameAnimacionVuelo.setVisible(true);
-        this.dispose();
+        if(posponerVuelo.isSelected()){
+            JOptionPane.showMessageDialog(null, "Vuelo pospuesto, no lo puedes iniciar hasta quitarlo");//Mensaje 
+        }else{
+            FrameAnimacionVuelo.iniciarVuelo();
+            frameAnimacionVuelo.setVisible(true);
+            this.dispose();
+        }
+        
     }//GEN-LAST:event_iniciarVueloActionPerformed
 
     private void RegresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarMenuActionPerformed
         LlamarInstancias.manejoAeropuerto();//Regresamos al manejo aeropuerto
         this.dispose();//Cerramos este frame
     }//GEN-LAST:event_RegresarMenuActionPerformed
-
-    private void posponerVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_posponerVueloActionPerformed
-        
-    }//GEN-LAST:event_posponerVueloActionPerformed
 
     private void distribucionAsientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_distribucionAsientosActionPerformed
         frameVisualizarDistribucionAsientos.setVisible(true);
@@ -166,6 +169,10 @@ public class FrameOperadorVuelos extends javax.swing.JFrame {
 
     private void cancelarVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarVueloActionPerformed
         JOptionPane.showMessageDialog(null, "Vuelo cancelado");
+        frameVentaAsientos.dispose();//cerramos frame
+        FrameVentaAsientos.cargarVenta();
+        frameVisualizarDistribucionAsientos.dispose();
+        FrameVisualizarDistribucionAsientos.iniciarDistribucion();
     }//GEN-LAST:event_cancelarVueloActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
@@ -186,6 +193,6 @@ public class FrameOperadorVuelos extends javax.swing.JFrame {
     private javax.swing.JButton distribucionAsientos;
     private javax.swing.JButton iniciarVuelo;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton posponerVuelo;
+    private javax.swing.JToggleButton posponerVuelo;
     // End of variables declaration//GEN-END:variables
 }

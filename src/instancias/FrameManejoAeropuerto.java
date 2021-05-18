@@ -7,6 +7,7 @@ package instancias;
 
 import static instancias.FrameDepartamentoAdministracion.frameDepartamentoAdministracion;
 import static instancias.FrameGerenciaAerolinea.frameGerenciaAerolinea;
+import static instancias.FrameOperadorVuelos.frameOperadorVuelos;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -411,7 +412,7 @@ public class FrameManejoAeropuerto extends javax.swing.JFrame {
         else{
             if(usuario1.equals("Admin")&&contraseñaAdmin1.equals("1234")){//Unicamente si los datos estan bien podra ingresar
                 JOptionPane.showMessageDialog(null, "Bienvenido");//Mensaje de bienvenida
-                LlamarInstancias.operadorVuelos();//Vamos a operador vuelos
+                frameOperadorVuelos.setVisible(true);//Vamos a operador vuelos
                 this.dispose();//Cerramos este frame
             }else{
                 Toolkit.getDefaultToolkit().beep();//sonido de error

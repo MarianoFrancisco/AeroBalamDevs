@@ -9,7 +9,7 @@ import static instancias.FramePasajeros.c;
 import instancias.FrameVentaAsientos;
 import static instancias.FrameVentaAsientos.compraAsientos;
 import static instancias.FrameVentaAsientos.s;
-import instancias.FrameVisualizarDistribucionAsientos;
+import static instancias.FrameVisualizarDistribucionAsientos.frameVisualizarDistribucionAsientos;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,8 +36,8 @@ public class HacerAvion implements Serializable{
     public static JButton[][] pasillo;
     public static JButton[][] asiento1;
     public static JButton[][] pasillo1;
-    int filas=3;
-    int columnas=3;
+    int filas=c.getTomarColumnas();
+    int columnas=c.getTomarFilas();
     int condicionM=filas;
     int condicionN=columnas;
     
@@ -55,8 +55,8 @@ public class HacerAvion implements Serializable{
     public void cambioDatos(){
         s.setGuardarFilasAsientos(s.getGuardarFilasAsientos());
     }
-    public static DistribucionAvion asientos[][]= new DistribucionAvion[100][100];
-    public static DistribucionAvion pasillos[][]= new DistribucionAvion[100][100];
+    public static DistribucionAvion asientos[][]= new DistribucionAvion[1000][1000];
+    public static DistribucionAvion pasillos[][]= new DistribucionAvion[1000][1000];
     public void crearAsiento(){
         int x=s.getGuardarValorX();
         int y=s.getGuardarValorY();
@@ -69,7 +69,7 @@ public class HacerAvion implements Serializable{
                 asiento[i][j].setBounds(y, x, 90, 50);
                 asiento1[i][j].setBounds(y, x, 90, 50);
                 FrameVentaAsientos.jPanel2.add(asiento[i][j]);
-                FrameVisualizarDistribucionAsientos.jPanel2.add(asiento1[i][j]);
+                frameVisualizarDistribucionAsientos.jPanel2.add(asiento1[i][j]);
                 asiento[i][j].setBackground(Color.ORANGE);
                 asiento1[i][j].setBackground(Color.ORANGE);
                 asiento[i][j].setText("Asiento");
@@ -88,16 +88,16 @@ public class HacerAvion implements Serializable{
     public void crearPasillo(){
         int x=s.getGuardarValorX();
         int y=s.getGuardarValorY();
-        pasillo= new JButton[filas][1];
-        pasillo1= new JButton[filas][1];
-        for (int i = 0; i < filas; i++) {
+        pasillo= new JButton[c.getTomarFilas()][1];
+        pasillo1= new JButton[c.getTomarFilas()][1];
+        for (int i = 0; i < c.getTomarFilas(); i++) {
             for (int j = 0; j < 1; j++) {
                 pasillo[i][j] = new JButton();
                 pasillo1[i][j] = new JButton();
                 pasillo[i][j].setBounds(y, x, 90, 50);
                 pasillo1[i][j].setBounds(y, x, 90, 50);
                 FrameVentaAsientos.jPanel2.add(pasillo[i][j]);
-                FrameVisualizarDistribucionAsientos.jPanel2.add(pasillo1[i][j]);
+                frameVisualizarDistribucionAsientos.jPanel2.add(pasillo1[i][j]);
                 pasillo[i][j].setBackground(Color.cyan);
                 pasillo1[i][j].setBackground(Color.cyan);
                 x+=50;

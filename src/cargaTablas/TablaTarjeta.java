@@ -21,13 +21,13 @@ public class TablaTarjeta {
         DefaultTableModel modeloTabla = new DefaultTableModel();
         tabla.setModel(modeloTabla);//definimos tabla
         //añadimos columnas
-        modeloTabla.addColumn("Numero tarjeta");
         modeloTabla.addColumn("Numero pasaporte");
+        modeloTabla.addColumn("Numero tarjeta");
         modeloTabla.addColumn("DineroActual");
         modeloTabla.addColumn("Codigo CVC");
         //llenamos filas
         for (Tarjeta tarjeta : tarjetas) {
-            modeloTabla.addRow(new Object[]{tarjeta.getNumeroTarjeta(),tarjeta.getPasaporte(),tarjeta.getDineroActual(),tarjeta.getCodigoCVC()});
+            modeloTabla.addRow(new Object[]{tarjeta.getPasaporte(),tarjeta.getNumeroTarjeta(),tarjeta.getDineroActual(),tarjeta.getCodigoCVC()});
         }
     }
 }

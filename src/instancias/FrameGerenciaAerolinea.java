@@ -7,9 +7,13 @@ package instancias;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import static proyectofinal.ProyectoFinal.c1;
 
 /**
  *
@@ -54,6 +58,7 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         gerenciaReporte = new javax.swing.JTextArea();
         limpiarReportes = new javax.swing.JButton();
+        exportador = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerencia de Aerolinea");
@@ -135,6 +140,15 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
             }
         });
 
+        exportador.setBackground(new java.awt.Color(204, 255, 51));
+        exportador.setForeground(new java.awt.Color(0, 0, 0));
+        exportador.setText("Exportador a .txt");
+        exportador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportadorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -143,9 +157,11 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
                 .addComponent(Logo)
                 .addGap(4, 4, 4)
                 .addComponent(RegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(349, 349, 349)
+                .addGap(279, 279, 279)
+                .addComponent(exportador)
+                .addGap(35, 35, 35)
                 .addComponent(limpiarReportes)
-                .addGap(423, 423, 423)
+                .addGap(334, 334, 334)
                 .addComponent(SalirDelSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 5, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -183,7 +199,9 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
                             .addComponent(RegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SalirDelSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(limpiarReportes)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(limpiarReportes)
+                            .addComponent(exportador))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
@@ -221,7 +239,7 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
     }//GEN-LAST:event_sucursalesActionPerformed
 
     private void gananciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gananciasActionPerformed
-        gerenciaReporte.setText(gerenciaReporte.getText()+"\nGanancias: ");
+        gerenciaReporte.setText(gerenciaReporte.getText()+"\nGanancias Aeropuerto:  Q. "+c1.getDineroGanado()+"\n");
     }//GEN-LAST:event_gananciasActionPerformed
 
     private void passaporteNegadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passaporteNegadosActionPerformed
@@ -231,6 +249,21 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
     private void limpiarReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarReportesActionPerformed
         gerenciaReporte.setText("");
     }//GEN-LAST:event_limpiarReportesActionPerformed
+
+    private void exportadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportadorActionPerformed
+        try {
+            JFileChooser archivo = new JFileChooser(System.getProperty("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/reportes"));
+            archivo.showSaveDialog(this);
+            if (archivo.getSelectedFile() != null) {
+                try (FileWriter guardado = new FileWriter(archivo.getSelectedFile())) {
+                    guardado.write(gerenciaReporte.getText());
+                    JOptionPane.showMessageDialog(this, "El archivo fue guardado con éxito en la ruta establecida");
+                }
+            }
+        } catch (IOException ex) {
+            System.out.println("ex"+ex);
+        }
+    }//GEN-LAST:event_exportadorActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
         @Override//sobrescribimos la clase JPanel especificamente el metodo paint
@@ -246,6 +279,7 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
     private javax.swing.JLabel Logo;
     private javax.swing.JButton RegresarMenu;
     private javax.swing.JButton SalirDelSistema;
+    private javax.swing.JButton exportador;
     private javax.swing.JButton ganancias;
     private javax.swing.JTextArea gerenciaReporte;
     private javax.swing.JPanel jPanel1;

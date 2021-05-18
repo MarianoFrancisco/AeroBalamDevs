@@ -16,13 +16,15 @@ public class ManejadorReportes {
     private int hombreViaja;
     private int mujerViaja;
     private int dineroGanado;
-    public ManejadorReportes(int solteroViaja,int casadoViaja,String nacionalidadViaja,int hombreViaja,int mujerViaja,int dineroGanado){
+    private int consumoGasolina;
+    public ManejadorReportes(int solteroViaja,int casadoViaja,String nacionalidadViaja,int hombreViaja,int mujerViaja,int dineroGanado,int consumoGasolina){
             this.solteroViaja=solteroViaja;
             this.casadoViaja=casadoViaja;
             this.nacionalidadViaja=nacionalidadViaja;
             this.hombreViaja=hombreViaja;
             this.mujerViaja=mujerViaja;
             this.dineroGanado=dineroGanado;
+            this.consumoGasolina=consumoGasolina;
     }
 
     public int getSolteroViaja() {
@@ -71,6 +73,14 @@ public class ManejadorReportes {
 
     public void setDineroGanado(int dineroGanado) {
         this.dineroGanado = dineroGanado;
+    }
+
+    public int getConsumoGasolina() {
+        return this.consumoGasolina;
+    }
+
+    public void setConsumoGasolina(int consumoGasolina) {
+        this.consumoGasolina = consumoGasolina;
     }
     
 }

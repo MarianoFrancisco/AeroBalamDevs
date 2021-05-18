@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import static instancias.FramePasajeros.c;
 import static instancias.FrameVentaAsientos.frameVentaAsientos;
+import static instancias.FrameVisualizarDistribucionAsientos.frameVisualizarDistribucionAsientos;
 import java.awt.Toolkit;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -235,14 +236,18 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
                     String nombreDefinido = ((Pasaporte)objetos.readObject()).getNombres();
                     String ciudadOrigen = ((Pasaporte)objetos1.readObject()).getPaisActual();
                     if(pasaporte.equals(pasaporteDefinido)&&ciudadOrigen.equals(ciudadOrigenValor)){//Unicamente si los datos estan bien podra ingresar
-                            JOptionPane.showMessageDialog(null, "a comprar "+ c.getVerCantidadPasajeros()+" boletos se ha dicho "+nombreDefinido);//Mensaje de bienvenida
-                            vaciarValoresCompraBoletos();   
-                            frameVentaAsientos.setVisible(true); //vamos a venta asientos
-                            HiloControlRecomendacion hC = new HiloControlRecomendacion();//creamos un hilo animacion
-                            hC.start();//iniciamos hilo animacion
-                            llenarReportes();
-                            c.setCapacidadComprar(c.getVerCantidadPasajeros());
-                            this.dispose();//Cerramos este frame
+                            if(c.getTomarColumnas()==0){
+                                JOptionPane.showMessageDialog(null, "Solicita el vuelo al administrador, no disponible");//Mensaje
+                            }else{
+                                JOptionPane.showMessageDialog(null, "a comprar "+ c.getVerCantidadPasajeros()+" boletos se ha dicho "+nombreDefinido);//Mensaje de bienvenida
+                                vaciarValoresCompraBoletos();   
+                                frameVentaAsientos.setVisible(true); //vamos a venta asientos
+                                HiloControlRecomendacion hC = new HiloControlRecomendacion();//creamos un hilo animacion
+                                hC.start();//iniciamos hilo animacion
+                                llenarReportes();
+                                c.setCapacidadComprar(c.getVerCantidadPasajeros());
+                                this.dispose();//Cerramos este frame
+                            }
                         }else{
                             Toolkit.getDefaultToolkit().beep();//sonido de error
                             JOptionPane.showMessageDialog(null, "Datos incorrectos o no eres de la ciudad de origen indicada");//Mensaje datos incorrectos               

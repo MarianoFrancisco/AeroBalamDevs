@@ -5,11 +5,15 @@
  */
 package proyectofinal;
 
-import instancias.FrameAnimacionVuelo;
 import static instancias.FrameAnimacionVuelo.frameAnimacionVuelo;
+import instancias.FrameVentaAsientos;
+import static instancias.FrameVentaAsientos.frameVentaAsientos;
+import instancias.FrameVisualizarDistribucionAsientos;
+import static instancias.FrameVisualizarDistribucionAsientos.frameVisualizarDistribucionAsientos;
 import instancias.LlamarInstancias;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import static proyectofinal.ProyectoFinal.c1;
 
 /**
  *
@@ -65,6 +69,11 @@ public class HiloAnimacion extends Thread implements Runnable{
         }
         JOptionPane.showMessageDialog(null, "Vuelo finalizado");//mensaje amigable
         frameAnimacionVuelo.dispose();//cerramos frame animacion vuelo
-        LlamarInstancias.operadorVuelos();//regresamos a frame operador vuelos
+        frameVentaAsientos.dispose();//cerramos frame
+        FrameVentaAsientos.cargarVenta();
+        frameVisualizarDistribucionAsientos.dispose();
+        FrameVisualizarDistribucionAsientos.iniciarDistribucion();
+        c1.setConsumoGasolina(c1.getConsumoGasolina()+100);
+        LlamarInstancias.operadorVuelos();
     }
 }
