@@ -17,10 +17,12 @@ import javax.swing.JPanel;
 import manejadorArchivosUser.Pasaporte;
 import cargaArchivos.*;
 import cargaTablas.*;
+import static instancias.FramePasajeros.c;
 import java.awt.Toolkit;
 import manejadorArchivosAeropuerto.Aerolineas;
 import manejadorArchivosAeropuerto.Aeropuerto;
 import manejadorArchivosAeropuerto.Aviones;
+import manejadorArchivosAeropuerto.CrearAviones;
 import manejadorArchivosAeropuerto.Distancia;
 import manejadorArchivosAeropuerto.Renovacion;
 import manejadorArchivosAeropuerto.Reservacion;
@@ -1578,12 +1580,78 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     }//GEN-LAST:event_codigoCVCFieldKeyTyped
 
     private void AnadirTarjetaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnadirTarjetaBotonActionPerformed
-        // TODO add your handling code here:
+        String tarjeta =TarjetaField.getText();
+        String pasaporte1 =PasaporteTarjeta.getText();
+        String dineroActual=dineroActualField.getText();
+        String codigoCvC=codigoCVCField.getText();
+        //Verificamos si una casilla esta vacia
+        if(tarjeta.isEmpty()||pasaporte1.isEmpty()||dineroActual.isEmpty()||codigoCvC.isEmpty()){
+            JOptionPane.showMessageDialog(null, "No dejes casillas vacias");//Mensaje casilla vacia
+        }
+        else{
+            //definimos los espacios que ocupara en nuestro pasajero al ser creado
+            String espacio[]={tarjeta,pasaporte1,dineroActual,codigoCvC};
+            Tarjeta tarjetas= CrearTarjeta.crearTarjeta(espacio);
+            //establecemos un nuevo valor en los pasajeros establecidos del array list
+            ArrayList<Tarjeta> tarjetasEstablecidos= new ArrayList<>();
+            tarjetasEstablecidos.add(tarjetas);//agreagamos un nuevo pasaporte
+            vaciarValoresPasaporte();
+            JOptionPane.showMessageDialog(this, "Registraste exitosamente Tarjeta, que grande");//mensaje amigable
+            try {//guardar el vehiculo en un archivo binario
+                this.guardarTarjetaBinario.guardarTarjeta(tarjetasEstablecidos);
+            } catch (IOException ex) {
+                System.out.println("error"+ex);
+            }  
+        }
     }//GEN-LAST:event_AnadirTarjetaBotonActionPerformed
 
     private void modificarAvionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarAvionActionPerformed
-        
-        
+        /*
+        -Establecemos variables para ser tomadas en cuenta al crear un nuevo pasajero
+        -El (String) nos sirve para castear el item y pasarlo a tipo string
+        -Anteriormente pasaporte y millas lo podemos convertir de string a int por eso lo definimos como string
+         */
+        String nombreAerolinea=nombreAerolineaField.getText();
+        String nombreAeropuerto= nombreAeropuertoField.getText();
+        String s1 = fileasAsientosField.getText();
+        String s2= columasAsientosField.getText();
+        String s3= pasillosField.getText();
+        String s4= cadaCuantoPasillosField.getText();
+        String nacionalidad = nombreAeropuertoField.getText();
+        String codigoAvion= CodigoAvionField.getText();
+        c.setVerificarCodigoAvion(codigoAvion);
+        String capacidadGasolina= capacidadGasolinaField.getText();
+        String consumoMilla= consumoMillaField.getText();   
+        //Verificamos si una casilla esta vacia
+        if(s1.isEmpty()||s2.isEmpty()||s3.isEmpty()||s4.isEmpty()||nombreAerolinea.isEmpty()||nombreAeropuerto.isEmpty()||nacionalidad.isEmpty()||codigoAvion.isEmpty()||capacidadGasolina.isEmpty()||consumoMilla.isEmpty()){
+            JOptionPane.showMessageDialog(null, "No dejes casillas vacias");//Mensaje casilla vacia
+        }
+        else{
+            File fichero=new File("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/aviones/"+c.getVerificarCodigoAvion()+".bin");
+            if(fichero.exists()){
+                int filaAsientos=Integer.parseInt(s1);
+                int columnasAsientos=Integer.parseInt(s2);
+                int pasillos=Integer.parseInt(s3);
+                int cadaCuantoPasillos=Integer.parseInt(s4);
+                int capacidad = (filaAsientos*columnasAsientos);
+                String capacidadPasajeros = (capacidad+"");
+                //definimos los espacios que ocupara en nuestro pasajero al ser creado
+                String espacio[]={nombreAerolinea,nombreAeropuerto,codigoAvion,capacidadPasajeros,capacidadGasolina,consumoMilla};
+                Aviones aviones = CrearAviones.crearAviones(espacio);
+                //establecemos un nuevo valor en los pasajeros establecidos del array list
+                ArrayList<Aviones> avionesEstablecidos= new ArrayList<>();
+                avionesEstablecidos.add(aviones);//agreagamos un nuevo pasaporte
+                vaciarValoresPasaporte();
+                JOptionPane.showMessageDialog(this, "Modificaste exitosamente un avion, que grande");//mensaje amigable
+                try {//guardar el vehiculo en un archivo binario
+                    this.guardarAvionesBinario.guardarAviones(avionesEstablecidos);
+                } catch (IOException ex) {
+                    System.out.println("error"+ex);
+                }
+            }else{
+                JOptionPane.showMessageDialog(this, "No existe el avion ingresado, revisa el codigo de avion");//mensaje amigable
+            } 
+        }
     }//GEN-LAST:event_modificarAvionActionPerformed
 
     private void reporteVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteVuelosActionPerformed
@@ -1666,35 +1734,43 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
          */
         String nombreAerolinea=nombreAerolineaField.getText();
         String nombreAeropuerto= nombreAeropuertoField.getText();
+        String s1 = fileasAsientosField.getText();
+        String s2= columasAsientosField.getText();
+        String s3= pasillosField.getText();
+        String s4= cadaCuantoPasillosField.getText();
         String nacionalidad = nombreAeropuertoField.getText();
         String codigoAvion= CodigoAvionField.getText();
-        String nombres= NombresField.getText();
-        String apellidos= ApellidosField.getText();
-        String sexo= (String) SexoCombo.getSelectedItem();
-        String fechaVenPass= FechaVenPasField.getText();
-        String fechaEmPass= FechaEmPasField.getText();
-        String paisActual= (String) PaisActualCombo.getSelectedItem();
-        String millasRecorridas= "0";
+
+        String capacidadGasolina= capacidadGasolinaField.getText();
+        String consumoMilla= consumoMillaField.getText();
+        
+        
         //Verificamos si una casilla esta vacia
-        /*if(pasaporte.isEmpty()||fechaNacimiento.isEmpty()||nacionalidad.isEmpty()||nombres.isEmpty()||apellidos.isEmpty()||fechaVenPass.isEmpty()||fechaEmPass.isEmpty()){
+        if(s1.isEmpty()||s2.isEmpty()||s3.isEmpty()||s4.isEmpty()||nombreAerolinea.isEmpty()||nombreAeropuerto.isEmpty()||nacionalidad.isEmpty()||codigoAvion.isEmpty()||capacidadGasolina.isEmpty()||consumoMilla.isEmpty()){
             JOptionPane.showMessageDialog(null, "No dejes casillas vacias");//Mensaje casilla vacia
         }
         else{
+            int filaAsientos=Integer.parseInt(s1);
+            int columnasAsientos=Integer.parseInt(s2);
+            int pasillos=Integer.parseInt(s3);
+            int cadaCuantoPasillos=Integer.parseInt(s4);
+            int capacidad = (filaAsientos*columnasAsientos);
+            String capacidadPasajeros = (capacidad+"");
             //definimos los espacios que ocupara en nuestro pasajero al ser creado
-            String espacio[]={pasaporte,contrasenia,fechaNacimiento,nacionalidad,estadoCivil,nombres,apellidos,sexo,fechaVenPass,fechaEmPass,paisActual,millasRecorridas};
-            Pasaporte pasaportes = CrearPasaporte.crearPasaporte(espacio);
+            String espacio[]={nombreAerolinea,nombreAeropuerto,codigoAvion,capacidadPasajeros,capacidadGasolina,consumoMilla};
+            Aviones aviones = CrearAviones.crearAviones(espacio);
             //establecemos un nuevo valor en los pasajeros establecidos del array list
-            ArrayList<Pasaporte> pasaportesEstablecidos= new ArrayList<>();
-            pasaportesEstablecidos.add(pasaportes);//agreagamos un nuevo pasaporte
+            ArrayList<Aviones> avionesEstablecidos= new ArrayList<>();
+            avionesEstablecidos.add(aviones);//agreagamos un nuevo pasaporte
             vaciarValoresPasaporte();
-            JOptionPane.showMessageDialog(this, "Registraste exitosamente pasaporte, que grande");//mensaje amigable
+            JOptionPane.showMessageDialog(this, "Registraste exitosamente un avion, que grande");//mensaje amigable
             try {//guardar el vehiculo en un archivo binario
-                this.guardarPasaporteBinario.guardarPasaporte(pasaportesEstablecidos);
+                this.guardarAvionesBinario.guardarAviones(avionesEstablecidos);
             } catch (IOException ex) {
                 System.out.println("error"+ex);
             }
             
-        }*/
+        }
     }//GEN-LAST:event_crearAvionActionPerformed
 
     private void nombreAerolineaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreAerolineaFieldActionPerformed

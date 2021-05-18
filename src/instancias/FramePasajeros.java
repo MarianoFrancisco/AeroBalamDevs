@@ -30,7 +30,7 @@ public class FramePasajeros extends javax.swing.JFrame {
     /**
      * Creates new form FramePasajeros
      */
-    public static Controlador c= new Controlador("","","","","","",0);;
+    public static Controlador c= new Controlador("","","","","","",0,0,"");;
     FondoInicio fondoPasajeros = new FondoInicio();//Creamos un nuevo fondo
     public FramePasajeros() {
         this.setContentPane(fondoPasajeros);//Realizamos la pintada de nuestro fondo

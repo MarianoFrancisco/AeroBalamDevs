@@ -14,7 +14,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import estructurarAvion.HacerAvion;
+import static instancias.FramePasajeros.c;
 import static instancias.FrameVentaAsientos.frameVentaAsientos;
+import java.awt.Toolkit;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import manejadorArchivosUser.Pasaporte;
 
 /**
  *
@@ -59,6 +68,8 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
         cantidadPasajerostext = new javax.swing.JLabel();
         Aerolineatext = new javax.swing.JLabel();
         ciudadOirgentext1 = new javax.swing.JLabel();
+        EntradaPasaporte = new javax.swing.JTextField();
+        pasaporteTexto = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -103,49 +114,66 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
         jPanel1.add(irCompraBoleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 480, -1, -1));
 
         ciudadOrigen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Marshall", "Islas Salomón", "Israel", "Italia", "Jamaica", "Japón", "ordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar", "Malasia", "Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana", "República Checa", "República del Congo", "República Democrática del Congo", "República Dominicana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue" }));
-        jPanel1.add(ciudadOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 180, 160, -1));
+        jPanel1.add(ciudadOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 160, 160, -1));
 
         ciudadDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Marshall", "Islas Salomón", "Israel", "Italia", "Jamaica", "Japón", "ordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar", "Malasia", "Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana", "República Checa", "República del Congo", "República Democrática del Congo", "República Dominicana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue" }));
-        jPanel1.add(ciudadDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 240, 160, -1));
+        jPanel1.add(ciudadDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 220, 160, -1));
 
         cuidadDestinotext.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
         cuidadDestinotext.setForeground(new java.awt.Color(0, 0, 0));
         cuidadDestinotext.setText("Ciudad de destino");
-        jPanel1.add(cuidadDestinotext, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, -1, -1));
+        jPanel1.add(cuidadDestinotext, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, -1, -1));
 
         ciudadOirgentext.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
         ciudadOirgentext.setForeground(new java.awt.Color(0, 0, 0));
         ciudadOirgentext.setText("Ciudad de origen");
-        jPanel1.add(ciudadOirgentext, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, -1, -1));
+        jPanel1.add(ciudadOirgentext, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, -1, -1));
 
         FechaVueloField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-        jPanel1.add(FechaVueloField, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 350, 160, 20));
+        jPanel1.add(FechaVueloField, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 330, 160, 20));
 
         fechaVuelotext.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
         fechaVuelotext.setForeground(new java.awt.Color(0, 0, 0));
         fechaVuelotext.setText("FECHA DE VUELO");
-        jPanel1.add(fechaVuelotext, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, -1, -1));
+        jPanel1.add(fechaVuelotext, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, -1, -1));
 
         CantidadPasajeros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
-        jPanel1.add(CantidadPasajeros, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 290, -1, -1));
+        jPanel1.add(CantidadPasajeros, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 270, -1, -1));
 
         Aerolinea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(Aerolinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 400, -1, -1));
+        jPanel1.add(Aerolinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 370, -1, -1));
 
         cantidadPasajerostext.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
         cantidadPasajerostext.setForeground(new java.awt.Color(0, 0, 0));
         cantidadPasajerostext.setText("Cantidad de pasajeros ");
-        jPanel1.add(cantidadPasajerostext, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, -1, -1));
+        jPanel1.add(cantidadPasajerostext, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, -1, -1));
 
         Aerolineatext.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
         Aerolineatext.setForeground(new java.awt.Color(0, 0, 0));
         Aerolineatext.setText("Aerolinea");
-        jPanel1.add(Aerolineatext, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, -1, -1));
+        jPanel1.add(Aerolineatext, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, -1, -1));
 
         ciudadOirgentext1.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
         ciudadOirgentext1.setForeground(new java.awt.Color(0, 0, 0));
         ciudadOirgentext1.setText("datos para viajar");
         jPanel1.add(ciudadOirgentext1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, -1, -1));
+
+        EntradaPasaporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EntradaPasaporteActionPerformed(evt);
+            }
+        });
+        EntradaPasaporte.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                EntradaPasaporteKeyTyped(evt);
+            }
+        });
+        jPanel1.add(EntradaPasaporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 430, 150, -1));
+
+        pasaporteTexto.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        pasaporteTexto.setForeground(new java.awt.Color(0, 0, 0));
+        pasaporteTexto.setText("Pasaporte");
+        jPanel1.add(pasaporteTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoMadera.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 450, 410));
@@ -183,19 +211,81 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
         String ciudadOrigenValor= (String)ciudadOrigen.getSelectedItem();
         String ciudadDestinoValor= (String)ciudadDestino.getSelectedItem();
         String cantidadPasajerosValor=(String)CantidadPasajeros.getSelectedItem();
+        String pasaporte = EntradaPasaporte.getText();
         String fechaVueloValor=FechaVueloField.getText();
+        c.setVerCantidadPasajeros(Integer.parseInt(cantidadPasajerosValor));
+        c.setValidarPasaporte(pasaporte);
         String aerolineaValor=(String)Aerolinea.getSelectedItem();
         if(fechaVueloValor.isEmpty()){
             JOptionPane.showMessageDialog(null, "No dejes casillas vacias");//Mensaje casilla vacia
         }else{
-            vaciarValoresCompraBoletos();
+            //Verificamos si el pasaporte existe o no
             File fichero=new File("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
-            frameVentaAsientos.setVisible(true); //vamos a venta asientos
-            this.dispose();
-        }
-        
-        
+            if(fichero.exists()){
+                try {
+                    //creamos archivos para poder llamar nuestros datos de pasaporte
+                    FileInputStream archivo = new FileInputStream("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
+                    ObjectInputStream objeto = new ObjectInputStream(archivo);
+                    FileInputStream archivos = new FileInputStream("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
+                    ObjectInputStream objetos = new ObjectInputStream(archivos);
+                    //definimos variables para almacenar valores
+                    String pasaporteDefinido = ((Pasaporte)objeto.readObject()).getPasaporte();
+                    String nombreDefinido = ((Pasaporte)objetos.readObject()).getNombres();
+                    if(pasaporte.equals(pasaporteDefinido)){//Unicamente si los datos estan bien podra ingresar
+                            JOptionPane.showMessageDialog(null, "a comprar "+ c.getVerCantidadPasajeros()+" boletos se ha dicho "+nombreDefinido);//Mensaje de bienvenida
+                            vaciarValoresCompraBoletos();   
+                            frameVentaAsientos.setVisible(true); //vamos a venta asientos
+                            if(c.getVerCantidadPasajeros()==1){
+                                
+                            }else if(c.getVerCantidadPasajeros()==2){
+                                
+                            }else if(c.getVerCantidadPasajeros()==3){
+                                
+                            }else if(c.getVerCantidadPasajeros()==4){
+                                
+                            }else if(c.getVerCantidadPasajeros()==5){
+                                
+                            }else if(c.getVerCantidadPasajeros()==6){
+                                
+                            }
+                            this.dispose();//Cerramos este frame
+                        }else{
+                            Toolkit.getDefaultToolkit().beep();//sonido de error
+                            JOptionPane.showMessageDialog(null, "Datos incorrectos");//Mensaje datos incorrectos               
+                        } 
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(FrameCompraBoletos.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(FrameCompraBoletos.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(FrameCompraBoletos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }else{
+                Toolkit.getDefaultToolkit().beep();//sonido de error
+                JOptionPane.showMessageDialog(null, "No estas registrado");//Mensaje datos incorrectos 
+            }
+        }      
     }//GEN-LAST:event_irCompraBoletoActionPerformed
+
+    private void EntradaPasaporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaPasaporteActionPerformed
+
+    }//GEN-LAST:event_EntradaPasaporteActionPerformed
+
+    private void EntradaPasaporteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EntradaPasaporteKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        if(EntradaPasaporte.getText().length()>7){//restringimos que no puede escribir mas de 8 digitos
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "El pasaporte unicamente tiene 8 digitos");//Mensaje condicional digitos pasaporte
+        }
+        char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
+        if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir letras, unicamente digitos");//Mensaje condicional no escribir letras
+        }
+    }//GEN-LAST:event_EntradaPasaporteKeyTyped
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
         @Override//sobrescribimos la clase JPanel especificamente el metodo paint
@@ -213,6 +303,7 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Aerolinea;
     private javax.swing.JLabel Aerolineatext;
     private javax.swing.JComboBox<String> CantidadPasajeros;
+    private javax.swing.JTextField EntradaPasaporte;
     private javax.swing.JFormattedTextField FechaVueloField;
     private javax.swing.JLabel Logo;
     private javax.swing.JButton RegresarMenu;
@@ -227,5 +318,6 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
     private javax.swing.JButton irCompraBoleto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel pasaporteTexto;
     // End of variables declaration//GEN-END:variables
 }

@@ -18,8 +18,10 @@ public class Controlador {
     private String validarEstadoCivil;
     private String validarNacionalidad;
     private int validarMillasRecorrdas;
+    private int verCantidadPasajeros;
+    private String verificarCodigoAvion;
     //creamos constructor para controlar datos
-    public Controlador(String validarPasaporte,String validarNombre,String validarApellidos,String validarSexo,String validarEstadoCivil,String validarNacionalidad,int validarMillasRecorridas){
+    public Controlador(String validarPasaporte,String validarNombre,String validarApellidos,String validarSexo,String validarEstadoCivil,String validarNacionalidad,int validarMillasRecorridas,int verCantidadPasajeros,String verificarCodigoAvion){
         this.validarPasaporte=validarPasaporte;
         this.validarNombre=validarNombre;
         this.validarApellidos=validarApellidos;
@@ -27,6 +29,8 @@ public class Controlador {
         this.validarEstadoCivil=validarEstadoCivil;
         this.validarNacionalidad=validarNacionalidad;
         this.validarMillasRecorrdas=validarMillasRecorridas;
+        this.verCantidadPasajeros=verCantidadPasajeros;
+        this.verificarCodigoAvion=verificarCodigoAvion;
     }
     //creamos gets y sets
     public String getValidarPasaporte() {
@@ -83,6 +87,22 @@ public class Controlador {
 
     public void setValidarMillasRecorrdas(int validarMillasRecorrdas) {
         this.validarMillasRecorrdas = validarMillasRecorrdas;
+    }
+
+    public int getVerCantidadPasajeros() {
+        return this.verCantidadPasajeros;
+    }
+
+    public void setVerCantidadPasajeros(int verCantidadPasajeros) {
+        this.verCantidadPasajeros = verCantidadPasajeros;
+    }
+
+    public String getVerificarCodigoAvion() {
+        return this.verificarCodigoAvion;
+    }
+
+    public void setVerificarCodigoAvion(String verificarCodigoAvion) {
+        this.verificarCodigoAvion = verificarCodigoAvion;
     }
     
     
