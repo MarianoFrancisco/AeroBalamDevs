@@ -17,14 +17,16 @@ public class Controlador {
     private String validarSexo;
     private String validarEstadoCivil;
     private String validarNacionalidad;
+    private int validarMillasRecorrdas;
     //creamos constructor para controlar datos
-    public Controlador(String validarPasaporte,String validarNombre,String validarApellidos,String validarSexo,String validarEstadoCivil,String validarNacionalidad){
+    public Controlador(String validarPasaporte,String validarNombre,String validarApellidos,String validarSexo,String validarEstadoCivil,String validarNacionalidad,int validarMillasRecorridas){
         this.validarPasaporte=validarPasaporte;
         this.validarNombre=validarNombre;
         this.validarApellidos=validarApellidos;
         this.validarSexo=validarSexo;
         this.validarEstadoCivil=validarEstadoCivil;
         this.validarNacionalidad=validarNacionalidad;
+        this.validarMillasRecorrdas=validarMillasRecorridas;
     }
     //creamos gets y sets
     public String getValidarPasaporte() {
@@ -73,6 +75,14 @@ public class Controlador {
 
     public void setValidarNacionalidad(String validarNacionalidad) {
         this.validarNacionalidad = validarNacionalidad;
+    }
+
+    public int getValidarMillasRecorrdas() {
+        return this.validarMillasRecorrdas;
+    }
+
+    public void setValidarMillasRecorrdas(int validarMillasRecorrdas) {
+        this.validarMillasRecorrdas = validarMillasRecorrdas;
     }
     
     

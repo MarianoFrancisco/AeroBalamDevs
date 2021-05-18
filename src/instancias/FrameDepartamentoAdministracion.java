@@ -140,7 +140,28 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         tablaVerAviones = new javax.swing.JTable();
         verAviones = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        modificarAvion = new javax.swing.JButton();
+        crearAvion = new javax.swing.JButton();
+        nombreAerolinea = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        nombreAerolineaField = new javax.swing.JTextField();
+        nombreAeropuertoField = new javax.swing.JTextField();
+        nombreAerolinea1 = new javax.swing.JLabel();
+        columasAsientosField = new javax.swing.JTextField();
+        nombreAerolinea2 = new javax.swing.JLabel();
+        pasillosField = new javax.swing.JTextField();
+        pasillos = new javax.swing.JLabel();
+        capacidadGasolinaField = new javax.swing.JTextField();
+        consumoGasolina = new javax.swing.JLabel();
+        consumoMillaField = new javax.swing.JTextField();
+        consumoMilla = new javax.swing.JLabel();
+        columnasAsientos = new javax.swing.JLabel();
+        filaAsientos = new javax.swing.JLabel();
+        CodigoAvionField = new javax.swing.JTextField();
+        fileasAsientosField = new javax.swing.JTextField();
+        pasillos2 = new javax.swing.JLabel();
+        cadaCuantoPasillosField = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jDesktopPane5 = new javax.swing.JDesktopPane();
         RegistrarBoton = new javax.swing.JButton();
         Pasaporte = new javax.swing.JLabel();
@@ -372,17 +393,18 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 834, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CargaPasaporte, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CargaTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(CargaDistancia, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(CargaVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(CargaAeropuerto, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(CargaAerolineas, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(CargaAviones, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(CargaRenovacion, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CargaReservacion, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(CargaPasaporte, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CargaTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(CargaDistancia, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CargaVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CargaAeropuerto, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CargaAerolineas, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CargaAviones, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(CargaRenovacion, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CargaReservacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42))
         );
         jDesktopPane9Layout.setVerticalGroup(
@@ -434,7 +456,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         ));
         jScrollPane6.setViewportView(tablaVerAerolineas);
 
-        jDesktopPane2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 690, 410));
+        jDesktopPane2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1200, 410));
 
         verAerolineas.setBackground(new java.awt.Color(0, 255, 255));
         verAerolineas.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
@@ -445,9 +467,9 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
                 verAerolineasActionPerformed(evt);
             }
         });
-        jDesktopPane2.add(verAerolineas, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 430, -1, -1));
+        jDesktopPane2.add(verAerolineas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, -1, -1));
 
-        Admin1.addTab("Añadir/Ver Aerolineas", jDesktopPane2);
+        Admin1.addTab("Ver Aerolineas", jDesktopPane2);
 
         jDesktopPane3.setBackground(new java.awt.Color(153, 255, 255));
         jDesktopPane3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -465,7 +487,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         ));
         jScrollPane5.setViewportView(tablaVerAeropuertos);
 
-        jDesktopPane3.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 690, 410));
+        jDesktopPane3.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 1190, 410));
 
         verAeropuertos.setBackground(new java.awt.Color(0, 255, 255));
         verAeropuertos.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
@@ -476,9 +498,9 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
                 verAeropuertosActionPerformed(evt);
             }
         });
-        jDesktopPane3.add(verAeropuertos, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 430, -1, -1));
+        jDesktopPane3.add(verAeropuertos, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, -1, -1));
 
-        Admin1.addTab("Añadir/Ver Aeropuertos", jDesktopPane3);
+        Admin1.addTab("Ver Aeropuertos", jDesktopPane3);
 
         jDesktopPane4.setBackground(new java.awt.Color(153, 255, 255));
         jDesktopPane4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -509,31 +531,146 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         });
         jDesktopPane4.add(verAviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 430, -1, -1));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        modificarAvion.setBackground(new java.awt.Color(255, 255, 0));
+        modificarAvion.setFont(new java.awt.Font("Engravers MT", 1, 14)); // NOI18N
+        modificarAvion.setForeground(new java.awt.Color(0, 0, 0));
+        modificarAvion.setText("Modificar Avion");
+        modificarAvion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                modificarAvionActionPerformed(evt);
             }
         });
+        jPanel1.add(modificarAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(145, 145, 145)
-                .addComponent(jButton1)
-                .addContainerGap(238, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(372, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
-        );
+        crearAvion.setBackground(new java.awt.Color(255, 255, 0));
+        crearAvion.setFont(new java.awt.Font("Engravers MT", 1, 14)); // NOI18N
+        crearAvion.setForeground(new java.awt.Color(0, 0, 0));
+        crearAvion.setText("Crear Avion");
+        crearAvion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearAvionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(crearAvion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 177, -1));
 
-        jDesktopPane4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 460, 410));
+        nombreAerolinea.setForeground(new java.awt.Color(0, 0, 0));
+        nombreAerolinea.setText("Nombre Aerolinea");
+        jPanel1.add(nombreAerolinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 29, -1, -1));
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
+
+        nombreAerolineaField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreAerolineaFieldActionPerformed(evt);
+            }
+        });
+        nombreAerolineaField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nombreAerolineaFieldKeyTyped(evt);
+            }
+        });
+        jPanel1.add(nombreAerolineaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 170, -1));
+
+        nombreAeropuertoField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nombreAeropuertoFieldKeyTyped(evt);
+            }
+        });
+        jPanel1.add(nombreAeropuertoField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 170, -1));
+
+        nombreAerolinea1.setForeground(new java.awt.Color(0, 0, 0));
+        nombreAerolinea1.setText("Nombre Aeropuerto Actual");
+        jPanel1.add(nombreAerolinea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+
+        columasAsientosField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                columasAsientosFieldKeyTyped(evt);
+            }
+        });
+        jPanel1.add(columasAsientosField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 170, -1));
+
+        nombreAerolinea2.setForeground(new java.awt.Color(0, 0, 0));
+        nombreAerolinea2.setText("CodigoAvion");
+        jPanel1.add(nombreAerolinea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+
+        pasillosField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pasillosFieldKeyTyped(evt);
+            }
+        });
+        jPanel1.add(pasillosField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 170, -1));
+
+        pasillos.setForeground(new java.awt.Color(0, 0, 0));
+        pasillos.setText("Pasillos");
+        jPanel1.add(pasillos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+
+        capacidadGasolinaField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                capacidadGasolinaFieldKeyTyped(evt);
+            }
+        });
+        jPanel1.add(capacidadGasolinaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 170, -1));
+
+        consumoGasolina.setForeground(new java.awt.Color(0, 0, 0));
+        consumoGasolina.setText("Capacidad gasolina");
+        jPanel1.add(consumoGasolina, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
+
+        consumoMillaField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                consumoMillaFieldKeyTyped(evt);
+            }
+        });
+        jPanel1.add(consumoMillaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, 170, -1));
+
+        consumoMilla.setForeground(new java.awt.Color(0, 0, 0));
+        consumoMilla.setText("Consumo por milla");
+        jPanel1.add(consumoMilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
+
+        columnasAsientos.setForeground(new java.awt.Color(0, 0, 0));
+        columnasAsientos.setText("Columnas Asientos");
+        jPanel1.add(columnasAsientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+
+        filaAsientos.setForeground(new java.awt.Color(0, 0, 0));
+        filaAsientos.setText("Filas Asientos");
+        jPanel1.add(filaAsientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+
+        CodigoAvionField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CodigoAvionFieldActionPerformed(evt);
+            }
+        });
+        CodigoAvionField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CodigoAvionFieldKeyTyped(evt);
+            }
+        });
+        jPanel1.add(CodigoAvionField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 170, -1));
+
+        fileasAsientosField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fileasAsientosFieldKeyTyped(evt);
+            }
+        });
+        jPanel1.add(fileasAsientosField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 170, -1));
+
+        pasillos2.setForeground(new java.awt.Color(0, 0, 0));
+        pasillos2.setText("Cada cuentas columas hay pasillos");
+        jPanel1.add(pasillos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+
+        cadaCuantoPasillosField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cadaCuantoPasillosFieldKeyTyped(evt);
+            }
+        });
+        jPanel1.add(cadaCuantoPasillosField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 170, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoMadera.jpg"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 450));
+
+        jDesktopPane4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 460, 450));
 
         Admin1.addTab("Añadir/Ver Aviones", jDesktopPane4);
 
@@ -818,7 +955,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         ));
         jScrollPane7.setViewportView(tablaVerDistancias);
 
-        jDesktopPane10.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 690, 410));
+        jDesktopPane10.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1200, 410));
 
         verDistancias.setBackground(new java.awt.Color(0, 255, 255));
         verDistancias.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
@@ -829,9 +966,9 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
                 verDistanciasActionPerformed(evt);
             }
         });
-        jDesktopPane10.add(verDistancias, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 430, -1, -1));
+        jDesktopPane10.add(verDistancias, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, -1, -1));
 
-        Admin1.addTab("Añadir/Ver Distancia", jDesktopPane10);
+        Admin1.addTab("Ver Distancia", jDesktopPane10);
 
         jDesktopPane1.setBackground(new java.awt.Color(153, 255, 255));
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -849,7 +986,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         ));
         jScrollPane8.setViewportView(tablaVerVuelo);
 
-        jDesktopPane1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 690, 410));
+        jDesktopPane1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1200, 410));
 
         verVuelos.setBackground(new java.awt.Color(0, 255, 255));
         verVuelos.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
@@ -860,9 +997,9 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
                 verVuelosActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(verVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 430, -1, -1));
+        jDesktopPane1.add(verVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, -1, -1));
 
-        Admin1.addTab("Añadir/Ver Vuelo", jDesktopPane1);
+        Admin1.addTab("Ver Vuelo", jDesktopPane1);
 
         jDesktopPane7.setBackground(new java.awt.Color(153, 255, 255));
         jDesktopPane7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -880,7 +1017,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         ));
         jScrollPane10.setViewportView(tablaRenovacion);
 
-        jDesktopPane7.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 690, 410));
+        jDesktopPane7.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1200, 410));
 
         verRenovacion.setBackground(new java.awt.Color(0, 255, 255));
         verRenovacion.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
@@ -891,7 +1028,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
                 verRenovacionActionPerformed(evt);
             }
         });
-        jDesktopPane7.add(verRenovacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 430, -1, -1));
+        jDesktopPane7.add(verRenovacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, -1, -1));
 
         Admin1.addTab("Renovacion Pasaporte", jDesktopPane7);
 
@@ -911,7 +1048,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         ));
         jScrollPane11.setViewportView(tablaReservacion);
 
-        jDesktopPane8.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 690, 410));
+        jDesktopPane8.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1200, 410));
 
         verReservacion.setBackground(new java.awt.Color(0, 255, 255));
         verReservacion.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
@@ -922,7 +1059,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
                 verReservacionActionPerformed(evt);
             }
         });
-        jDesktopPane8.add(verReservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, -1, -1));
+        jDesktopPane8.add(verReservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, -1, -1));
 
         Admin1.addTab("Reservacion", jDesktopPane8);
 
@@ -1012,7 +1149,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
                     .addComponent(reporteAeropuerto))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         Admin1.addTab("Reportes", jDesktopPane11);
@@ -1374,7 +1511,18 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     }//GEN-LAST:event_TarjetaFieldActionPerformed
 
     private void TarjetaFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TarjetaFieldKeyTyped
-        // TODO add your handling code here:
+        //Combinacion de que la tecla se presione y se suelte
+        if(PasaporteField.getText().length()>11){//restringimos que no puede escribir mas de 12 digitos
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "La tarjeta unicamente tiene 12 digitos");//Mensaje condicional digitos pasaporte
+        }
+        char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
+        if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir letras, unicamente digitos");//Mensaje condicional no escribir letras
+        }
     }//GEN-LAST:event_TarjetaFieldKeyTyped
 
     private void PasaporteTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasaporteTarjetaActionPerformed
@@ -1401,7 +1549,13 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     }//GEN-LAST:event_dineroActualFieldActionPerformed
 
     private void dineroActualFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dineroActualFieldKeyTyped
-        // TODO add your handling code here:
+        //Combinacion de que la tecla se presione y se suelte
+        char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
+        if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir letras, unicamente digitos");//Mensaje condicional no escribir letras
+        }
     }//GEN-LAST:event_dineroActualFieldKeyTyped
 
     private void codigoCVCFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoCVCFieldActionPerformed
@@ -1409,17 +1563,28 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     }//GEN-LAST:event_codigoCVCFieldActionPerformed
 
     private void codigoCVCFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoCVCFieldKeyTyped
-        // TODO add your handling code here:
+        //Combinacion de que la tecla se presione y se suelte
+        if(PasaporteField.getText().length()>2){//restringimos que no puede escribir mas de 12 digitos
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "El codigo CVC unicamente tiene 3 digitos");//Mensaje condicional digitos pasaporte
+        }
+        char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
+        if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir letras, unicamente digitos");//Mensaje condicional no escribir letras
+        }
     }//GEN-LAST:event_codigoCVCFieldKeyTyped
 
     private void AnadirTarjetaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnadirTarjetaBotonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AnadirTarjetaBotonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void modificarAvionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarAvionActionPerformed
         
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_modificarAvionActionPerformed
 
     private void reporteVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteVuelosActionPerformed
         // TODO add your handling code here:
@@ -1492,6 +1657,143 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_CargaReservacionActionPerformed
+
+    private void crearAvionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearAvionActionPerformed
+        /*
+        -Establecemos variables para ser tomadas en cuenta al crear un nuevo pasajero
+        -El (String) nos sirve para castear el item y pasarlo a tipo string
+        -Anteriormente pasaporte y millas lo podemos convertir de string a int por eso lo definimos como string
+         */
+        String nombreAerolinea=nombreAerolineaField.getText();
+        String nombreAeropuerto= nombreAeropuertoField.getText();
+        String nacionalidad = nombreAeropuertoField.getText();
+        String codigoAvion= CodigoAvionField.getText();
+        String nombres= NombresField.getText();
+        String apellidos= ApellidosField.getText();
+        String sexo= (String) SexoCombo.getSelectedItem();
+        String fechaVenPass= FechaVenPasField.getText();
+        String fechaEmPass= FechaEmPasField.getText();
+        String paisActual= (String) PaisActualCombo.getSelectedItem();
+        String millasRecorridas= "0";
+        //Verificamos si una casilla esta vacia
+        /*if(pasaporte.isEmpty()||fechaNacimiento.isEmpty()||nacionalidad.isEmpty()||nombres.isEmpty()||apellidos.isEmpty()||fechaVenPass.isEmpty()||fechaEmPass.isEmpty()){
+            JOptionPane.showMessageDialog(null, "No dejes casillas vacias");//Mensaje casilla vacia
+        }
+        else{
+            //definimos los espacios que ocupara en nuestro pasajero al ser creado
+            String espacio[]={pasaporte,contrasenia,fechaNacimiento,nacionalidad,estadoCivil,nombres,apellidos,sexo,fechaVenPass,fechaEmPass,paisActual,millasRecorridas};
+            Pasaporte pasaportes = CrearPasaporte.crearPasaporte(espacio);
+            //establecemos un nuevo valor en los pasajeros establecidos del array list
+            ArrayList<Pasaporte> pasaportesEstablecidos= new ArrayList<>();
+            pasaportesEstablecidos.add(pasaportes);//agreagamos un nuevo pasaporte
+            vaciarValoresPasaporte();
+            JOptionPane.showMessageDialog(this, "Registraste exitosamente pasaporte, que grande");//mensaje amigable
+            try {//guardar el vehiculo en un archivo binario
+                this.guardarPasaporteBinario.guardarPasaporte(pasaportesEstablecidos);
+            } catch (IOException ex) {
+                System.out.println("error"+ex);
+            }
+            
+        }*/
+    }//GEN-LAST:event_crearAvionActionPerformed
+
+    private void nombreAerolineaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreAerolineaFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreAerolineaFieldActionPerformed
+
+    private void nombreAerolineaFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreAerolineaFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        int comprobarSiEsNumero = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir numeros
+        if(Character.isDigit(comprobarSiEsNumero)){//Comprobamos si el usuario escribe numeros
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir digitos, unicamente letras");//Mensaje condicional no escribir numeros
+        }
+    }//GEN-LAST:event_nombreAerolineaFieldKeyTyped
+
+    private void nombreAeropuertoFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreAeropuertoFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        int comprobarSiEsNumero = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir numeros
+        if(Character.isDigit(comprobarSiEsNumero)){//Comprobamos si el usuario escribe numeros
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir digitos, unicamente letras");//Mensaje condicional no escribir numeros
+        }
+    }//GEN-LAST:event_nombreAeropuertoFieldKeyTyped
+
+    private void CodigoAvionFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CodigoAvionFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
+        if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir letras, unicamente digitos");//Mensaje condicional no escribir letras
+        }
+    }//GEN-LAST:event_CodigoAvionFieldKeyTyped
+
+    private void fileasAsientosFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fileasAsientosFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
+        if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir letras, unicamente digitos");//Mensaje condicional no escribir letras
+        }
+    }//GEN-LAST:event_fileasAsientosFieldKeyTyped
+
+    private void columasAsientosFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_columasAsientosFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
+        if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir letras, unicamente digitos");//Mensaje condicional no escribir letras
+        }
+    }//GEN-LAST:event_columasAsientosFieldKeyTyped
+
+    private void pasillosFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pasillosFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
+        if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir letras, unicamente digitos");//Mensaje condicional no escribir letras
+        }
+    }//GEN-LAST:event_pasillosFieldKeyTyped
+
+    private void cadaCuantoPasillosFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cadaCuantoPasillosFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
+        if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir letras, unicamente digitos");//Mensaje condicional no escribir letras
+        }
+    }//GEN-LAST:event_cadaCuantoPasillosFieldKeyTyped
+
+    private void capacidadGasolinaFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_capacidadGasolinaFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
+        if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir letras, unicamente digitos");//Mensaje condicional no escribir letras
+        }
+    }//GEN-LAST:event_capacidadGasolinaFieldKeyTyped
+
+    private void consumoMillaFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_consumoMillaFieldKeyTyped
+        //Combinacion de que la tecla se presione y se suelte
+        char comprobarSiEsLetra = evt.getKeyChar();//Creamos variable tipo caracter para que no pueda escribir letras
+        if(Character.isLetter(comprobarSiEsLetra)){//Comprobamos si el usuario escribe letras
+            evt.consume();//el evento no permite seguir escribiendo
+            Toolkit.getDefaultToolkit().beep();//sonido de error
+            JOptionPane.showMessageDialog(null, "No puedes escribir letras, unicamente digitos");//Mensaje condicional no escribir letras
+        }
+    }//GEN-LAST:event_consumoMillaFieldKeyTyped
+
+    private void CodigoAvionFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoAvionFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CodigoAvionFieldActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
         @Override//sobrescribimos la clase JPanel especificamente el metodo paint
@@ -1525,6 +1827,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     private javax.swing.JButton CargaReservacion;
     private javax.swing.JButton CargaTarjeta;
     private javax.swing.JButton CargaVuelo;
+    private javax.swing.JTextField CodigoAvionField;
     private javax.swing.JLabel EstadoCivil;
     private javax.swing.JComboBox<String> EstadoCivilCombo;
     private javax.swing.JLabel FechaEmPas;
@@ -1553,11 +1856,20 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> SexoCombo;
     private javax.swing.JTextField TarjetaField;
     private javax.swing.JLabel Tarjetatext;
+    private javax.swing.JTextField cadaCuantoPasillosField;
+    private javax.swing.JTextField capacidadGasolinaField;
     private javax.swing.JTextField codigoCVCField;
     private javax.swing.JLabel codigoCvC;
+    private javax.swing.JTextField columasAsientosField;
+    private javax.swing.JLabel columnasAsientos;
+    private javax.swing.JLabel consumoGasolina;
+    private javax.swing.JLabel consumoMilla;
+    private javax.swing.JTextField consumoMillaField;
+    private javax.swing.JButton crearAvion;
     private javax.swing.JLabel dineroActual;
     private javax.swing.JTextField dineroActualField;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel filaAsientos;
+    private javax.swing.JTextField fileasAsientosField;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JDesktopPane jDesktopPane10;
     private javax.swing.JDesktopPane jDesktopPane11;
@@ -1571,8 +1883,10 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     public static javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -1585,7 +1899,16 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton modificarAvion;
     private javax.swing.JTextArea mostrarDatosCargados;
+    private javax.swing.JLabel nombreAerolinea;
+    private javax.swing.JLabel nombreAerolinea1;
+    private javax.swing.JLabel nombreAerolinea2;
+    private javax.swing.JTextField nombreAerolineaField;
+    private javax.swing.JTextField nombreAeropuertoField;
+    private javax.swing.JLabel pasillos;
+    private javax.swing.JLabel pasillos2;
+    private javax.swing.JTextField pasillosField;
     private javax.swing.JButton reporteAerolinea;
     private javax.swing.JButton reporteAeropuerto;
     private javax.swing.JButton reporteAvion;

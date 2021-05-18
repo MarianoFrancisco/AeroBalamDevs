@@ -1,5 +1,7 @@
 package proyectofinal;
 
+import instancias.FrameVentaAsientos;
+import instancias.FrameVisualizarDistribucionAsientos;
 import instancias.LlamarInstancias;
 
 /**
@@ -13,5 +15,7 @@ public class ProyectoFinal {
      */
     public static void main(String[] args) {
         LlamarInstancias.inicioProyecto();//Hacemos el llamado al frame Inicio através de una clase llamarInstancias
+        FrameVisualizarDistribucionAsientos.iniciarDistribucion();
+        FrameVentaAsientos.cargarVenta();
     }
 }

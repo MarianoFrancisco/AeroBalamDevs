@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import estructurarAvion.HacerAvion;
+import static instancias.FrameVentaAsientos.frameVentaAsientos;
 
 /**
  *
@@ -184,10 +185,15 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
         String cantidadPasajerosValor=(String)CantidadPasajeros.getSelectedItem();
         String fechaVueloValor=FechaVueloField.getText();
         String aerolineaValor=(String)Aerolinea.getSelectedItem();
-        vaciarValoresCompraBoletos();
-        File fichero=new File("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
-        LlamarInstancias.ventaAsientos();//vamos a venta asientos
-        this.dispose();
+        if(fechaVueloValor.isEmpty()){
+            JOptionPane.showMessageDialog(null, "No dejes casillas vacias");//Mensaje casilla vacia
+        }else{
+            vaciarValoresCompraBoletos();
+            File fichero=new File("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
+            frameVentaAsientos.setVisible(true); //vamos a venta asientos
+            this.dispose();
+        }
+        
         
     }//GEN-LAST:event_irCompraBoletoActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel

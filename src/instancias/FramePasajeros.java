@@ -30,7 +30,7 @@ public class FramePasajeros extends javax.swing.JFrame {
     /**
      * Creates new form FramePasajeros
      */
-    public static Controlador c= new Controlador("","","","","","");;
+    public static Controlador c= new Controlador("","","","","","",0);;
     FondoInicio fondoPasajeros = new FondoInicio();//Creamos un nuevo fondo
     public FramePasajeros() {
         this.setContentPane(fondoPasajeros);//Realizamos la pintada de nuestro fondo
@@ -314,6 +314,9 @@ public class FramePasajeros extends javax.swing.JFrame {
             FileInputStream ar4 = new FileInputStream("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
             ObjectInputStream ob4= new ObjectInputStream(ar4);
             c.setValidarNacionalidad(((Pasaporte)ob4.readObject()).getPaisActual());
+            FileInputStream ar5 = new FileInputStream("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
+            ObjectInputStream ob5= new ObjectInputStream(ar5);
+            c.setValidarMillasRecorrdas(((Pasaporte)ob5.readObject()).getMillasRecorridas());
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FrameCompraBoletos.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

@@ -16,7 +16,6 @@ import javax.swing.JPanel;
  * @author Mariano
  */
 public class FrameLoginPasajeros extends javax.swing.JFrame {
-
     /**
      * Creates new form AnimacionVuelo
      */
@@ -55,6 +54,7 @@ public class FrameLoginPasajeros extends javax.swing.JFrame {
         sexo = new javax.swing.JLabel();
         nacionalidad = new javax.swing.JLabel();
         estadoCivil = new javax.swing.JLabel();
+        millas = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -144,6 +144,11 @@ public class FrameLoginPasajeros extends javax.swing.JFrame {
         estadoCivil.setText("Estado civil: "+c.getValidarEstadoCivil());
         jPanel1.add(estadoCivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, -1, -1));
 
+        millas.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        millas.setForeground(new java.awt.Color(0, 0, 0));
+        millas.setText(""+c.getValidarMillasRecorrdas());
+        jPanel1.add(millas, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 450, -1, -1));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoMadera.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 650, 410));
 
@@ -194,6 +199,7 @@ public class FrameLoginPasajeros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel millas;
     private javax.swing.JLabel millasRecorridas;
     private javax.swing.JLabel nacionalidad;
     private javax.swing.JLabel nombre;

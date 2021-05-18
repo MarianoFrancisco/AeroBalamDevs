@@ -8,6 +8,7 @@ package estructurarAvion;
 import instancias.FrameVentaAsientos;
 import static instancias.FrameVentaAsientos.compraAsientos;
 import static instancias.FrameVentaAsientos.s;
+import instancias.FrameVisualizarDistribucionAsientos;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,6 +21,7 @@ import javax.swing.JOptionPane;
  * @author Mariano
  */
 public class HacerAvion implements Serializable{  
+    
     private int guardarValorX;
     private int guardarValorY;
     private int guardarFilasAsientos;
@@ -28,8 +30,10 @@ public class HacerAvion implements Serializable{
     private int guardarColumnasPasillo;
     private int totalAsientos;
     private int totalPasillos;
-    JButton[][] asiento;
-    JButton[][] pasillo;
+    public static JButton[][] asiento;
+    public static JButton[][] pasillo;
+    public static JButton[][] asiento1;
+    public static JButton[][] pasillo1;
     int filas=3;
     int columnas=3;
     int condicionM=filas;
@@ -42,6 +46,7 @@ public class HacerAvion implements Serializable{
         this.guardarColumnasAsientos=guardarColumnasAsientos;
         this.guardarFilasPasillo=guardarFilasPasillo;
         this.guardarColumnasPasillo=guardarColumnasPasillo;
+        
         this.totalAsientos=totalAsientos;
         this.totalPasillos=totalPasillos;
     }
@@ -54,17 +59,25 @@ public class HacerAvion implements Serializable{
         int x=s.getGuardarValorX();
         int y=s.getGuardarValorY();
         asiento= new JButton[filas][columnas];
+        asiento1= new JButton[filas][columnas];
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
                 asiento[i][j] = new JButton();
-                asiento[i][j].setBounds(y, x, 70, 50);
+                asiento1[i][j] = new JButton();
+                asiento[i][j].setBounds(y, x, 90, 50);
+                asiento1[i][j].setBounds(y, x, 90, 50);
                 FrameVentaAsientos.jPanel2.add(asiento[i][j]);
+                FrameVisualizarDistribucionAsientos.jPanel2.add(asiento1[i][j]);
                 asiento[i][j].setBackground(Color.ORANGE);
+                asiento1[i][j].setBackground(Color.ORANGE);
+                asiento[i][j].setText("Asiento");
+                asiento1[i][j].setText("Asiento");
                 x+=50;
                 asiento[i][j].setVisible(true);
+                asiento1[i][j].setVisible(true);
                 asientos[i][j]=new Asiento(0,1);
             }
-            y+=70;
+            y+=90;
             x=0;
         }
         s.setGuardarValorX(x);
@@ -74,15 +87,23 @@ public class HacerAvion implements Serializable{
         int x=s.getGuardarValorX();
         int y=s.getGuardarValorY();
         pasillo= new JButton[filas][1];
+        pasillo1= new JButton[filas][1];
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < 1; j++) {
                 pasillo[i][j] = new JButton();
-                pasillo[i][j].setBounds(y, x, 70, 50);
+                pasillo1[i][j] = new JButton();
+                pasillo[i][j].setBounds(y, x, 90, 50);
+                pasillo1[i][j].setBounds(y, x, 90, 50);
                 FrameVentaAsientos.jPanel2.add(pasillo[i][j]);
+                FrameVisualizarDistribucionAsientos.jPanel2.add(pasillo1[i][j]);
                 pasillo[i][j].setBackground(Color.cyan);
+                pasillo1[i][j].setBackground(Color.cyan);
                 x+=50;
                 pasillo[i][j].setVisible(true);
+                pasillo1[i][j].setVisible(true);
                 pasillos[i][j]=new Pasillo(1,0);
+                pasillo[i][j].setText("Pasillo");
+                pasillo1[i][j].setText("Pasillo");
             }       
         }
         s.setGuardarValorX(x);
@@ -97,9 +118,14 @@ public class HacerAvion implements Serializable{
                     @Override
                     public void actionPerformed(ActionEvent e) { 
                         if (compraAsientos.isSelected()) {
-                            if(asientos[k][l].getEsAsiento()== 1){
+                            if(asientos[k][l].getOcupado()== 0){
                                 JOptionPane.showMessageDialog(null,"compraste asiento, que grande");
                                 asiento[k][l].setBackground(Color.red);
+                                asientos[k][l].setOcupado(1);
+                                asiento1[k][l].setBackground(Color.red);
+                            }
+                            else{
+                                JOptionPane.showMessageDialog(null,"asiento ya comprado");
                             }
                         }        
                     }                 

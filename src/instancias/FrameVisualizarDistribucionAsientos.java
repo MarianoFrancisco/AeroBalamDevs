@@ -16,29 +16,22 @@ import estructurarAvion.HacerAvion;
  *
  * @author Mariano
  */
-public class FrameVentaAsientos extends javax.swing.JFrame {
+public class FrameVisualizarDistribucionAsientos extends javax.swing.JFrame {
 
     /**
      * Creates new form FrameVentaAsientos
      */
-    public static HacerAvion s;
-    FondoInicio fondoVuelo = new FondoInicio();//Creamos un nuevo fondo
-    //estructuramos una manera estatica para poder cerrarla y abrirla desde cualquier lado
-    public static FrameVentaAsientos frameVentaAsientos;
-    public static void cargarVenta(){
-        frameVentaAsientos=new FrameVentaAsientos();
+    FondoInicio fondoAsientos = new FondoInicio();//Creamos un nuevo fondo
+    public static FrameVisualizarDistribucionAsientos frameVisualizarDistribucionAsientos;
+    public static void iniciarDistribucion(){
+        frameVisualizarDistribucionAsientos=new FrameVisualizarDistribucionAsientos();
     }
     public static void visible(){
-        frameVentaAsientos.setVisible(true);
+        frameVisualizarDistribucionAsientos.setVisible(true);
     }
-    FondoInicio fondoAsientos = new FondoInicio();//Creamos un nuevo fondo
-    public FrameVentaAsientos() {
+    public FrameVisualizarDistribucionAsientos() {
         this.setContentPane(fondoAsientos);//Realizamos la pintada de nuestro fondo
         initComponents();
-        s= new HacerAvion(0,0,0,0,0,0,0,0);
-        s.crearAsiento();
-        s.crearPasillo();
-        s.inicializarAcciones();
         this.setLocationRelativeTo(null);//Centramos nuestro frame
     }
 
@@ -56,7 +49,6 @@ public class FrameVentaAsientos extends javax.swing.JFrame {
         RegresarMenu = new javax.swing.JButton();
         Logo = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        compraAsientos = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,16 +90,6 @@ public class FrameVentaAsientos extends javax.swing.JFrame {
             .addGap(0, 478, Short.MAX_VALUE)
         );
 
-        compraAsientos.setBackground(new java.awt.Color(255, 255, 0));
-        compraAsientos.setFont(new java.awt.Font("Engravers MT", 1, 14)); // NOI18N
-        compraAsientos.setForeground(new java.awt.Color(0, 0, 0));
-        compraAsientos.setText("Comprar asientos siu");
-        compraAsientos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                compraAsientosActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,21 +105,14 @@ public class FrameVentaAsientos extends javax.swing.JFrame {
                         .addComponent(SalirDelSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(490, 490, 490)
-                        .addComponent(compraAsientos)))
+                .addGap(144, 144, 144)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(compraAsientos)
-                .addGap(18, 18, 18)
+                .addGap(78, 78, 78)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -157,13 +132,9 @@ public class FrameVentaAsientos extends javax.swing.JFrame {
     }//GEN-LAST:event_SalirDelSistemaActionPerformed
 
     private void RegresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarMenuActionPerformed
-        LlamarInstancias.comprarBoletos();//Regresamos a compra boletos
+        LlamarInstancias.operadorVuelos();//Regresamos a operador vuelo
         this.dispose();//Cerramos este frame
     }//GEN-LAST:event_RegresarMenuActionPerformed
-
-    private void compraAsientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compraAsientosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_compraAsientosActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
         @Override//sobrescribimos la clase JPanel especificamente el metodo paint
@@ -178,7 +149,6 @@ public class FrameVentaAsientos extends javax.swing.JFrame {
     private javax.swing.JLabel Logo;
     private javax.swing.JButton RegresarMenu;
     private javax.swing.JButton SalirDelSistema;
-    public static javax.swing.JToggleButton compraAsientos;
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
