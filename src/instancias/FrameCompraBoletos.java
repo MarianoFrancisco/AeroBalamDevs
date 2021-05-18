@@ -5,7 +5,7 @@
  */
 package instancias;
 
-import static instancias.FramePasajeros.c;
+import controladorDatos.HiloControlRecomendacion;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
@@ -13,7 +13,6 @@ import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import estructurarAvion.HacerAvion;
 import static instancias.FramePasajeros.c;
 import static instancias.FrameVentaAsientos.frameVentaAsientos;
 import java.awt.Toolkit;
@@ -24,6 +23,7 @@ import java.io.ObjectInputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import manejadorArchivosUser.Pasaporte;
+import static proyectofinal.ProyectoFinal.c1;
 
 /**
  *
@@ -228,30 +228,24 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
                     ObjectInputStream objeto = new ObjectInputStream(archivo);
                     FileInputStream archivos = new FileInputStream("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
                     ObjectInputStream objetos = new ObjectInputStream(archivos);
+                    FileInputStream archivos1 = new FileInputStream("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
+                    ObjectInputStream objetos1 = new ObjectInputStream(archivos1);
                     //definimos variables para almacenar valores
                     String pasaporteDefinido = ((Pasaporte)objeto.readObject()).getPasaporte();
                     String nombreDefinido = ((Pasaporte)objetos.readObject()).getNombres();
-                    if(pasaporte.equals(pasaporteDefinido)){//Unicamente si los datos estan bien podra ingresar
+                    String ciudadOrigen = ((Pasaporte)objetos1.readObject()).getPaisActual();
+                    if(pasaporte.equals(pasaporteDefinido)&&ciudadOrigen.equals(ciudadOrigenValor)){//Unicamente si los datos estan bien podra ingresar
                             JOptionPane.showMessageDialog(null, "a comprar "+ c.getVerCantidadPasajeros()+" boletos se ha dicho "+nombreDefinido);//Mensaje de bienvenida
                             vaciarValoresCompraBoletos();   
                             frameVentaAsientos.setVisible(true); //vamos a venta asientos
-                            if(c.getVerCantidadPasajeros()==1){
-                                
-                            }else if(c.getVerCantidadPasajeros()==2){
-                                
-                            }else if(c.getVerCantidadPasajeros()==3){
-                                
-                            }else if(c.getVerCantidadPasajeros()==4){
-                                
-                            }else if(c.getVerCantidadPasajeros()==5){
-                                
-                            }else if(c.getVerCantidadPasajeros()==6){
-                                
-                            }
+                            HiloControlRecomendacion hC = new HiloControlRecomendacion();//creamos un hilo animacion
+                            hC.start();//iniciamos hilo animacion
+                            llenarReportes();
+                            c.setCapacidadComprar(c.getVerCantidadPasajeros());
                             this.dispose();//Cerramos este frame
                         }else{
                             Toolkit.getDefaultToolkit().beep();//sonido de error
-                            JOptionPane.showMessageDialog(null, "Datos incorrectos");//Mensaje datos incorrectos               
+                            JOptionPane.showMessageDialog(null, "Datos incorrectos o no eres de la ciudad de origen indicada");//Mensaje datos incorrectos               
                         } 
                 } catch (FileNotFoundException ex) {
                     Logger.getLogger(FrameCompraBoletos.class.getName()).log(Level.SEVERE, null, ex);
@@ -294,6 +288,38 @@ public class FrameCompraBoletos extends javax.swing.JFrame {
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);//damos las dimensiones
             setOpaque(false);//Ponemos que el panel no sea visible
             super.paint(g);//llamos a la clase super para que cumpla con las funcionalidades del JPanel
+        }
+    }
+    private void llenarReportes() throws IOException, ClassNotFoundException{
+        try {
+            FileInputStream archivo1 = new FileInputStream("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
+            ObjectInputStream objeto1 = new ObjectInputStream(archivo1);
+            FileInputStream archivo2 = new FileInputStream("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
+            ObjectInputStream objeto2 = new ObjectInputStream(archivo2);
+            FileInputStream archivo3 = new FileInputStream("C:/Users/Maria/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/datos/pasaportes/"+c.getValidarPasaporte()+".bin");
+            ObjectInputStream objeto3 = new ObjectInputStream(archivo3);
+            String sexoViaja = ((Pasaporte)objeto1.readObject()).getSexo();
+            String nacionalidadViaja = ((Pasaporte)objeto2.readObject()).getNacionalidad();
+            String estadoCivilViaja = ((Pasaporte)objeto3.readObject()).getEstadoCivil();
+            
+            c1.setNacionalidadViaja(nacionalidadViaja);
+            if(sexoViaja.equals("Hombre")){
+                c1.setHombreViaja(c1.getHombreViaja()+1);
+            }
+            if(sexoViaja.equals("Mujer")){
+                c1.setMujerViaja(c1.getMujerViaja()+1);
+            }
+            if(estadoCivilViaja.equals("Soltero")){
+                c1.setSolteroViaja(c1.getSolteroViaja()+1);
+            }
+            if(estadoCivilViaja.equals("Casado")){
+                c1.setCasadoViaja(c1.getCasadoViaja()+1);
+            }
+            
+               
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FrameCompraBoletos.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
         }
     }
     private void vaciarValoresCompraBoletos(){

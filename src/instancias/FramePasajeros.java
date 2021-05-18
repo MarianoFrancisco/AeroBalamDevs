@@ -30,7 +30,8 @@ public class FramePasajeros extends javax.swing.JFrame {
     /**
      * Creates new form FramePasajeros
      */
-    public static Controlador c= new Controlador("","","","","","",0,0,"");;
+    public static Controlador c= new Controlador("","","","","","",0,0,"",0);
+    
     FondoInicio fondoPasajeros = new FondoInicio();//Creamos un nuevo fondo
     public FramePasajeros() {
         this.setContentPane(fondoPasajeros);//Realizamos la pintada de nuestro fondo
@@ -237,6 +238,7 @@ public class FramePasajeros extends javax.swing.JFrame {
                         if(pasaporte.equals(pasaporteDefinido)&&contrasenia.equals(contraseniaDefinida)){//Unicamente si los datos estan bien podra ingresar
                             JOptionPane.showMessageDialog(null, "Bienvenido");//Mensaje de bienvenida
                             LlamarInstancias.loginPasajeros();//Llamamos al frame login pasajeros
+                            c.setCapacidadComprar(c.getVerCantidadPasajeros());
                             this.dispose();//Cerramos este frame
                         }else{
                             Toolkit.getDefaultToolkit().beep();//sonido de error

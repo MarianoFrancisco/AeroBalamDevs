@@ -5,6 +5,7 @@
  */
 package estructurarAvion;
 
+import static instancias.FramePasajeros.c;
 import instancias.FrameVentaAsientos;
 import static instancias.FrameVentaAsientos.compraAsientos;
 import static instancias.FrameVentaAsientos.s;
@@ -15,6 +16,7 @@ import java.awt.event.ActionListener;
 import java.io.Serializable;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import static proyectofinal.ProyectoFinal.c1;
 
 /**
  *
@@ -53,8 +55,8 @@ public class HacerAvion implements Serializable{
     public void cambioDatos(){
         s.setGuardarFilasAsientos(s.getGuardarFilasAsientos());
     }
-    DistribucionAvion asientos[][]= new DistribucionAvion[100][100];
-    DistribucionAvion pasillos[][]= new DistribucionAvion[100][100];
+    public static DistribucionAvion asientos[][]= new DistribucionAvion[100][100];
+    public static DistribucionAvion pasillos[][]= new DistribucionAvion[100][100];
     public void crearAsiento(){
         int x=s.getGuardarValorX();
         int y=s.getGuardarValorY();
@@ -119,10 +121,16 @@ public class HacerAvion implements Serializable{
                     public void actionPerformed(ActionEvent e) { 
                         if (compraAsientos.isSelected()) {
                             if(asientos[k][l].getOcupado()== 0){
-                                JOptionPane.showMessageDialog(null,"compraste asiento, que grande");
-                                asiento[k][l].setBackground(Color.red);
-                                asientos[k][l].setOcupado(1);
-                                asiento1[k][l].setBackground(Color.red);
+                                if(c.getCapacidadComprar()>0){
+                                    JOptionPane.showMessageDialog(null,"compraste asiento, que grande");
+                                    asiento[k][l].setBackground(Color.red);
+                                    asientos[k][l].setOcupado(1);
+                                    asiento1[k][l].setBackground(Color.red);
+                                    c1.setDineroGanado(c1.getDineroGanado()+300);
+                                    c.setCapacidadComprar(c.getCapacidadComprar()-1);
+                                }else{
+                                    JOptionPane.showMessageDialog(null,"lo siento no puedes comprar mas boletos ya que solo indicaste compra de "+c.getVerCantidadPasajeros()+" :(");
+                                }                           
                             }
                             else{
                                 JOptionPane.showMessageDialog(null,"asiento ya comprado");

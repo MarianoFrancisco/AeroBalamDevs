@@ -28,6 +28,7 @@ import manejadorArchivosAeropuerto.Renovacion;
 import manejadorArchivosAeropuerto.Reservacion;
 import manejadorArchivosAeropuerto.Vuelo;
 import manejadorArchivosUser.*;
+import static proyectofinal.ProyectoFinal.c1;
 /**
  *
  * @author Mariano
@@ -64,7 +65,13 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
      * Creates new form DepartamentoAdministracion
      */
     FondoInicio departamentoAdmin = new FondoInicio();//Creamos un nuevo fondo
-    
+    public static FrameDepartamentoAdministracion frameDepartamentoAdministracion;
+    public static void iniciarDepartamentoAdmin(){
+        frameDepartamentoAdministracion=new FrameDepartamentoAdministracion();
+    }
+    public static void visible(){
+        frameDepartamentoAdministracion.setVisible(true);
+    }
     public FrameDepartamentoAdministracion() {
         this.setContentPane(departamentoAdmin);//Realizamos la pintada de nuestro fondo
         creacionDatosUsar();
@@ -227,8 +234,9 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         reporteAeropuerto = new javax.swing.JButton();
         reportePasajero = new javax.swing.JButton();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        cargaReportes = new javax.swing.JTextArea();
         RegresarMenu1 = new javax.swing.JButton();
+        limpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Departamento de Administracion");
@@ -728,7 +736,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         EstadoCivil.setText("Estado civil");
         jDesktopPane5.add(EstadoCivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
-        EstadoCivilCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solter@", "Casad@", "Divorciad@" }));
+        EstadoCivilCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltero", "Casado" }));
         jDesktopPane5.add(EstadoCivilCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 160, -1));
 
         Nombres.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -1071,6 +1079,11 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         reporteAerolinea.setFont(new java.awt.Font("Engravers MT", 1, 14)); // NOI18N
         reporteAerolinea.setForeground(new java.awt.Color(0, 0, 0));
         reporteAerolinea.setText("Reporte por Aerolinea");
+        reporteAerolinea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reporteAerolineaActionPerformed(evt);
+            }
+        });
 
         reporteVuelos.setBackground(new java.awt.Color(255, 255, 0));
         reporteVuelos.setFont(new java.awt.Font("Engravers MT", 1, 14)); // NOI18N
@@ -1086,6 +1099,11 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         reporteAvion.setFont(new java.awt.Font("Engravers MT", 1, 14)); // NOI18N
         reporteAvion.setForeground(new java.awt.Color(0, 0, 0));
         reporteAvion.setText("Reporte por Avion");
+        reporteAvion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reporteAvionActionPerformed(evt);
+            }
+        });
 
         reporteAeropuerto.setBackground(new java.awt.Color(255, 255, 0));
         reporteAeropuerto.setFont(new java.awt.Font("Engravers MT", 1, 14)); // NOI18N
@@ -1101,10 +1119,15 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
         reportePasajero.setFont(new java.awt.Font("Engravers MT", 1, 14)); // NOI18N
         reportePasajero.setForeground(new java.awt.Color(0, 0, 0));
         reportePasajero.setText("Reporte por pasajero");
+        reportePasajero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportePasajeroActionPerformed(evt);
+            }
+        });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane9.setViewportView(jTextArea1);
+        cargaReportes.setColumns(20);
+        cargaReportes.setRows(5);
+        jScrollPane9.setViewportView(cargaReportes);
 
         jDesktopPane11.setLayer(reporteAerolinea, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane11.setLayer(reporteVuelos, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1128,14 +1151,14 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
             .addGroup(jDesktopPane11Layout.createSequentialGroup()
                 .addGroup(jDesktopPane11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane11Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 1145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane11Layout.createSequentialGroup()
                         .addGap(272, 272, 272)
                         .addComponent(reporteAeropuerto)
                         .addGap(128, 128, 128)
-                        .addComponent(reporteAvion))
-                    .addGroup(jDesktopPane11Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 1145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(47, Short.MAX_VALUE))
+                        .addComponent(reporteAvion)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDesktopPane11Layout.setVerticalGroup(
             jDesktopPane11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1168,6 +1191,16 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
             }
         });
         jPanel2.add(RegresarMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 600, 160, 44));
+
+        limpiar.setBackground(new java.awt.Color(204, 255, 51));
+        limpiar.setForeground(new java.awt.Color(0, 0, 0));
+        limpiar.setText("Limpiar reportes");
+        limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limpiarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 600, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1655,11 +1688,12 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     }//GEN-LAST:event_modificarAvionActionPerformed
 
     private void reporteVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteVuelosActionPerformed
-        // TODO add your handling code here:
+        cargaReportes.setText(cargaReportes.getText()+"\nListado pasajeros vuelo:  \n");
     }//GEN-LAST:event_reporteVuelosActionPerformed
 
     private void reporteAeropuertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteAeropuertoActionPerformed
-        // TODO add your handling code here:
+        cargaReportes.setText(cargaReportes.getText()+"\nGanancias Aeropuerto:  Q. "+c1.getDineroGanado()+"\n");
+        
     }//GEN-LAST:event_reporteAeropuertoActionPerformed
 
     private void verRenovacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verRenovacionActionPerformed
@@ -1870,6 +1904,47 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     private void CodigoAvionFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoAvionFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CodigoAvionFieldActionPerformed
+
+    private void reportePasajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportePasajeroActionPerformed
+        String estadoCivil="";
+        String sexo="";
+        if(c1.getCasadoViaja()>c1.getSolteroViaja()){
+            estadoCivil="Casado";
+        }
+        if(c1.getCasadoViaja()<c1.getSolteroViaja()){
+            estadoCivil="Soltero";
+        }
+        if(c1.getCasadoViaja()==c1.getSolteroViaja()){
+            estadoCivil="Viajan igual ambos estados civiles";
+        }
+        if(c1.getHombreViaja()>c1.getMujerViaja()){
+            sexo="Hombre";
+        }
+        if(c1.getHombreViaja()<c1.getMujerViaja()){
+            sexo="Mujer";
+        }
+        if(c1.getHombreViaja()==c1.getMujerViaja()){
+            sexo="Viajan igual ambos sexos";
+        }
+        cargaReportes.setText(cargaReportes.getText()+"\nEstado civil que viaja mas:  "+estadoCivil+"\n"
+                + "Edad que mas viaja: -----Inconcluso-----\n"
+                + "Nacionalidad que mas viaja: "+c1.getNacionalidadViaja()+"\n"
+                + "Sexo que mas viaja: "+sexo);
+    }//GEN-LAST:event_reportePasajeroActionPerformed
+
+    private void reporteAerolineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteAerolineaActionPerformed
+        cargaReportes.setText(cargaReportes.getText()+"\nRutas mas concurridas:  \n"
+                + "Aerolineas mas usadas: \n");
+        
+    }//GEN-LAST:event_reporteAerolineaActionPerformed
+
+    private void reporteAvionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteAvionActionPerformed
+        cargaReportes.setText(cargaReportes.getText()+"\nReporte consumo de gasolina:  \n");
+    }//GEN-LAST:event_reporteAvionActionPerformed
+
+    private void limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarActionPerformed
+        cargaReportes.setText("");
+    }//GEN-LAST:event_limpiarActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
         @Override//sobrescribimos la clase JPanel especificamente el metodo paint
@@ -1934,6 +2009,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     private javax.swing.JLabel Tarjetatext;
     private javax.swing.JTextField cadaCuantoPasillosField;
     private javax.swing.JTextField capacidadGasolinaField;
+    private javax.swing.JTextArea cargaReportes;
     private javax.swing.JTextField codigoCVCField;
     private javax.swing.JLabel codigoCvC;
     private javax.swing.JTextField columasAsientosField;
@@ -1974,7 +2050,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton limpiar;
     private javax.swing.JButton modificarAvion;
     private javax.swing.JTextArea mostrarDatosCargados;
     private javax.swing.JLabel nombreAerolinea;

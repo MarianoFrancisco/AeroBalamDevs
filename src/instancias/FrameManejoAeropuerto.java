@@ -5,6 +5,8 @@
  */
 package instancias;
 
+import static instancias.FrameDepartamentoAdministracion.frameDepartamentoAdministracion;
+import static instancias.FrameGerenciaAerolinea.frameGerenciaAerolinea;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -27,7 +29,6 @@ public class FrameManejoAeropuerto extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);//Centramos nuestro frame
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -363,7 +364,7 @@ public class FrameManejoAeropuerto extends javax.swing.JFrame {
         else{
             if(usuario.equals("Admin")&&contraseñaAdmin.equals("1234")){//Unicamente si los datos estan bien podra ingresar
                 JOptionPane.showMessageDialog(null, "Bienvenido");//Mensaje de bienvenida
-                LlamarInstancias.departamentoAdministracion();//Vamos a departamento de administracion
+                frameDepartamentoAdministracion.setVisible(true);
                 this.dispose();//Cerramos este frame
             }else{
                 Toolkit.getDefaultToolkit().beep();//sonido de error
@@ -457,7 +458,7 @@ public class FrameManejoAeropuerto extends javax.swing.JFrame {
         else{
             if(usuario2.equals("Admin")&&contraseñaAdmin2.equals("1234")){//Unicamente si los datos estan bien podra ingresar
                 JOptionPane.showMessageDialog(null, "Bienvenido");//Mensaje de bienvenida
-                LlamarInstancias.gerenciaAerolinea();//Vamos a gerencia aerolinea
+                frameGerenciaAerolinea.setVisible(true);//Vamos a gerencia aerolinea
                 this.dispose();//Cerramos este frame
             }else{
                 Toolkit.getDefaultToolkit().beep();//sonido de error

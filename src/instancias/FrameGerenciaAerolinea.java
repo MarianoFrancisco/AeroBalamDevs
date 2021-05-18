@@ -21,6 +21,13 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
      * Creates new form FrameGerenciaAerolinea
      */
     FondoInicio gerenciaAerolinea = new FondoInicio();//Creamos un nuevo fondo
+    public static FrameGerenciaAerolinea frameGerenciaAerolinea;
+    public static void iniciarGerencia(){
+        frameGerenciaAerolinea=new FrameGerenciaAerolinea();
+    }
+    public static void visible(){
+        frameGerenciaAerolinea.setVisible(true);
+    }
     public FrameGerenciaAerolinea() {
         this.setContentPane(gerenciaAerolinea);//Realizamos la pintada de nuestro fondo
         initComponents();
@@ -45,7 +52,8 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
         ganancias = new javax.swing.JButton();
         passaporteNegados = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        gerenciaReporte = new javax.swing.JTextArea();
+        limpiarReportes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerencia de Aerolinea");
@@ -114,9 +122,18 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        gerenciaReporte.setColumns(20);
+        gerenciaReporte.setRows(5);
+        jScrollPane1.setViewportView(gerenciaReporte);
+
+        limpiarReportes.setBackground(new java.awt.Color(204, 255, 51));
+        limpiarReportes.setForeground(new java.awt.Color(0, 0, 0));
+        limpiarReportes.setText("Limpiar reportes");
+        limpiarReportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limpiarReportesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -126,7 +143,9 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
                 .addComponent(Logo)
                 .addGap(4, 4, 4)
                 .addComponent(RegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(897, 897, 897)
+                .addGap(349, 349, 349)
+                .addComponent(limpiarReportes)
+                .addGap(423, 423, 423)
                 .addComponent(SalirDelSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 5, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -155,11 +174,17 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
                     .addComponent(sucursales))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Logo)
-                    .addComponent(RegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SalirDelSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 16, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Logo)
+                            .addComponent(RegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SalirDelSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(limpiarReportes)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -187,20 +212,25 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
     }//GEN-LAST:event_RegresarMenuActionPerformed
 
     private void rutaConcurridaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rutaConcurridaActionPerformed
-        // TODO add your handling code here:
+        gerenciaReporte.setText(gerenciaReporte.getText()+"\nRutas mas recorridas: ");
+        
     }//GEN-LAST:event_rutaConcurridaActionPerformed
 
     private void sucursalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sucursalesActionPerformed
-        // TODO add your handling code here:
+        gerenciaReporte.setText(gerenciaReporte.getText()+"\nPasaportes denegados: ");
     }//GEN-LAST:event_sucursalesActionPerformed
 
     private void gananciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gananciasActionPerformed
-        // TODO add your handling code here:
+        gerenciaReporte.setText(gerenciaReporte.getText()+"\nGanancias: ");
     }//GEN-LAST:event_gananciasActionPerformed
 
     private void passaporteNegadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passaporteNegadosActionPerformed
-        // TODO add your handling code here:
+        gerenciaReporte.setText(gerenciaReporte.getText()+"\nReporteSucursales: ");
     }//GEN-LAST:event_passaporteNegadosActionPerformed
+
+    private void limpiarReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarReportesActionPerformed
+        gerenciaReporte.setText("");
+    }//GEN-LAST:event_limpiarReportesActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen
         @Override//sobrescribimos la clase JPanel especificamente el metodo paint
@@ -217,9 +247,10 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
     private javax.swing.JButton RegresarMenu;
     private javax.swing.JButton SalirDelSistema;
     private javax.swing.JButton ganancias;
+    private javax.swing.JTextArea gerenciaReporte;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton limpiarReportes;
     private javax.swing.JButton passaporteNegados;
     private javax.swing.JButton rutaConcurrida;
     private javax.swing.JButton sucursales;
