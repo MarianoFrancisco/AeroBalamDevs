@@ -62,7 +62,7 @@ public class HiloControlRecomendacion extends Thread implements Runnable{
                 }       
                 if (asientos[i][j].getOcupado()==0){
                     try{//try catch por si ocurre error y damos tiempo de espera de 300milisegundos
-                    HiloAnimacion.sleep(300);
+                    HiloAnimacion.sleep(500);
                     contador++;
                     }catch(InterruptedException e){
                     System.out.println("Error en el hilo animacion "+e);

@@ -68,11 +68,11 @@ public class HiloAnimacion extends Thread implements Runnable{
             }
         }
         JOptionPane.showMessageDialog(null, "Vuelo finalizado");//mensaje amigable
-        frameAnimacionVuelo.dispose();//cerramos frame animacion vuelo
         frameVentaAsientos.dispose();//cerramos frame
-        FrameVentaAsientos.cargarVenta();
         frameVisualizarDistribucionAsientos.dispose();
         FrameVisualizarDistribucionAsientos.iniciarDistribucion();
+        FrameVentaAsientos.cargarVenta();
+        frameAnimacionVuelo.dispose();//cerramos frame animacion vuelo
         c1.setConsumoGasolina(c1.getConsumoGasolina()+100);
         LlamarInstancias.operadorVuelos();
     }

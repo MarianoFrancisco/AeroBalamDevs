@@ -24,8 +24,9 @@ public class Controlador {
     private int tomarPasillos;
     private int tomarColumnas;
     private int tomarFilas;
+    private int espaciosEntrePasillos;
     //creamos constructor para controlar datos
-    public Controlador(String validarPasaporte,String validarNombre,String validarApellidos,String validarSexo,String validarEstadoCivil,String validarNacionalidad,int validarMillasRecorridas,int verCantidadPasajeros,String verificarCodigoAvion,int capacidadComprar,int tomarPasillos,int tomarColumnas,int tomarFilas){
+    public Controlador(String validarPasaporte,String validarNombre,String validarApellidos,String validarSexo,String validarEstadoCivil,String validarNacionalidad,int validarMillasRecorridas,int verCantidadPasajeros,String verificarCodigoAvion,int capacidadComprar,int tomarPasillos,int tomarColumnas,int tomarFilas,int espaciosEntrePasillos){
         this.validarPasaporte=validarPasaporte;
         this.validarNombre=validarNombre;
         this.validarApellidos=validarApellidos;
@@ -39,6 +40,7 @@ public class Controlador {
         this.tomarPasillos=tomarPasillos;
         this.tomarColumnas=tomarColumnas;
         this.tomarFilas=tomarFilas;
+        this.espaciosEntrePasillos=espaciosEntrePasillos;
     }
     //creamos gets y sets
     public String getValidarPasaporte() {
@@ -143,6 +145,14 @@ public class Controlador {
 
     public void setTomarFilas(int tomarFilas) {
         this.tomarFilas = tomarFilas;
+    }
+
+    public int getEspaciosEntrePasillos() {
+        return this.espaciosEntrePasillos;
+    }
+
+    public void setEspaciosEntrePasillos(int espaciosEntrePasillos) {
+        this.espaciosEntrePasillos = espaciosEntrePasillos;
     }
     
     

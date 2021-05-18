@@ -17,7 +17,9 @@ public class ManejadorReportes {
     private int mujerViaja;
     private int dineroGanado;
     private int consumoGasolina;
-    public ManejadorReportes(int solteroViaja,int casadoViaja,String nacionalidadViaja,int hombreViaja,int mujerViaja,int dineroGanado,int consumoGasolina){
+    private String pasajeros;
+    private int boletosComprados;
+    public ManejadorReportes(int solteroViaja,int casadoViaja,String nacionalidadViaja,int hombreViaja,int mujerViaja,int dineroGanado,int consumoGasolina,String pasajeros,int boletosComprados){
             this.solteroViaja=solteroViaja;
             this.casadoViaja=casadoViaja;
             this.nacionalidadViaja=nacionalidadViaja;
@@ -25,6 +27,8 @@ public class ManejadorReportes {
             this.mujerViaja=mujerViaja;
             this.dineroGanado=dineroGanado;
             this.consumoGasolina=consumoGasolina;
+            this.pasajeros=pasajeros;
+            this.boletosComprados=boletosComprados;
     }
 
     public int getSolteroViaja() {
@@ -81,6 +85,22 @@ public class ManejadorReportes {
 
     public void setConsumoGasolina(int consumoGasolina) {
         this.consumoGasolina = consumoGasolina;
+    }
+
+    public String getPasajeros() {
+        return this.pasajeros;
+    }
+
+    public void setPasajeros(String pasajeros) {
+        this.pasajeros = pasajeros;
+    }
+
+    public int getBoletosComprados() {
+        return this.boletosComprados;
+    }
+
+    public void setBoletosComprados(int boletosComprados) {
+        this.boletosComprados = boletosComprados;
     }
     
 }

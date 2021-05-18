@@ -11,6 +11,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import static proyectofinal.ProyectoFinal.c1;
 /**
  *
  * @author Mariano
@@ -55,6 +56,8 @@ public class FrameLoginPasajeros extends javax.swing.JFrame {
         nacionalidad = new javax.swing.JLabel();
         estadoCivil = new javax.swing.JLabel();
         millas = new javax.swing.JLabel();
+        gastos = new javax.swing.JLabel();
+        tarjeta = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -149,6 +152,16 @@ public class FrameLoginPasajeros extends javax.swing.JFrame {
         millas.setText(""+c.getValidarMillasRecorrdas());
         jPanel1.add(millas, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 450, -1, -1));
 
+        gastos.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        gastos.setForeground(new java.awt.Color(0, 0, 0));
+        gastos.setText(""+c1.getBoletosComprados());
+        jPanel1.add(gastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 120, -1, -1));
+
+        tarjeta.setFont(new java.awt.Font("Engravers MT", 1, 12)); // NOI18N
+        tarjeta.setForeground(new java.awt.Color(0, 0, 0));
+        tarjeta.setText(""+c1.getDineroGanado());
+        jPanel1.add(tarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 170, -1, -1));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoMadera.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 650, 410));
 
@@ -195,6 +208,7 @@ public class FrameLoginPasajeros extends javax.swing.JFrame {
     private javax.swing.JLabel boletosComprados;
     private javax.swing.JLabel datosPersonales;
     private javax.swing.JLabel estadoCivil;
+    private javax.swing.JLabel gastos;
     private javax.swing.JLabel gastosTarjeta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -205,5 +219,6 @@ public class FrameLoginPasajeros extends javax.swing.JFrame {
     private javax.swing.JLabel nombre;
     private javax.swing.JLabel pasaporte;
     private javax.swing.JLabel sexo;
+    private javax.swing.JLabel tarjeta;
     // End of variables declaration//GEN-END:variables
 }

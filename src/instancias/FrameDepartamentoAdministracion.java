@@ -1144,7 +1144,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
 
         exportar.setBackground(new java.awt.Color(204, 255, 51));
         exportar.setForeground(new java.awt.Color(0, 0, 0));
-        exportar.setText("Exportador a .txt");
+        exportar.setText("Exportador archivo html");
         exportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exportarActionPerformed(evt);
@@ -1830,6 +1830,7 @@ public class FrameDepartamentoAdministracion extends javax.swing.JFrame {
                 c.setTomarColumnas(columnasAsientos);
                 c.setTomarFilas(filaAsientos);
                 c.setTomarPasillos(pasillos);
+                c.setEspaciosEntrePasillos(cadaCuantoPasillos);
                 String capacidadPasajeros = (capacidad+"");
                 //definimos los espacios que ocupara en nuestro pasajero al ser creado
                 String espacio[]={nombreAerolinea,nombreAeropuerto,codigoAvion,capacidadPasajeros,capacidadGasolina,consumoMilla};

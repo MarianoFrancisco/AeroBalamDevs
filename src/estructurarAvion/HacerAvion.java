@@ -128,6 +128,7 @@ public class HacerAvion implements Serializable{
                                     asiento1[k][l].setBackground(Color.red);
                                     c1.setDineroGanado(c1.getDineroGanado()+300);
                                     c.setCapacidadComprar(c.getCapacidadComprar()-1);
+                                    c1.setBoletosComprados(c1.getBoletosComprados()+1);
                                 }else{
                                     JOptionPane.showMessageDialog(null,"lo siento no puedes comprar mas boletos ya que solo indicaste compra de "+c.getVerCantidadPasajeros()+" :(");
                                 }                           

@@ -170,9 +170,9 @@ public class FrameOperadorVuelos extends javax.swing.JFrame {
     private void cancelarVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarVueloActionPerformed
         JOptionPane.showMessageDialog(null, "Vuelo cancelado");
         frameVentaAsientos.dispose();//cerramos frame
-        FrameVentaAsientos.cargarVenta();
         frameVisualizarDistribucionAsientos.dispose();
         FrameVisualizarDistribucionAsientos.iniciarDistribucion();
+        FrameVentaAsientos.cargarVenta();
     }//GEN-LAST:event_cancelarVueloActionPerformed
     class FondoInicio extends JPanel{//creamos una clase parametrica o generica extendiendo de JPanel
         private Image imagen;//establecemos que sea tipo imagen

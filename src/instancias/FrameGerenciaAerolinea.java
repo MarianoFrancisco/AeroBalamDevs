@@ -142,7 +142,7 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
 
         exportador.setBackground(new java.awt.Color(204, 255, 51));
         exportador.setForeground(new java.awt.Color(0, 0, 0));
-        exportador.setText("Exportador a .txt");
+        exportador.setText("Exportador a html ");
         exportador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exportadorActionPerformed(evt);
@@ -157,13 +157,13 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
                 .addComponent(Logo)
                 .addGap(4, 4, 4)
                 .addComponent(RegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(279, 279, 279)
+                .addGap(260, 260, 260)
                 .addComponent(exportador)
-                .addGap(35, 35, 35)
+                .addGap(54, 54, 54)
                 .addComponent(limpiarReportes)
                 .addGap(334, 334, 334)
                 .addComponent(SalirDelSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 5, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(89, 89, 89)
                 .addComponent(rutaConcurrida)
@@ -190,7 +190,6 @@ public class FrameGerenciaAerolinea extends javax.swing.JFrame {
                     .addComponent(sucursales))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 16, Short.MAX_VALUE)
